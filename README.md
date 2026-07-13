@@ -113,7 +113,7 @@ GapForge is the **product name** for this repo. Related open components:
 | [peerlens](https://github.com/LordKay-sudo/peerlens) | Paper quality signals (retraction / concern filter) |
 | [bioinsight-graph](https://github.com/LordKay-sudo/bioinsight-graph) | Upstream disease–target graph lineage |
 
-MCP tools: `plan_gap_investigation`, `build_program_dossier`, `propose_gap_hypotheses`, `run_critic`, `export_review_bundle`.
+Docs: [docs/ECOSYSTEM.md](docs/ECOSYSTEM.md) · MCP tools: `plan_gap_investigation`, `build_program_dossier`, `propose_gap_hypotheses`, `run_critic`, `export_review_bundle`.
 
 ---
 
