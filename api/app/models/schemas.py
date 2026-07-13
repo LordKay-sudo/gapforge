@@ -296,6 +296,7 @@ class ProposeGapsResponse(BaseModel):
     hypothesis: GapHypothesisDetail
     message: str
     cou: str
+    discern: dict | None = None
 
 
 class CriticRequest(BaseModel):
@@ -310,6 +311,7 @@ class CriticResponse(BaseModel):
     status: str
     cou: str
     ran_at: str
+    discern: dict | None = None
 
 
 class ReviewQueueItem(BaseModel):
@@ -348,3 +350,52 @@ class ReviewBundle(BaseModel):
     disclaimer: str
     note: str | None = None
     raw_meta: dict = Field(default_factory=dict)
+
+
+# --- Discern ---
+
+
+class DiscernRequest(BaseModel):
+    artifact_type: str = Field(
+        ...,
+        description="gap_hypothesis | rag_answer | mcp_tool_result | paper | generic",
+    )
+    risk_tier: str = Field(default="L2", description="L0 | L1 | L2 | L3")
+    cou: str | None = None
+    input: dict = Field(default_factory=dict)
+    output: dict = Field(default_factory=dict)
+    dimensions: list[str] | None = Field(
+        default=None,
+        description="Subset of compliance, reliability, provenance, safety_language",
+    )
+    thresholds: dict[str, float] | None = Field(
+        default=None,
+        description="Optional per-dimension threshold overrides [0,1]",
+    )
+
+
+class DimensionScore(BaseModel):
+    score: float
+    threshold: float
+    passed: bool
+
+
+class DiscernReason(BaseModel):
+    code: str
+    severity: str
+    message: str
+    dimension: str | None = None
+    evidence_span: str | None = None
+
+
+class DiscernResponse(BaseModel):
+    overall: str
+    action: str
+    scores: dict[str, DimensionScore]
+    reasons: list[DiscernReason]
+    policy_version: str
+    risk_tier: str
+    artifact_type: str
+    cou: str | None = None
+    provenance_hash: str
+    note: str | None = None

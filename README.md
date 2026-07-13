@@ -125,6 +125,8 @@ Docs: [docs/ECOSYSTEM.md](docs/ECOSYSTEM.md) · MCP tools: `plan_gap_investigati
 | `GET` | `/api/v1/programs/{id}/dossier` | L1 dossier |
 | `GET` | `/api/v1/gaps` | Hypothesis cards |
 | `POST` | `/api/v1/gaps/{id}/critic` | Adversarial critic |
+| `POST` | `/api/v1/discern` | Universal I/O weigh (compliance / reliability / …) |
+| `GET` | `/api/v1/discern/policy` | Active thresholds by risk tier |
 | `GET` | `/api/v1/reviews/queue` | HITL queue |
 | `POST` | `/api/v1/reviews/{gap_id}` | approve / reject / request_more |
 | `GET` | `/api/v1/export/review-bundle` | Provenance export |

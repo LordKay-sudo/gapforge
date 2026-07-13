@@ -8,6 +8,7 @@ from datetime import datetime, timezone
 from fastapi import APIRouter, HTTPException, Query
 
 from app.db import get_session
+from app.discern import discern
 from app.gapforge import (
     COU,
     VALID_GAP_CLASSES,
@@ -22,6 +23,8 @@ from app.models.schemas import (
     ProposeGapsRequest,
     ProposeGapsResponse,
 )
+from app.routers.discern import to_response
+
 
 router = APIRouter(prefix="/gaps", tags=["gapforge-gaps"])
 
@@ -116,6 +119,33 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
             status_code=400,
             detail=f"Invalid gap_class. Expected one of: {sorted(VALID_GAP_CLASSES)}",
         )
+
+    # Discern before write — hard_fail blocks creation
+    discern_raw = discern(
+        artifact_type="gap_hypothesis",
+        risk_tier="L2",
+        cou=COU,
+        input_payload={"program_id": body.program_id, "gap_class": body.gap_class},
+        output_payload={
+            "claim": body.claim,
+            "confidence": body.confidence,
+            "suggested_experiment": body.suggested_experiment,
+            "insufficient_evidence": body.insufficient_evidence,
+            "supported_by_trial_ids": body.supported_by_trial_ids,
+            "supported_by_gene_ids": body.supported_by_gene_ids,
+            "literature_refs": [r.model_dump() for r in body.literature_refs],
+            "program_id": body.program_id,
+        },
+    )
+    if discern_raw["action"] == "block":
+        raise HTTPException(
+            status_code=422,
+            detail={
+                "message": "Discern hard_fail — hypothesis blocked (compliance/safety).",
+                "discern": discern_raw,
+            },
+        )
+
     with get_session() as session:
         prog = session.run(
             "MATCH (p:Program {id: $id}) RETURN p.id AS id", id=body.program_id
@@ -130,6 +160,12 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
         insufficient = body.insufficient_evidence or not (has_structured and has_lit)
         phash = provenance_hash(gap_id, body.gap_class, body.claim, refs_json, body.program_id)
 
+        # Clamp confidence when reliability soft-failed
+        confidence = float(body.confidence)
+        rel = (discern_raw.get("scores") or {}).get("reliability") or {}
+        if isinstance(rel, dict) and not rel.get("passed", True):
+            confidence = min(confidence, max(float(rel.get("score", 0.5)), 0.2))
+
         session.run(
             """
             MERGE (g:GapHypothesis {id: $id})
@@ -142,7 +178,8 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
                 g.provenance_hash = $provenance_hash,
                 g.risk_tier = 'L2',
                 g.cou = $cou,
-                g.literature_refs_json = $literature_refs_json
+                g.literature_refs_json = $literature_refs_json,
+                g.discern_json = $discern_json
             WITH g
             MATCH (p:Program {id: $program_id})
             MERGE (g)-[:ABOUT]->(p)
@@ -151,12 +188,13 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
             id=gap_id,
             gap_class=body.gap_class,
             claim=body.claim,
-            confidence=float(body.confidence),
+            confidence=confidence,
             suggested_experiment=body.suggested_experiment,
             insufficient_evidence=insufficient,
             provenance_hash=phash,
             cou=COU,
             literature_refs_json=refs_json,
+            discern_json=json.dumps(discern_raw),
             program_id=body.program_id,
         )
         for tid in body.supported_by_trial_ids:
@@ -185,8 +223,13 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
     detail = get_gap(gap_id)
     return ProposeGapsResponse(
         hypothesis=detail,
-        message="Hypothesis created at L2 with status needs_review. Human approval required before export as team conclusion.",
+        message=(
+            "Hypothesis created at L2 with status needs_review. "
+            f"Discern action={discern_raw['action']} overall={discern_raw['overall']}. "
+            "Human approval required before export as team conclusion."
+        ),
         cou=COU,
+        discern=to_response(discern_raw).model_dump(),
     )
 
 
@@ -236,6 +279,39 @@ def run_critic(gap_id: str, body: CriticRequest | None = None) -> CriticResponse
             )
 
         critic_notes = " | ".join(notes)
+
+        discern_raw = discern(
+            artifact_type="gap_hypothesis",
+            risk_tier=g.get("risk_tier") or "L2",
+            cou=g.get("cou") or COU,
+            output_payload={
+                "claim": claim,
+                "confidence": confidence,
+                "critic_notes": critic_notes,
+                "insufficient_evidence": bool(g.get("insufficient_evidence")),
+                "provenance_hash": g.get("provenance_hash"),
+                "literature_refs": parse_json_list(g.get("literature_refs_json")),
+                "program_id": None,
+            },
+        )
+        if discern_raw["action"] == "block":
+            confidence = min(confidence, 0.2)
+            notes.append("Discern hard_fail — confidence clamped; do not approve without remediation.")
+            critic_notes = " | ".join(notes)
+            discern_raw = discern(
+                artifact_type="gap_hypothesis",
+                risk_tier=g.get("risk_tier") or "L2",
+                cou=g.get("cou") or COU,
+                output_payload={
+                    "claim": claim,
+                    "confidence": confidence,
+                    "critic_notes": critic_notes,
+                    "insufficient_evidence": True,
+                    "provenance_hash": g.get("provenance_hash"),
+                    "literature_refs": parse_json_list(g.get("literature_refs_json")),
+                },
+            )
+
         # Link program stall summary as soft contradiction context node if present
         session.run(
             """
@@ -246,11 +322,13 @@ def run_critic(gap_id: str, body: CriticRequest | None = None) -> CriticResponse
                   WHEN $critic_confidence < g.confidence THEN $critic_confidence
                   ELSE g.confidence
                 END,
-                g.status = CASE WHEN g.status = 'approved' THEN 'needs_review' ELSE g.status END
+                g.status = CASE WHEN g.status = 'approved' THEN 'needs_review' ELSE g.status END,
+                g.discern_json = $discern_json
             """,
             id=gap_id,
             critic_notes=critic_notes,
             critic_confidence=confidence,
+            discern_json=json.dumps(discern_raw),
         )
 
         # Optional: mark trial as CONTRADICTED_BY when critic finds overclaim
@@ -272,4 +350,5 @@ def run_critic(gap_id: str, body: CriticRequest | None = None) -> CriticResponse
         status="needs_review",
         cou=COU,
         ran_at=datetime.now(timezone.utc).isoformat(),
+        discern=to_response(discern_raw).model_dump(),
     )

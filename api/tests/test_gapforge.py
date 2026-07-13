@@ -18,7 +18,7 @@ def test_meta_includes_gapforge_disclaimer():
     assert r.status_code == 200
     body = r.json()
     assert "GapForge" in body["disclaimer"] or "gap" in body["disclaimer"].lower()
-    assert body["api_version"] == "0.3.0"
+    assert body["api_version"] == "0.3.1"
 
 
 def test_gap_taxonomy_codes():

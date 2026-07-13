@@ -56,6 +56,17 @@ Silent promotion of association scores to causal claims is forbidden.
 
 ---
 
+## Discern (universal I/O weighing)
+
+`POST /api/v1/discern` and MCP `discern_artifact` score artifacts on **compliance**, **reliability**, **provenance**, and **safety_language** against tier thresholds (`gapforge-discern-v1`).
+
+- `hard_fail` → `block` (e.g. dosing language, L3)
+- `soft_fail` / L2 pass → `require_hitl` (never auto-approve team conclusions)
+
+Details: [DISCERN.md](./DISCERN.md).
+
+---
+
 ## Neo4j model (GapForge)
 
 ```cypher

@@ -3,7 +3,7 @@
 from datetime import date
 
 SERVICE_NAME = "bioinsight-graph"
-API_VERSION = "0.3.0"
+API_VERSION = "0.3.1"
 DATA_VERSION = "opentargets-24.06-frozen-slice-v2+gapforge-flurizan"
 RELEASE_DATE = date(2024, 6, 1)
 
