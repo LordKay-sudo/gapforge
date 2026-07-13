@@ -1,0 +1,9 @@
+# Copy to docker-compose.override.yml when port 8000 is already in use locally.
+# docker compose automatically merges override files.
+services:
+  api:
+    ports: !override
+      - "8001:8000"
+  web:
+    ports: !override
+      - "8080:80"

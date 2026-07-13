@@ -1,0 +1,28 @@
+# Bulk Open Targets ingest overlay (roadmap scale path).
+#
+# Prerequisite: generate bulk JSON on the host (gitignored):
+#   py -3 scripts/download_opentargets_bulk.py --release 24.06 --max-genes 500 --with-evidence
+#   py -3 scripts/etl_opentargets.py --input data/raw/opentargets_bulk.json --strict
+#
+# Then:
+#   docker compose -f docker-compose.yml -f docker-compose.bulk.yml up --build
+#
+# Default compose still uses the frozen slice via Dockerfile.seed.
+
+services:
+  seed:
+    environment:
+      OT_RAW_JSON: /app/data/raw/opentargets_bulk.json
+    volumes:
+      - ./data/raw/opentargets_bulk.json:/app/data/raw/opentargets_bulk.json:ro
+      - ./data/processed:/app/data/processed
+    command:
+      - /bin/sh
+      - -c
+      - |
+        if [ ! -f "$$OT_RAW_JSON" ]; then
+          echo "Missing $$OT_RAW_JSON — run download_opentargets_bulk.py on the host first." >&2
+          exit 1
+        fi
+        python /app/scripts/etl_opentargets.py --input "$$OT_RAW_JSON" --strict
+        python /app/scripts/seed_neo4j.py --strict

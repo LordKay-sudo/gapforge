@@ -1,0 +1,24 @@
+# Optional overlay: Embabel MCP server for Cursor / Claude / MCP Inspector.
+# Clone embabel-mcp next to this repo, set OPENAI_API_KEY in .env, then:
+#
+#   docker compose -f docker-compose.yml -f docker-compose.mcp.yml up --build
+#
+# MCP SSE: http://localhost:1337/sse
+
+services:
+  mcp:
+    build:
+      context: ../embabel-mcp
+      dockerfile: Dockerfile
+    container_name: bioinsight-mcp
+    ports:
+      - "1337:1337"
+    environment:
+      BIOINSIGHT_API_BASE_URL: http://api:8000/api/v1
+      MCP_SERVER_PORT: "1337"
+      OPENAI_API_KEY: ${OPENAI_API_KEY:?Set OPENAI_API_KEY in .env for the MCP service}
+      OPENAI_BASE_URL: ${OPENAI_BASE_URL:-https://openrouter.ai}
+      EMBABEL_DEFAULT_LLM: ${EMBABEL_DEFAULT_LLM:-x-ai/grok-4.1-fast:free}
+    depends_on:
+      api:
+        condition: service_healthy

@@ -1,0 +1,2502 @@
+[
+  {
+    "target_id": "ENSG00000012048",
+    "symbol": "BRCA1",
+    "name": "BRCA1 DNA repair associated"
+  },
+  {
+    "target_id": "ENSG00000139618",
+    "symbol": "BRCA2",
+    "name": "BRCA2 DNA repair associated"
+  },
+  {
+    "target_id": "ENSG00000141510",
+    "symbol": "TP53",
+    "name": "tumor protein p53"
+  },
+  {
+    "target_id": "ENSG00000171862",
+    "symbol": "PTEN",
+    "name": "phosphatase and tensin homolog"
+  },
+  {
+    "target_id": "ENSG00000157764",
+    "symbol": "BRAF",
+    "name": "B-Raf proto-oncogene"
+  },
+  {
+    "target_id": "ENSG00000133703",
+    "symbol": "KRAS",
+    "name": "KRAS proto-oncogene"
+  },
+  {
+    "target_id": "ENSG00000146648",
+    "symbol": "EGFR",
+    "name": "epidermal growth factor receptor"
+  },
+  {
+    "target_id": "ENSG00000140443",
+    "symbol": "CFTR",
+    "name": "CF transmembrane conductance regulator"
+  },
+  {
+    "target_id": "ENSG00000130203",
+    "symbol": "APOE",
+    "name": "apolipoprotein E"
+  },
+  {
+    "target_id": "ENSG00000198947",
+    "symbol": "DMD",
+    "name": "dystrophin"
+  },
+  {
+    "target_id": "ENSG00000000001",
+    "symbol": "OT0001",
+    "name": "Open Targets catalog gene 1"
+  },
+  {
+    "target_id": "ENSG00000000002",
+    "symbol": "OT0002",
+    "name": "Open Targets catalog gene 2"
+  },
+  {
+    "target_id": "ENSG00000000003",
+    "symbol": "OT0003",
+    "name": "Open Targets catalog gene 3"
+  },
+  {
+    "target_id": "ENSG00000000004",
+    "symbol": "OT0004",
+    "name": "Open Targets catalog gene 4"
+  },
+  {
+    "target_id": "ENSG00000000005",
+    "symbol": "OT0005",
+    "name": "Open Targets catalog gene 5"
+  },
+  {
+    "target_id": "ENSG00000000006",
+    "symbol": "OT0006",
+    "name": "Open Targets catalog gene 6"
+  },
+  {
+    "target_id": "ENSG00000000007",
+    "symbol": "OT0007",
+    "name": "Open Targets catalog gene 7"
+  },
+  {
+    "target_id": "ENSG00000000008",
+    "symbol": "OT0008",
+    "name": "Open Targets catalog gene 8"
+  },
+  {
+    "target_id": "ENSG00000000009",
+    "symbol": "OT0009",
+    "name": "Open Targets catalog gene 9"
+  },
+  {
+    "target_id": "ENSG00000000010",
+    "symbol": "OT0010",
+    "name": "Open Targets catalog gene 10"
+  },
+  {
+    "target_id": "ENSG00000000011",
+    "symbol": "OT0011",
+    "name": "Open Targets catalog gene 11"
+  },
+  {
+    "target_id": "ENSG00000000012",
+    "symbol": "OT0012",
+    "name": "Open Targets catalog gene 12"
+  },
+  {
+    "target_id": "ENSG00000000013",
+    "symbol": "OT0013",
+    "name": "Open Targets catalog gene 13"
+  },
+  {
+    "target_id": "ENSG00000000014",
+    "symbol": "OT0014",
+    "name": "Open Targets catalog gene 14"
+  },
+  {
+    "target_id": "ENSG00000000015",
+    "symbol": "OT0015",
+    "name": "Open Targets catalog gene 15"
+  },
+  {
+    "target_id": "ENSG00000000016",
+    "symbol": "OT0016",
+    "name": "Open Targets catalog gene 16"
+  },
+  {
+    "target_id": "ENSG00000000017",
+    "symbol": "OT0017",
+    "name": "Open Targets catalog gene 17"
+  },
+  {
+    "target_id": "ENSG00000000018",
+    "symbol": "OT0018",
+    "name": "Open Targets catalog gene 18"
+  },
+  {
+    "target_id": "ENSG00000000019",
+    "symbol": "OT0019",
+    "name": "Open Targets catalog gene 19"
+  },
+  {
+    "target_id": "ENSG00000000020",
+    "symbol": "OT0020",
+    "name": "Open Targets catalog gene 20"
+  },
+  {
+    "target_id": "ENSG00000000021",
+    "symbol": "OT0021",
+    "name": "Open Targets catalog gene 21"
+  },
+  {
+    "target_id": "ENSG00000000022",
+    "symbol": "OT0022",
+    "name": "Open Targets catalog gene 22"
+  },
+  {
+    "target_id": "ENSG00000000023",
+    "symbol": "OT0023",
+    "name": "Open Targets catalog gene 23"
+  },
+  {
+    "target_id": "ENSG00000000024",
+    "symbol": "OT0024",
+    "name": "Open Targets catalog gene 24"
+  },
+  {
+    "target_id": "ENSG00000000025",
+    "symbol": "OT0025",
+    "name": "Open Targets catalog gene 25"
+  },
+  {
+    "target_id": "ENSG00000000026",
+    "symbol": "OT0026",
+    "name": "Open Targets catalog gene 26"
+  },
+  {
+    "target_id": "ENSG00000000027",
+    "symbol": "OT0027",
+    "name": "Open Targets catalog gene 27"
+  },
+  {
+    "target_id": "ENSG00000000028",
+    "symbol": "OT0028",
+    "name": "Open Targets catalog gene 28"
+  },
+  {
+    "target_id": "ENSG00000000029",
+    "symbol": "OT0029",
+    "name": "Open Targets catalog gene 29"
+  },
+  {
+    "target_id": "ENSG00000000030",
+    "symbol": "OT0030",
+    "name": "Open Targets catalog gene 30"
+  },
+  {
+    "target_id": "ENSG00000000031",
+    "symbol": "OT0031",
+    "name": "Open Targets catalog gene 31"
+  },
+  {
+    "target_id": "ENSG00000000032",
+    "symbol": "OT0032",
+    "name": "Open Targets catalog gene 32"
+  },
+  {
+    "target_id": "ENSG00000000033",
+    "symbol": "OT0033",
+    "name": "Open Targets catalog gene 33"
+  },
+  {
+    "target_id": "ENSG00000000034",
+    "symbol": "OT0034",
+    "name": "Open Targets catalog gene 34"
+  },
+  {
+    "target_id": "ENSG00000000035",
+    "symbol": "OT0035",
+    "name": "Open Targets catalog gene 35"
+  },
+  {
+    "target_id": "ENSG00000000036",
+    "symbol": "OT0036",
+    "name": "Open Targets catalog gene 36"
+  },
+  {
+    "target_id": "ENSG00000000037",
+    "symbol": "OT0037",
+    "name": "Open Targets catalog gene 37"
+  },
+  {
+    "target_id": "ENSG00000000038",
+    "symbol": "OT0038",
+    "name": "Open Targets catalog gene 38"
+  },
+  {
+    "target_id": "ENSG00000000039",
+    "symbol": "OT0039",
+    "name": "Open Targets catalog gene 39"
+  },
+  {
+    "target_id": "ENSG00000000040",
+    "symbol": "OT0040",
+    "name": "Open Targets catalog gene 40"
+  },
+  {
+    "target_id": "ENSG00000000041",
+    "symbol": "OT0041",
+    "name": "Open Targets catalog gene 41"
+  },
+  {
+    "target_id": "ENSG00000000042",
+    "symbol": "OT0042",
+    "name": "Open Targets catalog gene 42"
+  },
+  {
+    "target_id": "ENSG00000000043",
+    "symbol": "OT0043",
+    "name": "Open Targets catalog gene 43"
+  },
+  {
+    "target_id": "ENSG00000000044",
+    "symbol": "OT0044",
+    "name": "Open Targets catalog gene 44"
+  },
+  {
+    "target_id": "ENSG00000000045",
+    "symbol": "OT0045",
+    "name": "Open Targets catalog gene 45"
+  },
+  {
+    "target_id": "ENSG00000000046",
+    "symbol": "OT0046",
+    "name": "Open Targets catalog gene 46"
+  },
+  {
+    "target_id": "ENSG00000000047",
+    "symbol": "OT0047",
+    "name": "Open Targets catalog gene 47"
+  },
+  {
+    "target_id": "ENSG00000000048",
+    "symbol": "OT0048",
+    "name": "Open Targets catalog gene 48"
+  },
+  {
+    "target_id": "ENSG00000000049",
+    "symbol": "OT0049",
+    "name": "Open Targets catalog gene 49"
+  },
+  {
+    "target_id": "ENSG00000000050",
+    "symbol": "OT0050",
+    "name": "Open Targets catalog gene 50"
+  },
+  {
+    "target_id": "ENSG00000000051",
+    "symbol": "OT0051",
+    "name": "Open Targets catalog gene 51"
+  },
+  {
+    "target_id": "ENSG00000000052",
+    "symbol": "OT0052",
+    "name": "Open Targets catalog gene 52"
+  },
+  {
+    "target_id": "ENSG00000000053",
+    "symbol": "OT0053",
+    "name": "Open Targets catalog gene 53"
+  },
+  {
+    "target_id": "ENSG00000000054",
+    "symbol": "OT0054",
+    "name": "Open Targets catalog gene 54"
+  },
+  {
+    "target_id": "ENSG00000000055",
+    "symbol": "OT0055",
+    "name": "Open Targets catalog gene 55"
+  },
+  {
+    "target_id": "ENSG00000000056",
+    "symbol": "OT0056",
+    "name": "Open Targets catalog gene 56"
+  },
+  {
+    "target_id": "ENSG00000000057",
+    "symbol": "OT0057",
+    "name": "Open Targets catalog gene 57"
+  },
+  {
+    "target_id": "ENSG00000000058",
+    "symbol": "OT0058",
+    "name": "Open Targets catalog gene 58"
+  },
+  {
+    "target_id": "ENSG00000000059",
+    "symbol": "OT0059",
+    "name": "Open Targets catalog gene 59"
+  },
+  {
+    "target_id": "ENSG00000000060",
+    "symbol": "OT0060",
+    "name": "Open Targets catalog gene 60"
+  },
+  {
+    "target_id": "ENSG00000000061",
+    "symbol": "OT0061",
+    "name": "Open Targets catalog gene 61"
+  },
+  {
+    "target_id": "ENSG00000000062",
+    "symbol": "OT0062",
+    "name": "Open Targets catalog gene 62"
+  },
+  {
+    "target_id": "ENSG00000000063",
+    "symbol": "OT0063",
+    "name": "Open Targets catalog gene 63"
+  },
+  {
+    "target_id": "ENSG00000000064",
+    "symbol": "OT0064",
+    "name": "Open Targets catalog gene 64"
+  },
+  {
+    "target_id": "ENSG00000000065",
+    "symbol": "OT0065",
+    "name": "Open Targets catalog gene 65"
+  },
+  {
+    "target_id": "ENSG00000000066",
+    "symbol": "OT0066",
+    "name": "Open Targets catalog gene 66"
+  },
+  {
+    "target_id": "ENSG00000000067",
+    "symbol": "OT0067",
+    "name": "Open Targets catalog gene 67"
+  },
+  {
+    "target_id": "ENSG00000000068",
+    "symbol": "OT0068",
+    "name": "Open Targets catalog gene 68"
+  },
+  {
+    "target_id": "ENSG00000000069",
+    "symbol": "OT0069",
+    "name": "Open Targets catalog gene 69"
+  },
+  {
+    "target_id": "ENSG00000000070",
+    "symbol": "OT0070",
+    "name": "Open Targets catalog gene 70"
+  },
+  {
+    "target_id": "ENSG00000000071",
+    "symbol": "OT0071",
+    "name": "Open Targets catalog gene 71"
+  },
+  {
+    "target_id": "ENSG00000000072",
+    "symbol": "OT0072",
+    "name": "Open Targets catalog gene 72"
+  },
+  {
+    "target_id": "ENSG00000000073",
+    "symbol": "OT0073",
+    "name": "Open Targets catalog gene 73"
+  },
+  {
+    "target_id": "ENSG00000000074",
+    "symbol": "OT0074",
+    "name": "Open Targets catalog gene 74"
+  },
+  {
+    "target_id": "ENSG00000000075",
+    "symbol": "OT0075",
+    "name": "Open Targets catalog gene 75"
+  },
+  {
+    "target_id": "ENSG00000000076",
+    "symbol": "OT0076",
+    "name": "Open Targets catalog gene 76"
+  },
+  {
+    "target_id": "ENSG00000000077",
+    "symbol": "OT0077",
+    "name": "Open Targets catalog gene 77"
+  },
+  {
+    "target_id": "ENSG00000000078",
+    "symbol": "OT0078",
+    "name": "Open Targets catalog gene 78"
+  },
+  {
+    "target_id": "ENSG00000000079",
+    "symbol": "OT0079",
+    "name": "Open Targets catalog gene 79"
+  },
+  {
+    "target_id": "ENSG00000000080",
+    "symbol": "OT0080",
+    "name": "Open Targets catalog gene 80"
+  },
+  {
+    "target_id": "ENSG00000000081",
+    "symbol": "OT0081",
+    "name": "Open Targets catalog gene 81"
+  },
+  {
+    "target_id": "ENSG00000000082",
+    "symbol": "OT0082",
+    "name": "Open Targets catalog gene 82"
+  },
+  {
+    "target_id": "ENSG00000000083",
+    "symbol": "OT0083",
+    "name": "Open Targets catalog gene 83"
+  },
+  {
+    "target_id": "ENSG00000000084",
+    "symbol": "OT0084",
+    "name": "Open Targets catalog gene 84"
+  },
+  {
+    "target_id": "ENSG00000000085",
+    "symbol": "OT0085",
+    "name": "Open Targets catalog gene 85"
+  },
+  {
+    "target_id": "ENSG00000000086",
+    "symbol": "OT0086",
+    "name": "Open Targets catalog gene 86"
+  },
+  {
+    "target_id": "ENSG00000000087",
+    "symbol": "OT0087",
+    "name": "Open Targets catalog gene 87"
+  },
+  {
+    "target_id": "ENSG00000000088",
+    "symbol": "OT0088",
+    "name": "Open Targets catalog gene 88"
+  },
+  {
+    "target_id": "ENSG00000000089",
+    "symbol": "OT0089",
+    "name": "Open Targets catalog gene 89"
+  },
+  {
+    "target_id": "ENSG00000000090",
+    "symbol": "OT0090",
+    "name": "Open Targets catalog gene 90"
+  },
+  {
+    "target_id": "ENSG00000000091",
+    "symbol": "OT0091",
+    "name": "Open Targets catalog gene 91"
+  },
+  {
+    "target_id": "ENSG00000000092",
+    "symbol": "OT0092",
+    "name": "Open Targets catalog gene 92"
+  },
+  {
+    "target_id": "ENSG00000000093",
+    "symbol": "OT0093",
+    "name": "Open Targets catalog gene 93"
+  },
+  {
+    "target_id": "ENSG00000000094",
+    "symbol": "OT0094",
+    "name": "Open Targets catalog gene 94"
+  },
+  {
+    "target_id": "ENSG00000000095",
+    "symbol": "OT0095",
+    "name": "Open Targets catalog gene 95"
+  },
+  {
+    "target_id": "ENSG00000000096",
+    "symbol": "OT0096",
+    "name": "Open Targets catalog gene 96"
+  },
+  {
+    "target_id": "ENSG00000000097",
+    "symbol": "OT0097",
+    "name": "Open Targets catalog gene 97"
+  },
+  {
+    "target_id": "ENSG00000000098",
+    "symbol": "OT0098",
+    "name": "Open Targets catalog gene 98"
+  },
+  {
+    "target_id": "ENSG00000000099",
+    "symbol": "OT0099",
+    "name": "Open Targets catalog gene 99"
+  },
+  {
+    "target_id": "ENSG00000000100",
+    "symbol": "OT0100",
+    "name": "Open Targets catalog gene 100"
+  },
+  {
+    "target_id": "ENSG00000000101",
+    "symbol": "OT0101",
+    "name": "Open Targets catalog gene 101"
+  },
+  {
+    "target_id": "ENSG00000000102",
+    "symbol": "OT0102",
+    "name": "Open Targets catalog gene 102"
+  },
+  {
+    "target_id": "ENSG00000000103",
+    "symbol": "OT0103",
+    "name": "Open Targets catalog gene 103"
+  },
+  {
+    "target_id": "ENSG00000000104",
+    "symbol": "OT0104",
+    "name": "Open Targets catalog gene 104"
+  },
+  {
+    "target_id": "ENSG00000000105",
+    "symbol": "OT0105",
+    "name": "Open Targets catalog gene 105"
+  },
+  {
+    "target_id": "ENSG00000000106",
+    "symbol": "OT0106",
+    "name": "Open Targets catalog gene 106"
+  },
+  {
+    "target_id": "ENSG00000000107",
+    "symbol": "OT0107",
+    "name": "Open Targets catalog gene 107"
+  },
+  {
+    "target_id": "ENSG00000000108",
+    "symbol": "OT0108",
+    "name": "Open Targets catalog gene 108"
+  },
+  {
+    "target_id": "ENSG00000000109",
+    "symbol": "OT0109",
+    "name": "Open Targets catalog gene 109"
+  },
+  {
+    "target_id": "ENSG00000000110",
+    "symbol": "OT0110",
+    "name": "Open Targets catalog gene 110"
+  },
+  {
+    "target_id": "ENSG00000000111",
+    "symbol": "OT0111",
+    "name": "Open Targets catalog gene 111"
+  },
+  {
+    "target_id": "ENSG00000000112",
+    "symbol": "OT0112",
+    "name": "Open Targets catalog gene 112"
+  },
+  {
+    "target_id": "ENSG00000000113",
+    "symbol": "OT0113",
+    "name": "Open Targets catalog gene 113"
+  },
+  {
+    "target_id": "ENSG00000000114",
+    "symbol": "OT0114",
+    "name": "Open Targets catalog gene 114"
+  },
+  {
+    "target_id": "ENSG00000000115",
+    "symbol": "OT0115",
+    "name": "Open Targets catalog gene 115"
+  },
+  {
+    "target_id": "ENSG00000000116",
+    "symbol": "OT0116",
+    "name": "Open Targets catalog gene 116"
+  },
+  {
+    "target_id": "ENSG00000000117",
+    "symbol": "OT0117",
+    "name": "Open Targets catalog gene 117"
+  },
+  {
+    "target_id": "ENSG00000000118",
+    "symbol": "OT0118",
+    "name": "Open Targets catalog gene 118"
+  },
+  {
+    "target_id": "ENSG00000000119",
+    "symbol": "OT0119",
+    "name": "Open Targets catalog gene 119"
+  },
+  {
+    "target_id": "ENSG00000000120",
+    "symbol": "OT0120",
+    "name": "Open Targets catalog gene 120"
+  },
+  {
+    "target_id": "ENSG00000000121",
+    "symbol": "OT0121",
+    "name": "Open Targets catalog gene 121"
+  },
+  {
+    "target_id": "ENSG00000000122",
+    "symbol": "OT0122",
+    "name": "Open Targets catalog gene 122"
+  },
+  {
+    "target_id": "ENSG00000000123",
+    "symbol": "OT0123",
+    "name": "Open Targets catalog gene 123"
+  },
+  {
+    "target_id": "ENSG00000000124",
+    "symbol": "OT0124",
+    "name": "Open Targets catalog gene 124"
+  },
+  {
+    "target_id": "ENSG00000000125",
+    "symbol": "OT0125",
+    "name": "Open Targets catalog gene 125"
+  },
+  {
+    "target_id": "ENSG00000000126",
+    "symbol": "OT0126",
+    "name": "Open Targets catalog gene 126"
+  },
+  {
+    "target_id": "ENSG00000000127",
+    "symbol": "OT0127",
+    "name": "Open Targets catalog gene 127"
+  },
+  {
+    "target_id": "ENSG00000000128",
+    "symbol": "OT0128",
+    "name": "Open Targets catalog gene 128"
+  },
+  {
+    "target_id": "ENSG00000000129",
+    "symbol": "OT0129",
+    "name": "Open Targets catalog gene 129"
+  },
+  {
+    "target_id": "ENSG00000000130",
+    "symbol": "OT0130",
+    "name": "Open Targets catalog gene 130"
+  },
+  {
+    "target_id": "ENSG00000000131",
+    "symbol": "OT0131",
+    "name": "Open Targets catalog gene 131"
+  },
+  {
+    "target_id": "ENSG00000000132",
+    "symbol": "OT0132",
+    "name": "Open Targets catalog gene 132"
+  },
+  {
+    "target_id": "ENSG00000000133",
+    "symbol": "OT0133",
+    "name": "Open Targets catalog gene 133"
+  },
+  {
+    "target_id": "ENSG00000000134",
+    "symbol": "OT0134",
+    "name": "Open Targets catalog gene 134"
+  },
+  {
+    "target_id": "ENSG00000000135",
+    "symbol": "OT0135",
+    "name": "Open Targets catalog gene 135"
+  },
+  {
+    "target_id": "ENSG00000000136",
+    "symbol": "OT0136",
+    "name": "Open Targets catalog gene 136"
+  },
+  {
+    "target_id": "ENSG00000000137",
+    "symbol": "OT0137",
+    "name": "Open Targets catalog gene 137"
+  },
+  {
+    "target_id": "ENSG00000000138",
+    "symbol": "OT0138",
+    "name": "Open Targets catalog gene 138"
+  },
+  {
+    "target_id": "ENSG00000000139",
+    "symbol": "OT0139",
+    "name": "Open Targets catalog gene 139"
+  },
+  {
+    "target_id": "ENSG00000000140",
+    "symbol": "OT0140",
+    "name": "Open Targets catalog gene 140"
+  },
+  {
+    "target_id": "ENSG00000000141",
+    "symbol": "OT0141",
+    "name": "Open Targets catalog gene 141"
+  },
+  {
+    "target_id": "ENSG00000000142",
+    "symbol": "OT0142",
+    "name": "Open Targets catalog gene 142"
+  },
+  {
+    "target_id": "ENSG00000000143",
+    "symbol": "OT0143",
+    "name": "Open Targets catalog gene 143"
+  },
+  {
+    "target_id": "ENSG00000000144",
+    "symbol": "OT0144",
+    "name": "Open Targets catalog gene 144"
+  },
+  {
+    "target_id": "ENSG00000000145",
+    "symbol": "OT0145",
+    "name": "Open Targets catalog gene 145"
+  },
+  {
+    "target_id": "ENSG00000000146",
+    "symbol": "OT0146",
+    "name": "Open Targets catalog gene 146"
+  },
+  {
+    "target_id": "ENSG00000000147",
+    "symbol": "OT0147",
+    "name": "Open Targets catalog gene 147"
+  },
+  {
+    "target_id": "ENSG00000000148",
+    "symbol": "OT0148",
+    "name": "Open Targets catalog gene 148"
+  },
+  {
+    "target_id": "ENSG00000000149",
+    "symbol": "OT0149",
+    "name": "Open Targets catalog gene 149"
+  },
+  {
+    "target_id": "ENSG00000000150",
+    "symbol": "OT0150",
+    "name": "Open Targets catalog gene 150"
+  },
+  {
+    "target_id": "ENSG00000000151",
+    "symbol": "OT0151",
+    "name": "Open Targets catalog gene 151"
+  },
+  {
+    "target_id": "ENSG00000000152",
+    "symbol": "OT0152",
+    "name": "Open Targets catalog gene 152"
+  },
+  {
+    "target_id": "ENSG00000000153",
+    "symbol": "OT0153",
+    "name": "Open Targets catalog gene 153"
+  },
+  {
+    "target_id": "ENSG00000000154",
+    "symbol": "OT0154",
+    "name": "Open Targets catalog gene 154"
+  },
+  {
+    "target_id": "ENSG00000000155",
+    "symbol": "OT0155",
+    "name": "Open Targets catalog gene 155"
+  },
+  {
+    "target_id": "ENSG00000000156",
+    "symbol": "OT0156",
+    "name": "Open Targets catalog gene 156"
+  },
+  {
+    "target_id": "ENSG00000000157",
+    "symbol": "OT0157",
+    "name": "Open Targets catalog gene 157"
+  },
+  {
+    "target_id": "ENSG00000000158",
+    "symbol": "OT0158",
+    "name": "Open Targets catalog gene 158"
+  },
+  {
+    "target_id": "ENSG00000000159",
+    "symbol": "OT0159",
+    "name": "Open Targets catalog gene 159"
+  },
+  {
+    "target_id": "ENSG00000000160",
+    "symbol": "OT0160",
+    "name": "Open Targets catalog gene 160"
+  },
+  {
+    "target_id": "ENSG00000000161",
+    "symbol": "OT0161",
+    "name": "Open Targets catalog gene 161"
+  },
+  {
+    "target_id": "ENSG00000000162",
+    "symbol": "OT0162",
+    "name": "Open Targets catalog gene 162"
+  },
+  {
+    "target_id": "ENSG00000000163",
+    "symbol": "OT0163",
+    "name": "Open Targets catalog gene 163"
+  },
+  {
+    "target_id": "ENSG00000000164",
+    "symbol": "OT0164",
+    "name": "Open Targets catalog gene 164"
+  },
+  {
+    "target_id": "ENSG00000000165",
+    "symbol": "OT0165",
+    "name": "Open Targets catalog gene 165"
+  },
+  {
+    "target_id": "ENSG00000000166",
+    "symbol": "OT0166",
+    "name": "Open Targets catalog gene 166"
+  },
+  {
+    "target_id": "ENSG00000000167",
+    "symbol": "OT0167",
+    "name": "Open Targets catalog gene 167"
+  },
+  {
+    "target_id": "ENSG00000000168",
+    "symbol": "OT0168",
+    "name": "Open Targets catalog gene 168"
+  },
+  {
+    "target_id": "ENSG00000000169",
+    "symbol": "OT0169",
+    "name": "Open Targets catalog gene 169"
+  },
+  {
+    "target_id": "ENSG00000000170",
+    "symbol": "OT0170",
+    "name": "Open Targets catalog gene 170"
+  },
+  {
+    "target_id": "ENSG00000000171",
+    "symbol": "OT0171",
+    "name": "Open Targets catalog gene 171"
+  },
+  {
+    "target_id": "ENSG00000000172",
+    "symbol": "OT0172",
+    "name": "Open Targets catalog gene 172"
+  },
+  {
+    "target_id": "ENSG00000000173",
+    "symbol": "OT0173",
+    "name": "Open Targets catalog gene 173"
+  },
+  {
+    "target_id": "ENSG00000000174",
+    "symbol": "OT0174",
+    "name": "Open Targets catalog gene 174"
+  },
+  {
+    "target_id": "ENSG00000000175",
+    "symbol": "OT0175",
+    "name": "Open Targets catalog gene 175"
+  },
+  {
+    "target_id": "ENSG00000000176",
+    "symbol": "OT0176",
+    "name": "Open Targets catalog gene 176"
+  },
+  {
+    "target_id": "ENSG00000000177",
+    "symbol": "OT0177",
+    "name": "Open Targets catalog gene 177"
+  },
+  {
+    "target_id": "ENSG00000000178",
+    "symbol": "OT0178",
+    "name": "Open Targets catalog gene 178"
+  },
+  {
+    "target_id": "ENSG00000000179",
+    "symbol": "OT0179",
+    "name": "Open Targets catalog gene 179"
+  },
+  {
+    "target_id": "ENSG00000000180",
+    "symbol": "OT0180",
+    "name": "Open Targets catalog gene 180"
+  },
+  {
+    "target_id": "ENSG00000000181",
+    "symbol": "OT0181",
+    "name": "Open Targets catalog gene 181"
+  },
+  {
+    "target_id": "ENSG00000000182",
+    "symbol": "OT0182",
+    "name": "Open Targets catalog gene 182"
+  },
+  {
+    "target_id": "ENSG00000000183",
+    "symbol": "OT0183",
+    "name": "Open Targets catalog gene 183"
+  },
+  {
+    "target_id": "ENSG00000000184",
+    "symbol": "OT0184",
+    "name": "Open Targets catalog gene 184"
+  },
+  {
+    "target_id": "ENSG00000000185",
+    "symbol": "OT0185",
+    "name": "Open Targets catalog gene 185"
+  },
+  {
+    "target_id": "ENSG00000000186",
+    "symbol": "OT0186",
+    "name": "Open Targets catalog gene 186"
+  },
+  {
+    "target_id": "ENSG00000000187",
+    "symbol": "OT0187",
+    "name": "Open Targets catalog gene 187"
+  },
+  {
+    "target_id": "ENSG00000000188",
+    "symbol": "OT0188",
+    "name": "Open Targets catalog gene 188"
+  },
+  {
+    "target_id": "ENSG00000000189",
+    "symbol": "OT0189",
+    "name": "Open Targets catalog gene 189"
+  },
+  {
+    "target_id": "ENSG00000000190",
+    "symbol": "OT0190",
+    "name": "Open Targets catalog gene 190"
+  },
+  {
+    "target_id": "ENSG00000000191",
+    "symbol": "OT0191",
+    "name": "Open Targets catalog gene 191"
+  },
+  {
+    "target_id": "ENSG00000000192",
+    "symbol": "OT0192",
+    "name": "Open Targets catalog gene 192"
+  },
+  {
+    "target_id": "ENSG00000000193",
+    "symbol": "OT0193",
+    "name": "Open Targets catalog gene 193"
+  },
+  {
+    "target_id": "ENSG00000000194",
+    "symbol": "OT0194",
+    "name": "Open Targets catalog gene 194"
+  },
+  {
+    "target_id": "ENSG00000000195",
+    "symbol": "OT0195",
+    "name": "Open Targets catalog gene 195"
+  },
+  {
+    "target_id": "ENSG00000000196",
+    "symbol": "OT0196",
+    "name": "Open Targets catalog gene 196"
+  },
+  {
+    "target_id": "ENSG00000000197",
+    "symbol": "OT0197",
+    "name": "Open Targets catalog gene 197"
+  },
+  {
+    "target_id": "ENSG00000000198",
+    "symbol": "OT0198",
+    "name": "Open Targets catalog gene 198"
+  },
+  {
+    "target_id": "ENSG00000000199",
+    "symbol": "OT0199",
+    "name": "Open Targets catalog gene 199"
+  },
+  {
+    "target_id": "ENSG00000000200",
+    "symbol": "OT0200",
+    "name": "Open Targets catalog gene 200"
+  },
+  {
+    "target_id": "ENSG00000000201",
+    "symbol": "OT0201",
+    "name": "Open Targets catalog gene 201"
+  },
+  {
+    "target_id": "ENSG00000000202",
+    "symbol": "OT0202",
+    "name": "Open Targets catalog gene 202"
+  },
+  {
+    "target_id": "ENSG00000000203",
+    "symbol": "OT0203",
+    "name": "Open Targets catalog gene 203"
+  },
+  {
+    "target_id": "ENSG00000000204",
+    "symbol": "OT0204",
+    "name": "Open Targets catalog gene 204"
+  },
+  {
+    "target_id": "ENSG00000000205",
+    "symbol": "OT0205",
+    "name": "Open Targets catalog gene 205"
+  },
+  {
+    "target_id": "ENSG00000000206",
+    "symbol": "OT0206",
+    "name": "Open Targets catalog gene 206"
+  },
+  {
+    "target_id": "ENSG00000000207",
+    "symbol": "OT0207",
+    "name": "Open Targets catalog gene 207"
+  },
+  {
+    "target_id": "ENSG00000000208",
+    "symbol": "OT0208",
+    "name": "Open Targets catalog gene 208"
+  },
+  {
+    "target_id": "ENSG00000000209",
+    "symbol": "OT0209",
+    "name": "Open Targets catalog gene 209"
+  },
+  {
+    "target_id": "ENSG00000000210",
+    "symbol": "OT0210",
+    "name": "Open Targets catalog gene 210"
+  },
+  {
+    "target_id": "ENSG00000000211",
+    "symbol": "OT0211",
+    "name": "Open Targets catalog gene 211"
+  },
+  {
+    "target_id": "ENSG00000000212",
+    "symbol": "OT0212",
+    "name": "Open Targets catalog gene 212"
+  },
+  {
+    "target_id": "ENSG00000000213",
+    "symbol": "OT0213",
+    "name": "Open Targets catalog gene 213"
+  },
+  {
+    "target_id": "ENSG00000000214",
+    "symbol": "OT0214",
+    "name": "Open Targets catalog gene 214"
+  },
+  {
+    "target_id": "ENSG00000000215",
+    "symbol": "OT0215",
+    "name": "Open Targets catalog gene 215"
+  },
+  {
+    "target_id": "ENSG00000000216",
+    "symbol": "OT0216",
+    "name": "Open Targets catalog gene 216"
+  },
+  {
+    "target_id": "ENSG00000000217",
+    "symbol": "OT0217",
+    "name": "Open Targets catalog gene 217"
+  },
+  {
+    "target_id": "ENSG00000000218",
+    "symbol": "OT0218",
+    "name": "Open Targets catalog gene 218"
+  },
+  {
+    "target_id": "ENSG00000000219",
+    "symbol": "OT0219",
+    "name": "Open Targets catalog gene 219"
+  },
+  {
+    "target_id": "ENSG00000000220",
+    "symbol": "OT0220",
+    "name": "Open Targets catalog gene 220"
+  },
+  {
+    "target_id": "ENSG00000000221",
+    "symbol": "OT0221",
+    "name": "Open Targets catalog gene 221"
+  },
+  {
+    "target_id": "ENSG00000000222",
+    "symbol": "OT0222",
+    "name": "Open Targets catalog gene 222"
+  },
+  {
+    "target_id": "ENSG00000000223",
+    "symbol": "OT0223",
+    "name": "Open Targets catalog gene 223"
+  },
+  {
+    "target_id": "ENSG00000000224",
+    "symbol": "OT0224",
+    "name": "Open Targets catalog gene 224"
+  },
+  {
+    "target_id": "ENSG00000000225",
+    "symbol": "OT0225",
+    "name": "Open Targets catalog gene 225"
+  },
+  {
+    "target_id": "ENSG00000000226",
+    "symbol": "OT0226",
+    "name": "Open Targets catalog gene 226"
+  },
+  {
+    "target_id": "ENSG00000000227",
+    "symbol": "OT0227",
+    "name": "Open Targets catalog gene 227"
+  },
+  {
+    "target_id": "ENSG00000000228",
+    "symbol": "OT0228",
+    "name": "Open Targets catalog gene 228"
+  },
+  {
+    "target_id": "ENSG00000000229",
+    "symbol": "OT0229",
+    "name": "Open Targets catalog gene 229"
+  },
+  {
+    "target_id": "ENSG00000000230",
+    "symbol": "OT0230",
+    "name": "Open Targets catalog gene 230"
+  },
+  {
+    "target_id": "ENSG00000000231",
+    "symbol": "OT0231",
+    "name": "Open Targets catalog gene 231"
+  },
+  {
+    "target_id": "ENSG00000000232",
+    "symbol": "OT0232",
+    "name": "Open Targets catalog gene 232"
+  },
+  {
+    "target_id": "ENSG00000000233",
+    "symbol": "OT0233",
+    "name": "Open Targets catalog gene 233"
+  },
+  {
+    "target_id": "ENSG00000000234",
+    "symbol": "OT0234",
+    "name": "Open Targets catalog gene 234"
+  },
+  {
+    "target_id": "ENSG00000000235",
+    "symbol": "OT0235",
+    "name": "Open Targets catalog gene 235"
+  },
+  {
+    "target_id": "ENSG00000000236",
+    "symbol": "OT0236",
+    "name": "Open Targets catalog gene 236"
+  },
+  {
+    "target_id": "ENSG00000000237",
+    "symbol": "OT0237",
+    "name": "Open Targets catalog gene 237"
+  },
+  {
+    "target_id": "ENSG00000000238",
+    "symbol": "OT0238",
+    "name": "Open Targets catalog gene 238"
+  },
+  {
+    "target_id": "ENSG00000000239",
+    "symbol": "OT0239",
+    "name": "Open Targets catalog gene 239"
+  },
+  {
+    "target_id": "ENSG00000000240",
+    "symbol": "OT0240",
+    "name": "Open Targets catalog gene 240"
+  },
+  {
+    "target_id": "ENSG00000000241",
+    "symbol": "OT0241",
+    "name": "Open Targets catalog gene 241"
+  },
+  {
+    "target_id": "ENSG00000000242",
+    "symbol": "OT0242",
+    "name": "Open Targets catalog gene 242"
+  },
+  {
+    "target_id": "ENSG00000000243",
+    "symbol": "OT0243",
+    "name": "Open Targets catalog gene 243"
+  },
+  {
+    "target_id": "ENSG00000000244",
+    "symbol": "OT0244",
+    "name": "Open Targets catalog gene 244"
+  },
+  {
+    "target_id": "ENSG00000000245",
+    "symbol": "OT0245",
+    "name": "Open Targets catalog gene 245"
+  },
+  {
+    "target_id": "ENSG00000000246",
+    "symbol": "OT0246",
+    "name": "Open Targets catalog gene 246"
+  },
+  {
+    "target_id": "ENSG00000000247",
+    "symbol": "OT0247",
+    "name": "Open Targets catalog gene 247"
+  },
+  {
+    "target_id": "ENSG00000000248",
+    "symbol": "OT0248",
+    "name": "Open Targets catalog gene 248"
+  },
+  {
+    "target_id": "ENSG00000000249",
+    "symbol": "OT0249",
+    "name": "Open Targets catalog gene 249"
+  },
+  {
+    "target_id": "ENSG00000000250",
+    "symbol": "OT0250",
+    "name": "Open Targets catalog gene 250"
+  },
+  {
+    "target_id": "ENSG00000000251",
+    "symbol": "OT0251",
+    "name": "Open Targets catalog gene 251"
+  },
+  {
+    "target_id": "ENSG00000000252",
+    "symbol": "OT0252",
+    "name": "Open Targets catalog gene 252"
+  },
+  {
+    "target_id": "ENSG00000000253",
+    "symbol": "OT0253",
+    "name": "Open Targets catalog gene 253"
+  },
+  {
+    "target_id": "ENSG00000000254",
+    "symbol": "OT0254",
+    "name": "Open Targets catalog gene 254"
+  },
+  {
+    "target_id": "ENSG00000000255",
+    "symbol": "OT0255",
+    "name": "Open Targets catalog gene 255"
+  },
+  {
+    "target_id": "ENSG00000000256",
+    "symbol": "OT0256",
+    "name": "Open Targets catalog gene 256"
+  },
+  {
+    "target_id": "ENSG00000000257",
+    "symbol": "OT0257",
+    "name": "Open Targets catalog gene 257"
+  },
+  {
+    "target_id": "ENSG00000000258",
+    "symbol": "OT0258",
+    "name": "Open Targets catalog gene 258"
+  },
+  {
+    "target_id": "ENSG00000000259",
+    "symbol": "OT0259",
+    "name": "Open Targets catalog gene 259"
+  },
+  {
+    "target_id": "ENSG00000000260",
+    "symbol": "OT0260",
+    "name": "Open Targets catalog gene 260"
+  },
+  {
+    "target_id": "ENSG00000000261",
+    "symbol": "OT0261",
+    "name": "Open Targets catalog gene 261"
+  },
+  {
+    "target_id": "ENSG00000000262",
+    "symbol": "OT0262",
+    "name": "Open Targets catalog gene 262"
+  },
+  {
+    "target_id": "ENSG00000000263",
+    "symbol": "OT0263",
+    "name": "Open Targets catalog gene 263"
+  },
+  {
+    "target_id": "ENSG00000000264",
+    "symbol": "OT0264",
+    "name": "Open Targets catalog gene 264"
+  },
+  {
+    "target_id": "ENSG00000000265",
+    "symbol": "OT0265",
+    "name": "Open Targets catalog gene 265"
+  },
+  {
+    "target_id": "ENSG00000000266",
+    "symbol": "OT0266",
+    "name": "Open Targets catalog gene 266"
+  },
+  {
+    "target_id": "ENSG00000000267",
+    "symbol": "OT0267",
+    "name": "Open Targets catalog gene 267"
+  },
+  {
+    "target_id": "ENSG00000000268",
+    "symbol": "OT0268",
+    "name": "Open Targets catalog gene 268"
+  },
+  {
+    "target_id": "ENSG00000000269",
+    "symbol": "OT0269",
+    "name": "Open Targets catalog gene 269"
+  },
+  {
+    "target_id": "ENSG00000000270",
+    "symbol": "OT0270",
+    "name": "Open Targets catalog gene 270"
+  },
+  {
+    "target_id": "ENSG00000000271",
+    "symbol": "OT0271",
+    "name": "Open Targets catalog gene 271"
+  },
+  {
+    "target_id": "ENSG00000000272",
+    "symbol": "OT0272",
+    "name": "Open Targets catalog gene 272"
+  },
+  {
+    "target_id": "ENSG00000000273",
+    "symbol": "OT0273",
+    "name": "Open Targets catalog gene 273"
+  },
+  {
+    "target_id": "ENSG00000000274",
+    "symbol": "OT0274",
+    "name": "Open Targets catalog gene 274"
+  },
+  {
+    "target_id": "ENSG00000000275",
+    "symbol": "OT0275",
+    "name": "Open Targets catalog gene 275"
+  },
+  {
+    "target_id": "ENSG00000000276",
+    "symbol": "OT0276",
+    "name": "Open Targets catalog gene 276"
+  },
+  {
+    "target_id": "ENSG00000000277",
+    "symbol": "OT0277",
+    "name": "Open Targets catalog gene 277"
+  },
+  {
+    "target_id": "ENSG00000000278",
+    "symbol": "OT0278",
+    "name": "Open Targets catalog gene 278"
+  },
+  {
+    "target_id": "ENSG00000000279",
+    "symbol": "OT0279",
+    "name": "Open Targets catalog gene 279"
+  },
+  {
+    "target_id": "ENSG00000000280",
+    "symbol": "OT0280",
+    "name": "Open Targets catalog gene 280"
+  },
+  {
+    "target_id": "ENSG00000000281",
+    "symbol": "OT0281",
+    "name": "Open Targets catalog gene 281"
+  },
+  {
+    "target_id": "ENSG00000000282",
+    "symbol": "OT0282",
+    "name": "Open Targets catalog gene 282"
+  },
+  {
+    "target_id": "ENSG00000000283",
+    "symbol": "OT0283",
+    "name": "Open Targets catalog gene 283"
+  },
+  {
+    "target_id": "ENSG00000000284",
+    "symbol": "OT0284",
+    "name": "Open Targets catalog gene 284"
+  },
+  {
+    "target_id": "ENSG00000000285",
+    "symbol": "OT0285",
+    "name": "Open Targets catalog gene 285"
+  },
+  {
+    "target_id": "ENSG00000000286",
+    "symbol": "OT0286",
+    "name": "Open Targets catalog gene 286"
+  },
+  {
+    "target_id": "ENSG00000000287",
+    "symbol": "OT0287",
+    "name": "Open Targets catalog gene 287"
+  },
+  {
+    "target_id": "ENSG00000000288",
+    "symbol": "OT0288",
+    "name": "Open Targets catalog gene 288"
+  },
+  {
+    "target_id": "ENSG00000000289",
+    "symbol": "OT0289",
+    "name": "Open Targets catalog gene 289"
+  },
+  {
+    "target_id": "ENSG00000000290",
+    "symbol": "OT0290",
+    "name": "Open Targets catalog gene 290"
+  },
+  {
+    "target_id": "ENSG00000000291",
+    "symbol": "OT0291",
+    "name": "Open Targets catalog gene 291"
+  },
+  {
+    "target_id": "ENSG00000000292",
+    "symbol": "OT0292",
+    "name": "Open Targets catalog gene 292"
+  },
+  {
+    "target_id": "ENSG00000000293",
+    "symbol": "OT0293",
+    "name": "Open Targets catalog gene 293"
+  },
+  {
+    "target_id": "ENSG00000000294",
+    "symbol": "OT0294",
+    "name": "Open Targets catalog gene 294"
+  },
+  {
+    "target_id": "ENSG00000000295",
+    "symbol": "OT0295",
+    "name": "Open Targets catalog gene 295"
+  },
+  {
+    "target_id": "ENSG00000000296",
+    "symbol": "OT0296",
+    "name": "Open Targets catalog gene 296"
+  },
+  {
+    "target_id": "ENSG00000000297",
+    "symbol": "OT0297",
+    "name": "Open Targets catalog gene 297"
+  },
+  {
+    "target_id": "ENSG00000000298",
+    "symbol": "OT0298",
+    "name": "Open Targets catalog gene 298"
+  },
+  {
+    "target_id": "ENSG00000000299",
+    "symbol": "OT0299",
+    "name": "Open Targets catalog gene 299"
+  },
+  {
+    "target_id": "ENSG00000000300",
+    "symbol": "OT0300",
+    "name": "Open Targets catalog gene 300"
+  },
+  {
+    "target_id": "ENSG00000000301",
+    "symbol": "OT0301",
+    "name": "Open Targets catalog gene 301"
+  },
+  {
+    "target_id": "ENSG00000000302",
+    "symbol": "OT0302",
+    "name": "Open Targets catalog gene 302"
+  },
+  {
+    "target_id": "ENSG00000000303",
+    "symbol": "OT0303",
+    "name": "Open Targets catalog gene 303"
+  },
+  {
+    "target_id": "ENSG00000000304",
+    "symbol": "OT0304",
+    "name": "Open Targets catalog gene 304"
+  },
+  {
+    "target_id": "ENSG00000000305",
+    "symbol": "OT0305",
+    "name": "Open Targets catalog gene 305"
+  },
+  {
+    "target_id": "ENSG00000000306",
+    "symbol": "OT0306",
+    "name": "Open Targets catalog gene 306"
+  },
+  {
+    "target_id": "ENSG00000000307",
+    "symbol": "OT0307",
+    "name": "Open Targets catalog gene 307"
+  },
+  {
+    "target_id": "ENSG00000000308",
+    "symbol": "OT0308",
+    "name": "Open Targets catalog gene 308"
+  },
+  {
+    "target_id": "ENSG00000000309",
+    "symbol": "OT0309",
+    "name": "Open Targets catalog gene 309"
+  },
+  {
+    "target_id": "ENSG00000000310",
+    "symbol": "OT0310",
+    "name": "Open Targets catalog gene 310"
+  },
+  {
+    "target_id": "ENSG00000000311",
+    "symbol": "OT0311",
+    "name": "Open Targets catalog gene 311"
+  },
+  {
+    "target_id": "ENSG00000000312",
+    "symbol": "OT0312",
+    "name": "Open Targets catalog gene 312"
+  },
+  {
+    "target_id": "ENSG00000000313",
+    "symbol": "OT0313",
+    "name": "Open Targets catalog gene 313"
+  },
+  {
+    "target_id": "ENSG00000000314",
+    "symbol": "OT0314",
+    "name": "Open Targets catalog gene 314"
+  },
+  {
+    "target_id": "ENSG00000000315",
+    "symbol": "OT0315",
+    "name": "Open Targets catalog gene 315"
+  },
+  {
+    "target_id": "ENSG00000000316",
+    "symbol": "OT0316",
+    "name": "Open Targets catalog gene 316"
+  },
+  {
+    "target_id": "ENSG00000000317",
+    "symbol": "OT0317",
+    "name": "Open Targets catalog gene 317"
+  },
+  {
+    "target_id": "ENSG00000000318",
+    "symbol": "OT0318",
+    "name": "Open Targets catalog gene 318"
+  },
+  {
+    "target_id": "ENSG00000000319",
+    "symbol": "OT0319",
+    "name": "Open Targets catalog gene 319"
+  },
+  {
+    "target_id": "ENSG00000000320",
+    "symbol": "OT0320",
+    "name": "Open Targets catalog gene 320"
+  },
+  {
+    "target_id": "ENSG00000000321",
+    "symbol": "OT0321",
+    "name": "Open Targets catalog gene 321"
+  },
+  {
+    "target_id": "ENSG00000000322",
+    "symbol": "OT0322",
+    "name": "Open Targets catalog gene 322"
+  },
+  {
+    "target_id": "ENSG00000000323",
+    "symbol": "OT0323",
+    "name": "Open Targets catalog gene 323"
+  },
+  {
+    "target_id": "ENSG00000000324",
+    "symbol": "OT0324",
+    "name": "Open Targets catalog gene 324"
+  },
+  {
+    "target_id": "ENSG00000000325",
+    "symbol": "OT0325",
+    "name": "Open Targets catalog gene 325"
+  },
+  {
+    "target_id": "ENSG00000000326",
+    "symbol": "OT0326",
+    "name": "Open Targets catalog gene 326"
+  },
+  {
+    "target_id": "ENSG00000000327",
+    "symbol": "OT0327",
+    "name": "Open Targets catalog gene 327"
+  },
+  {
+    "target_id": "ENSG00000000328",
+    "symbol": "OT0328",
+    "name": "Open Targets catalog gene 328"
+  },
+  {
+    "target_id": "ENSG00000000329",
+    "symbol": "OT0329",
+    "name": "Open Targets catalog gene 329"
+  },
+  {
+    "target_id": "ENSG00000000330",
+    "symbol": "OT0330",
+    "name": "Open Targets catalog gene 330"
+  },
+  {
+    "target_id": "ENSG00000000331",
+    "symbol": "OT0331",
+    "name": "Open Targets catalog gene 331"
+  },
+  {
+    "target_id": "ENSG00000000332",
+    "symbol": "OT0332",
+    "name": "Open Targets catalog gene 332"
+  },
+  {
+    "target_id": "ENSG00000000333",
+    "symbol": "OT0333",
+    "name": "Open Targets catalog gene 333"
+  },
+  {
+    "target_id": "ENSG00000000334",
+    "symbol": "OT0334",
+    "name": "Open Targets catalog gene 334"
+  },
+  {
+    "target_id": "ENSG00000000335",
+    "symbol": "OT0335",
+    "name": "Open Targets catalog gene 335"
+  },
+  {
+    "target_id": "ENSG00000000336",
+    "symbol": "OT0336",
+    "name": "Open Targets catalog gene 336"
+  },
+  {
+    "target_id": "ENSG00000000337",
+    "symbol": "OT0337",
+    "name": "Open Targets catalog gene 337"
+  },
+  {
+    "target_id": "ENSG00000000338",
+    "symbol": "OT0338",
+    "name": "Open Targets catalog gene 338"
+  },
+  {
+    "target_id": "ENSG00000000339",
+    "symbol": "OT0339",
+    "name": "Open Targets catalog gene 339"
+  },
+  {
+    "target_id": "ENSG00000000340",
+    "symbol": "OT0340",
+    "name": "Open Targets catalog gene 340"
+  },
+  {
+    "target_id": "ENSG00000000341",
+    "symbol": "OT0341",
+    "name": "Open Targets catalog gene 341"
+  },
+  {
+    "target_id": "ENSG00000000342",
+    "symbol": "OT0342",
+    "name": "Open Targets catalog gene 342"
+  },
+  {
+    "target_id": "ENSG00000000343",
+    "symbol": "OT0343",
+    "name": "Open Targets catalog gene 343"
+  },
+  {
+    "target_id": "ENSG00000000344",
+    "symbol": "OT0344",
+    "name": "Open Targets catalog gene 344"
+  },
+  {
+    "target_id": "ENSG00000000345",
+    "symbol": "OT0345",
+    "name": "Open Targets catalog gene 345"
+  },
+  {
+    "target_id": "ENSG00000000346",
+    "symbol": "OT0346",
+    "name": "Open Targets catalog gene 346"
+  },
+  {
+    "target_id": "ENSG00000000347",
+    "symbol": "OT0347",
+    "name": "Open Targets catalog gene 347"
+  },
+  {
+    "target_id": "ENSG00000000348",
+    "symbol": "OT0348",
+    "name": "Open Targets catalog gene 348"
+  },
+  {
+    "target_id": "ENSG00000000349",
+    "symbol": "OT0349",
+    "name": "Open Targets catalog gene 349"
+  },
+  {
+    "target_id": "ENSG00000000350",
+    "symbol": "OT0350",
+    "name": "Open Targets catalog gene 350"
+  },
+  {
+    "target_id": "ENSG00000000351",
+    "symbol": "OT0351",
+    "name": "Open Targets catalog gene 351"
+  },
+  {
+    "target_id": "ENSG00000000352",
+    "symbol": "OT0352",
+    "name": "Open Targets catalog gene 352"
+  },
+  {
+    "target_id": "ENSG00000000353",
+    "symbol": "OT0353",
+    "name": "Open Targets catalog gene 353"
+  },
+  {
+    "target_id": "ENSG00000000354",
+    "symbol": "OT0354",
+    "name": "Open Targets catalog gene 354"
+  },
+  {
+    "target_id": "ENSG00000000355",
+    "symbol": "OT0355",
+    "name": "Open Targets catalog gene 355"
+  },
+  {
+    "target_id": "ENSG00000000356",
+    "symbol": "OT0356",
+    "name": "Open Targets catalog gene 356"
+  },
+  {
+    "target_id": "ENSG00000000357",
+    "symbol": "OT0357",
+    "name": "Open Targets catalog gene 357"
+  },
+  {
+    "target_id": "ENSG00000000358",
+    "symbol": "OT0358",
+    "name": "Open Targets catalog gene 358"
+  },
+  {
+    "target_id": "ENSG00000000359",
+    "symbol": "OT0359",
+    "name": "Open Targets catalog gene 359"
+  },
+  {
+    "target_id": "ENSG00000000360",
+    "symbol": "OT0360",
+    "name": "Open Targets catalog gene 360"
+  },
+  {
+    "target_id": "ENSG00000000361",
+    "symbol": "OT0361",
+    "name": "Open Targets catalog gene 361"
+  },
+  {
+    "target_id": "ENSG00000000362",
+    "symbol": "OT0362",
+    "name": "Open Targets catalog gene 362"
+  },
+  {
+    "target_id": "ENSG00000000363",
+    "symbol": "OT0363",
+    "name": "Open Targets catalog gene 363"
+  },
+  {
+    "target_id": "ENSG00000000364",
+    "symbol": "OT0364",
+    "name": "Open Targets catalog gene 364"
+  },
+  {
+    "target_id": "ENSG00000000365",
+    "symbol": "OT0365",
+    "name": "Open Targets catalog gene 365"
+  },
+  {
+    "target_id": "ENSG00000000366",
+    "symbol": "OT0366",
+    "name": "Open Targets catalog gene 366"
+  },
+  {
+    "target_id": "ENSG00000000367",
+    "symbol": "OT0367",
+    "name": "Open Targets catalog gene 367"
+  },
+  {
+    "target_id": "ENSG00000000368",
+    "symbol": "OT0368",
+    "name": "Open Targets catalog gene 368"
+  },
+  {
+    "target_id": "ENSG00000000369",
+    "symbol": "OT0369",
+    "name": "Open Targets catalog gene 369"
+  },
+  {
+    "target_id": "ENSG00000000370",
+    "symbol": "OT0370",
+    "name": "Open Targets catalog gene 370"
+  },
+  {
+    "target_id": "ENSG00000000371",
+    "symbol": "OT0371",
+    "name": "Open Targets catalog gene 371"
+  },
+  {
+    "target_id": "ENSG00000000372",
+    "symbol": "OT0372",
+    "name": "Open Targets catalog gene 372"
+  },
+  {
+    "target_id": "ENSG00000000373",
+    "symbol": "OT0373",
+    "name": "Open Targets catalog gene 373"
+  },
+  {
+    "target_id": "ENSG00000000374",
+    "symbol": "OT0374",
+    "name": "Open Targets catalog gene 374"
+  },
+  {
+    "target_id": "ENSG00000000375",
+    "symbol": "OT0375",
+    "name": "Open Targets catalog gene 375"
+  },
+  {
+    "target_id": "ENSG00000000376",
+    "symbol": "OT0376",
+    "name": "Open Targets catalog gene 376"
+  },
+  {
+    "target_id": "ENSG00000000377",
+    "symbol": "OT0377",
+    "name": "Open Targets catalog gene 377"
+  },
+  {
+    "target_id": "ENSG00000000378",
+    "symbol": "OT0378",
+    "name": "Open Targets catalog gene 378"
+  },
+  {
+    "target_id": "ENSG00000000379",
+    "symbol": "OT0379",
+    "name": "Open Targets catalog gene 379"
+  },
+  {
+    "target_id": "ENSG00000000380",
+    "symbol": "OT0380",
+    "name": "Open Targets catalog gene 380"
+  },
+  {
+    "target_id": "ENSG00000000381",
+    "symbol": "OT0381",
+    "name": "Open Targets catalog gene 381"
+  },
+  {
+    "target_id": "ENSG00000000382",
+    "symbol": "OT0382",
+    "name": "Open Targets catalog gene 382"
+  },
+  {
+    "target_id": "ENSG00000000383",
+    "symbol": "OT0383",
+    "name": "Open Targets catalog gene 383"
+  },
+  {
+    "target_id": "ENSG00000000384",
+    "symbol": "OT0384",
+    "name": "Open Targets catalog gene 384"
+  },
+  {
+    "target_id": "ENSG00000000385",
+    "symbol": "OT0385",
+    "name": "Open Targets catalog gene 385"
+  },
+  {
+    "target_id": "ENSG00000000386",
+    "symbol": "OT0386",
+    "name": "Open Targets catalog gene 386"
+  },
+  {
+    "target_id": "ENSG00000000387",
+    "symbol": "OT0387",
+    "name": "Open Targets catalog gene 387"
+  },
+  {
+    "target_id": "ENSG00000000388",
+    "symbol": "OT0388",
+    "name": "Open Targets catalog gene 388"
+  },
+  {
+    "target_id": "ENSG00000000389",
+    "symbol": "OT0389",
+    "name": "Open Targets catalog gene 389"
+  },
+  {
+    "target_id": "ENSG00000000390",
+    "symbol": "OT0390",
+    "name": "Open Targets catalog gene 390"
+  },
+  {
+    "target_id": "ENSG00000000391",
+    "symbol": "OT0391",
+    "name": "Open Targets catalog gene 391"
+  },
+  {
+    "target_id": "ENSG00000000392",
+    "symbol": "OT0392",
+    "name": "Open Targets catalog gene 392"
+  },
+  {
+    "target_id": "ENSG00000000393",
+    "symbol": "OT0393",
+    "name": "Open Targets catalog gene 393"
+  },
+  {
+    "target_id": "ENSG00000000394",
+    "symbol": "OT0394",
+    "name": "Open Targets catalog gene 394"
+  },
+  {
+    "target_id": "ENSG00000000395",
+    "symbol": "OT0395",
+    "name": "Open Targets catalog gene 395"
+  },
+  {
+    "target_id": "ENSG00000000396",
+    "symbol": "OT0396",
+    "name": "Open Targets catalog gene 396"
+  },
+  {
+    "target_id": "ENSG00000000397",
+    "symbol": "OT0397",
+    "name": "Open Targets catalog gene 397"
+  },
+  {
+    "target_id": "ENSG00000000398",
+    "symbol": "OT0398",
+    "name": "Open Targets catalog gene 398"
+  },
+  {
+    "target_id": "ENSG00000000399",
+    "symbol": "OT0399",
+    "name": "Open Targets catalog gene 399"
+  },
+  {
+    "target_id": "ENSG00000000400",
+    "symbol": "OT0400",
+    "name": "Open Targets catalog gene 400"
+  },
+  {
+    "target_id": "ENSG00000000401",
+    "symbol": "OT0401",
+    "name": "Open Targets catalog gene 401"
+  },
+  {
+    "target_id": "ENSG00000000402",
+    "symbol": "OT0402",
+    "name": "Open Targets catalog gene 402"
+  },
+  {
+    "target_id": "ENSG00000000403",
+    "symbol": "OT0403",
+    "name": "Open Targets catalog gene 403"
+  },
+  {
+    "target_id": "ENSG00000000404",
+    "symbol": "OT0404",
+    "name": "Open Targets catalog gene 404"
+  },
+  {
+    "target_id": "ENSG00000000405",
+    "symbol": "OT0405",
+    "name": "Open Targets catalog gene 405"
+  },
+  {
+    "target_id": "ENSG00000000406",
+    "symbol": "OT0406",
+    "name": "Open Targets catalog gene 406"
+  },
+  {
+    "target_id": "ENSG00000000407",
+    "symbol": "OT0407",
+    "name": "Open Targets catalog gene 407"
+  },
+  {
+    "target_id": "ENSG00000000408",
+    "symbol": "OT0408",
+    "name": "Open Targets catalog gene 408"
+  },
+  {
+    "target_id": "ENSG00000000409",
+    "symbol": "OT0409",
+    "name": "Open Targets catalog gene 409"
+  },
+  {
+    "target_id": "ENSG00000000410",
+    "symbol": "OT0410",
+    "name": "Open Targets catalog gene 410"
+  },
+  {
+    "target_id": "ENSG00000000411",
+    "symbol": "OT0411",
+    "name": "Open Targets catalog gene 411"
+  },
+  {
+    "target_id": "ENSG00000000412",
+    "symbol": "OT0412",
+    "name": "Open Targets catalog gene 412"
+  },
+  {
+    "target_id": "ENSG00000000413",
+    "symbol": "OT0413",
+    "name": "Open Targets catalog gene 413"
+  },
+  {
+    "target_id": "ENSG00000000414",
+    "symbol": "OT0414",
+    "name": "Open Targets catalog gene 414"
+  },
+  {
+    "target_id": "ENSG00000000415",
+    "symbol": "OT0415",
+    "name": "Open Targets catalog gene 415"
+  },
+  {
+    "target_id": "ENSG00000000416",
+    "symbol": "OT0416",
+    "name": "Open Targets catalog gene 416"
+  },
+  {
+    "target_id": "ENSG00000000417",
+    "symbol": "OT0417",
+    "name": "Open Targets catalog gene 417"
+  },
+  {
+    "target_id": "ENSG00000000418",
+    "symbol": "OT0418",
+    "name": "Open Targets catalog gene 418"
+  },
+  {
+    "target_id": "ENSG00000000419",
+    "symbol": "OT0419",
+    "name": "Open Targets catalog gene 419"
+  },
+  {
+    "target_id": "ENSG00000000420",
+    "symbol": "OT0420",
+    "name": "Open Targets catalog gene 420"
+  },
+  {
+    "target_id": "ENSG00000000421",
+    "symbol": "OT0421",
+    "name": "Open Targets catalog gene 421"
+  },
+  {
+    "target_id": "ENSG00000000422",
+    "symbol": "OT0422",
+    "name": "Open Targets catalog gene 422"
+  },
+  {
+    "target_id": "ENSG00000000423",
+    "symbol": "OT0423",
+    "name": "Open Targets catalog gene 423"
+  },
+  {
+    "target_id": "ENSG00000000424",
+    "symbol": "OT0424",
+    "name": "Open Targets catalog gene 424"
+  },
+  {
+    "target_id": "ENSG00000000425",
+    "symbol": "OT0425",
+    "name": "Open Targets catalog gene 425"
+  },
+  {
+    "target_id": "ENSG00000000426",
+    "symbol": "OT0426",
+    "name": "Open Targets catalog gene 426"
+  },
+  {
+    "target_id": "ENSG00000000427",
+    "symbol": "OT0427",
+    "name": "Open Targets catalog gene 427"
+  },
+  {
+    "target_id": "ENSG00000000428",
+    "symbol": "OT0428",
+    "name": "Open Targets catalog gene 428"
+  },
+  {
+    "target_id": "ENSG00000000429",
+    "symbol": "OT0429",
+    "name": "Open Targets catalog gene 429"
+  },
+  {
+    "target_id": "ENSG00000000430",
+    "symbol": "OT0430",
+    "name": "Open Targets catalog gene 430"
+  },
+  {
+    "target_id": "ENSG00000000431",
+    "symbol": "OT0431",
+    "name": "Open Targets catalog gene 431"
+  },
+  {
+    "target_id": "ENSG00000000432",
+    "symbol": "OT0432",
+    "name": "Open Targets catalog gene 432"
+  },
+  {
+    "target_id": "ENSG00000000433",
+    "symbol": "OT0433",
+    "name": "Open Targets catalog gene 433"
+  },
+  {
+    "target_id": "ENSG00000000434",
+    "symbol": "OT0434",
+    "name": "Open Targets catalog gene 434"
+  },
+  {
+    "target_id": "ENSG00000000435",
+    "symbol": "OT0435",
+    "name": "Open Targets catalog gene 435"
+  },
+  {
+    "target_id": "ENSG00000000436",
+    "symbol": "OT0436",
+    "name": "Open Targets catalog gene 436"
+  },
+  {
+    "target_id": "ENSG00000000437",
+    "symbol": "OT0437",
+    "name": "Open Targets catalog gene 437"
+  },
+  {
+    "target_id": "ENSG00000000438",
+    "symbol": "OT0438",
+    "name": "Open Targets catalog gene 438"
+  },
+  {
+    "target_id": "ENSG00000000439",
+    "symbol": "OT0439",
+    "name": "Open Targets catalog gene 439"
+  },
+  {
+    "target_id": "ENSG00000000440",
+    "symbol": "OT0440",
+    "name": "Open Targets catalog gene 440"
+  },
+  {
+    "target_id": "ENSG00000000441",
+    "symbol": "OT0441",
+    "name": "Open Targets catalog gene 441"
+  },
+  {
+    "target_id": "ENSG00000000442",
+    "symbol": "OT0442",
+    "name": "Open Targets catalog gene 442"
+  },
+  {
+    "target_id": "ENSG00000000443",
+    "symbol": "OT0443",
+    "name": "Open Targets catalog gene 443"
+  },
+  {
+    "target_id": "ENSG00000000444",
+    "symbol": "OT0444",
+    "name": "Open Targets catalog gene 444"
+  },
+  {
+    "target_id": "ENSG00000000445",
+    "symbol": "OT0445",
+    "name": "Open Targets catalog gene 445"
+  },
+  {
+    "target_id": "ENSG00000000446",
+    "symbol": "OT0446",
+    "name": "Open Targets catalog gene 446"
+  },
+  {
+    "target_id": "ENSG00000000447",
+    "symbol": "OT0447",
+    "name": "Open Targets catalog gene 447"
+  },
+  {
+    "target_id": "ENSG00000000448",
+    "symbol": "OT0448",
+    "name": "Open Targets catalog gene 448"
+  },
+  {
+    "target_id": "ENSG00000000449",
+    "symbol": "OT0449",
+    "name": "Open Targets catalog gene 449"
+  },
+  {
+    "target_id": "ENSG00000000450",
+    "symbol": "OT0450",
+    "name": "Open Targets catalog gene 450"
+  },
+  {
+    "target_id": "ENSG00000000451",
+    "symbol": "OT0451",
+    "name": "Open Targets catalog gene 451"
+  },
+  {
+    "target_id": "ENSG00000000452",
+    "symbol": "OT0452",
+    "name": "Open Targets catalog gene 452"
+  },
+  {
+    "target_id": "ENSG00000000453",
+    "symbol": "OT0453",
+    "name": "Open Targets catalog gene 453"
+  },
+  {
+    "target_id": "ENSG00000000454",
+    "symbol": "OT0454",
+    "name": "Open Targets catalog gene 454"
+  },
+  {
+    "target_id": "ENSG00000000455",
+    "symbol": "OT0455",
+    "name": "Open Targets catalog gene 455"
+  },
+  {
+    "target_id": "ENSG00000000456",
+    "symbol": "OT0456",
+    "name": "Open Targets catalog gene 456"
+  },
+  {
+    "target_id": "ENSG00000000457",
+    "symbol": "OT0457",
+    "name": "Open Targets catalog gene 457"
+  },
+  {
+    "target_id": "ENSG00000000458",
+    "symbol": "OT0458",
+    "name": "Open Targets catalog gene 458"
+  },
+  {
+    "target_id": "ENSG00000000459",
+    "symbol": "OT0459",
+    "name": "Open Targets catalog gene 459"
+  },
+  {
+    "target_id": "ENSG00000000460",
+    "symbol": "OT0460",
+    "name": "Open Targets catalog gene 460"
+  },
+  {
+    "target_id": "ENSG00000000461",
+    "symbol": "OT0461",
+    "name": "Open Targets catalog gene 461"
+  },
+  {
+    "target_id": "ENSG00000000462",
+    "symbol": "OT0462",
+    "name": "Open Targets catalog gene 462"
+  },
+  {
+    "target_id": "ENSG00000000463",
+    "symbol": "OT0463",
+    "name": "Open Targets catalog gene 463"
+  },
+  {
+    "target_id": "ENSG00000000464",
+    "symbol": "OT0464",
+    "name": "Open Targets catalog gene 464"
+  },
+  {
+    "target_id": "ENSG00000000465",
+    "symbol": "OT0465",
+    "name": "Open Targets catalog gene 465"
+  },
+  {
+    "target_id": "ENSG00000000466",
+    "symbol": "OT0466",
+    "name": "Open Targets catalog gene 466"
+  },
+  {
+    "target_id": "ENSG00000000467",
+    "symbol": "OT0467",
+    "name": "Open Targets catalog gene 467"
+  },
+  {
+    "target_id": "ENSG00000000468",
+    "symbol": "OT0468",
+    "name": "Open Targets catalog gene 468"
+  },
+  {
+    "target_id": "ENSG00000000469",
+    "symbol": "OT0469",
+    "name": "Open Targets catalog gene 469"
+  },
+  {
+    "target_id": "ENSG00000000470",
+    "symbol": "OT0470",
+    "name": "Open Targets catalog gene 470"
+  },
+  {
+    "target_id": "ENSG00000000471",
+    "symbol": "OT0471",
+    "name": "Open Targets catalog gene 471"
+  },
+  {
+    "target_id": "ENSG00000000472",
+    "symbol": "OT0472",
+    "name": "Open Targets catalog gene 472"
+  },
+  {
+    "target_id": "ENSG00000000473",
+    "symbol": "OT0473",
+    "name": "Open Targets catalog gene 473"
+  },
+  {
+    "target_id": "ENSG00000000474",
+    "symbol": "OT0474",
+    "name": "Open Targets catalog gene 474"
+  },
+  {
+    "target_id": "ENSG00000000475",
+    "symbol": "OT0475",
+    "name": "Open Targets catalog gene 475"
+  },
+  {
+    "target_id": "ENSG00000000476",
+    "symbol": "OT0476",
+    "name": "Open Targets catalog gene 476"
+  },
+  {
+    "target_id": "ENSG00000000477",
+    "symbol": "OT0477",
+    "name": "Open Targets catalog gene 477"
+  },
+  {
+    "target_id": "ENSG00000000478",
+    "symbol": "OT0478",
+    "name": "Open Targets catalog gene 478"
+  },
+  {
+    "target_id": "ENSG00000000479",
+    "symbol": "OT0479",
+    "name": "Open Targets catalog gene 479"
+  },
+  {
+    "target_id": "ENSG00000000480",
+    "symbol": "OT0480",
+    "name": "Open Targets catalog gene 480"
+  },
+  {
+    "target_id": "ENSG00000000481",
+    "symbol": "OT0481",
+    "name": "Open Targets catalog gene 481"
+  },
+  {
+    "target_id": "ENSG00000000482",
+    "symbol": "OT0482",
+    "name": "Open Targets catalog gene 482"
+  },
+  {
+    "target_id": "ENSG00000000483",
+    "symbol": "OT0483",
+    "name": "Open Targets catalog gene 483"
+  },
+  {
+    "target_id": "ENSG00000000484",
+    "symbol": "OT0484",
+    "name": "Open Targets catalog gene 484"
+  },
+  {
+    "target_id": "ENSG00000000485",
+    "symbol": "OT0485",
+    "name": "Open Targets catalog gene 485"
+  },
+  {
+    "target_id": "ENSG00000000486",
+    "symbol": "OT0486",
+    "name": "Open Targets catalog gene 486"
+  },
+  {
+    "target_id": "ENSG00000000487",
+    "symbol": "OT0487",
+    "name": "Open Targets catalog gene 487"
+  },
+  {
+    "target_id": "ENSG00000000488",
+    "symbol": "OT0488",
+    "name": "Open Targets catalog gene 488"
+  },
+  {
+    "target_id": "ENSG00000000489",
+    "symbol": "OT0489",
+    "name": "Open Targets catalog gene 489"
+  },
+  {
+    "target_id": "ENSG00000000490",
+    "symbol": "OT0490",
+    "name": "Open Targets catalog gene 490"
+  }
+]

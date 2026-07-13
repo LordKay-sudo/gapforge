@@ -1,0 +1,3 @@
+# Install alongside api/requirements.txt (httpx, pandas, neo4j already there).
+jupyter>=1.1.0
+matplotlib>=3.9.0

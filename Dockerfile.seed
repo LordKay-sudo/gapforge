@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 \
+    PYTHONPATH=/app/api
+
+RUN pip install --no-cache-dir neo4j pandas
+
+COPY api/requirements.txt /tmp/api-requirements.txt
+RUN pip install --no-cache-dir -r /tmp/api-requirements.txt
+
+COPY api/app /app/api/app
+COPY scripts /app/scripts
+COPY data /app/data
+
+CMD ["/bin/sh", "-c", "python /app/scripts/etl_opentargets.py && python /app/scripts/seed_neo4j.py"]
