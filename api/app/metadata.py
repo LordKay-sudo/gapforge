@@ -15,12 +15,12 @@ SOURCES = [
     },
     {
         "name": "Open Targets frozen slice v2 (CI/demo)",
-        "url": "https://github.com/LordKay-sudo/bioinsight-graph/tree/main/api/tests/fixtures",
+        "url": "https://github.com/LordKay-sudo/gapforge/tree/main/api/tests/fixtures",
         "license": "CC0 1.0 (schema-aligned with Open Targets evidence model)",
     },
     {
         "name": "GapForge Flurizan educational case study",
-        "url": "https://github.com/LordKay-sudo/bioinsight-graph/blob/main/data/gapforge/flurizan_case.json",
+        "url": "https://github.com/LordKay-sudo/gapforge/blob/main/data/gapforge/flurizan_case.json",
         "license": "MIT code; case framing cites public PMC / ClinicalTrials.gov (educational use)",
     },
 ]
