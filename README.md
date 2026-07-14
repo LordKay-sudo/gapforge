@@ -42,7 +42,7 @@ Design details: [docs/GAPFORGE.md](docs/GAPFORGE.md) · HITL: [docs/HUMAN_IN_THE
 
 ## Quick start
 
-**Prerequisites:** [Docker Desktop](https://www.docker.com/products/docker-desktop/), Python 3.11+, Node.js 20+.
+**Prerequisites:** [Docker Desktop](https://www.docker.com/products/docker-desktop/), Python 3.11+, Node.js 22+.
 
 ```bash
 git clone https://github.com/LordKay-sudo/gapforge.git
@@ -60,16 +60,20 @@ docker compose up --build
 | API docs | http://localhost:8000/docs |
 | Neo4j Browser | http://localhost:7474 (`neo4j` / `changeme`) |
 
-### Demo case study
+### Demo case studies
 
-**Flurizan (tarenflurbil) — Alzheimer Phase 3 efficacy miss** (educational historical framing).
+1. **Flurizan (tarenflurbil) — Alzheimer Phase 3 efficacy miss** (educational historical framing)
+2. **Astegolimab — COPD Phase 2b signal / Phase 3 miss** (biomarker vs all-comers)
 
-1. Open **GapForge** → Flurizan AD program  
+Workflow:
+
+1. Open **GapForge** → pick a program  
 2. Inspect trials, taxonomy, and L2 hypothesis cards  
-3. Open **Review** → run critic → approve / reject / request more  
+3. Open **Review** → run **Discern** / critic → approve / reject / request more  
 4. Export review bundle — only **approved** cards become team conclusions  
 
-Seed data: [`data/gapforge/flurizan_case.json`](data/gapforge/flurizan_case.json)
+Seed data: [`data/gapforge/`](data/gapforge/) (all `*.json` cases load via `scripts/seed_gapforge.py`)  
+Discern: [docs/DISCERN.md](docs/DISCERN.md)
 
 ---
 

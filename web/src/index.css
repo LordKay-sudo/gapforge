@@ -795,3 +795,67 @@ tr:last-child td {
 .success-text {
   color: var(--gene);
 }
+
+.discern-panel {
+  margin-top: 0.75rem;
+  padding: 0.75rem 0.85rem;
+  background: var(--surface-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.discern-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.35rem;
+}
+
+.discern-summary {
+  margin: 0.35rem 0;
+}
+
+.discern-scores,
+.discern-reasons {
+  margin: 0.35rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+}
+
+.discern-note {
+  margin: 0.4rem 0 0;
+  font-size: 0.8rem;
+}
+
+.discern-action-block {
+  background: rgba(248, 113, 113, 0.2);
+  color: var(--danger);
+}
+
+.discern-action-hitl {
+  background: rgba(56, 189, 248, 0.15);
+  color: var(--accent);
+}
+
+.discern-action-allow {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--gene);
+}
+
+.discern-sev-hard,
+.discern-sev-error {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+.discern-sev-soft,
+.discern-sev-warn {
+  color: #fbbf24;
+  font-weight: 600;
+}
+
+.discern-sev-info {
+  color: var(--text-muted);
+  font-weight: 600;
+}

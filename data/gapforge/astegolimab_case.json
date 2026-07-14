@@ -1,0 +1,121 @@
+{
+  "case_study": {
+    "id": "case-astegolimab-copd",
+    "title": "Astegolimab COPD — Phase 2b signal, Phase 3 miss",
+    "framing": "Historical educational case study on biomarker-agnostic enrollment and Phase 2→3 divergence. Not a recommendation to resurrect the asset.",
+    "references": [
+      {
+        "label": "MedPath / trial design discussion (Astegolimab COPD)",
+        "url": "https://trial.medpath.com/news/genentech-s-astegolimab-copd-program-highlights-critical-trial-design-flaws-in-phase-3-confirmatory-studies"
+      },
+      {
+        "label": "ClinicalTrials.gov search astegolimab",
+        "url": "https://clinicaltrials.gov/search?term=astegolimab"
+      }
+    ]
+  },
+  "drug": {
+    "id": "drug-astegolimab",
+    "name": "astegolimab",
+    "synonyms": ["anti-ST2", "MSTT1041A"],
+    "chembl_id": null
+  },
+  "program": {
+    "id": "prog-astegolimab-copd",
+    "name": "Astegolimab COPD program",
+    "status": "phase3_missed",
+    "indication_name": "Chronic obstructive pulmonary disease",
+    "moa": "Anti-ST2 monoclonal antibody targeting the IL-33/ST2 pathway upstream of eosinophilic inflammation",
+    "cou_note": "Educational GapForge case study — hypotheses for scientific discussion only",
+    "disease_id": "EFO_0000341",
+    "gene_ids": [],
+    "stall_summary": "Phase 2b (ALIENTO) met primary endpoint on exacerbation reduction regardless of eosinophil count; confirmatory Phase 3 (ARNASA) did not achieve statistical significance despite a directional effect."
+  },
+  "trials": [
+    {
+      "id": "trial-astegolimab-aliento",
+      "nct_id": "NCT05037929",
+      "phase": "Phase 2b",
+      "status": "Completed — primary endpoint met (reported)",
+      "primary_endpoint": "Annualized exacerbation rate in moderate–very severe COPD with frequent exacerbations",
+      "outcome_summary": "Reported statistically significant reduction in annual exacerbation rates regardless of baseline blood eosinophil count.",
+      "disease_id": "EFO_0000341",
+      "url": "https://clinicaltrials.gov/search?term=ALIENTO+astegolimab"
+    },
+    {
+      "id": "trial-astegolimab-arnasa",
+      "nct_id": "NCT05595642",
+      "phase": "Phase 3",
+      "status": "Completed — primary endpoint not met (reported)",
+      "primary_endpoint": "Annualized exacerbation rate at 52 weeks",
+      "outcome_summary": "Directional ~14.5% reduction in exacerbations reported but did not cross the statistical threshold for regulatory success in the confirmatory design.",
+      "disease_id": "EFO_0000341",
+      "url": "https://clinicaltrials.gov/search?term=ARNASA+astegolimab"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "gap-astegolimab-biomarker",
+      "gap_class": "biomarker",
+      "claim": "Enrolling regardless of blood eosinophil count may have diluted a true responder subgroup in Phase 3, despite a mechanistic rationale that ST2/IL-33 acts upstream of eosinophilic inflammation.",
+      "confidence": 0.64,
+      "suggested_experiment": "Re-analyse public COPD exacerbation-trial literature for eosinophil-stratified effect sizes on anti-IL-33/ST2 and related pathways; pre-specify biomarker-enriched primary populations or powered co-primaries in future designs.",
+      "insufficient_evidence": false,
+      "supported_by_trials": ["trial-astegolimab-aliento", "trial-astegolimab-arnasa"],
+      "supported_by_genes": [],
+      "contradicted_by_trials": [],
+      "literature_refs": [
+        {
+          "title": "Astegolimab COPD Phase 2b vs Phase 3 design discussion",
+          "url": "https://trial.medpath.com/news/genentech-s-astegolimab-copd-program-highlights-critical-trial-design-flaws-in-phase-3-confirmatory-studies",
+          "note": "Highlights all-comers vs biomarker enrichment tension"
+        }
+      ]
+    },
+    {
+      "id": "gap-astegolimab-endpoint",
+      "gap_class": "endpoint",
+      "claim": "Exacerbation-rate endpoints in heterogeneous COPD populations may require larger samples or different sensitivity assumptions when translating a Phase 2b signal into Phase 3 confirmation.",
+      "confidence": 0.58,
+      "suggested_experiment": "Power simulation using published Phase 2b effect sizes and Phase 3 variance estimates; compare all-comers vs enriched designs under realistic dropout.",
+      "insufficient_evidence": false,
+      "supported_by_trials": ["trial-astegolimab-arnasa"],
+      "supported_by_genes": [],
+      "contradicted_by_trials": [],
+      "literature_refs": [
+        {
+          "title": "ClinicalTrials.gov astegolimab records",
+          "url": "https://clinicaltrials.gov/search?term=astegolimab",
+          "note": "Registry context for ALIENTO/ARNASA-class studies"
+        }
+      ]
+    },
+    {
+      "id": "gap-astegolimab-efficacy",
+      "gap_class": "efficacy",
+      "claim": "The true population-average treatment effect may be smaller than Phase 2b suggested, such that a clinically meaningful directional Phase 3 effect still fails statistical confirmation.",
+      "confidence": 0.52,
+      "suggested_experiment": "Bayesian re-estimation of effect size using public summaries; map minimal clinically important difference for exacerbation reduction against observed Phase 3 point estimates.",
+      "insufficient_evidence": false,
+      "supported_by_trials": ["trial-astegolimab-aliento", "trial-astegolimab-arnasa"],
+      "supported_by_genes": [],
+      "contradicted_by_trials": [],
+      "literature_refs": [
+        {
+          "title": "Astegolimab COPD Phase 2b vs Phase 3 design discussion",
+          "url": "https://trial.medpath.com/news/genentech-s-astegolimab-copd-program-highlights-critical-trial-design-flaws-in-phase-3-confirmatory-studies",
+          "note": "Directional Phase 3 effect without statistical win"
+        }
+      ]
+    }
+  ],
+  "taxonomy_seed": {
+    "target_validity": 0.55,
+    "patient_stratification": 0.25,
+    "endpoint_fitness": 0.35,
+    "exposure_pk": 0.6,
+    "safety_signals": 0.65,
+    "formulation_delivery": 0.7,
+    "competitive_soc": 0.45
+  }
+}

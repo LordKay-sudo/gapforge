@@ -17,7 +17,7 @@ from app.models.schemas import (
     ReviewDecisionResponse,
     ReviewQueueItem,
 )
-from app.routers.gaps import _hyp_summary, get_gap
+from app.routers.gaps import _hyp_summary, _parse_discern, get_gap
 from app.routers.programs import get_program
 
 router = APIRouter(tags=["gapforge-reviews"])
@@ -68,11 +68,23 @@ def decide_review(gap_id: str, body: ReviewDecisionRequest) -> ReviewDecisionRes
     decided_at = datetime.now(timezone.utc).isoformat()
 
     with get_session() as session:
-        exists = session.run(
-            "MATCH (g:GapHypothesis {id: $id}) RETURN g.id AS id", id=gap_id
+        row = session.run(
+            "MATCH (g:GapHypothesis {id: $id}) RETURN g", id=gap_id
         ).single()
-        if not exists:
+        if not row:
             raise HTTPException(status_code=404, detail=f"Gap hypothesis not found: {gap_id}")
+
+        g = dict(row["g"])
+        if body.decision == "approve":
+            discern_raw = _parse_discern(g.get("discern_json"))
+            if discern_raw and discern_raw.get("action") == "block":
+                raise HTTPException(
+                    status_code=422,
+                    detail={
+                        "message": "Cannot approve — Discern action is block. Remediate claim language first.",
+                        "discern": discern_raw,
+                    },
+                )
 
         session.run(
             """

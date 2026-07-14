@@ -53,6 +53,8 @@ curl -s -X POST http://localhost:8000/api/v1/discern \
 
 - `POST /gaps/propose` — runs Discern first; **blocks** on `hard_fail`; stores `discern_json` on the node
 - `POST /gaps/{id}/critic` — attaches Discern result after critic notes
+- `POST /reviews/{id}` — **rejects approve** with 422 when stored Discern `action` is `block`
+- UI: review queue **Discern** panel + Approve disabled on `block`; program gap cards show last score
 - MCP `discern_artifact` — same contract for agents
 
 See [GAPFORGE.md](./GAPFORGE.md) risk tiers.

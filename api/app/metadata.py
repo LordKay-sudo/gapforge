@@ -4,7 +4,8 @@ from datetime import date
 
 SERVICE_NAME = "bioinsight-graph"
 API_VERSION = "0.3.1"
-DATA_VERSION = "opentargets-24.06-frozen-slice-v2+gapforge-flurizan"
+DATA_VERSION = "opentargets-24.06-frozen-slice-v2+gapforge-flurizan+astegolimab"
+
 RELEASE_DATE = date(2024, 6, 1)
 
 SOURCES = [
@@ -23,6 +24,11 @@ SOURCES = [
         "url": "https://github.com/LordKay-sudo/gapforge/blob/main/data/gapforge/flurizan_case.json",
         "license": "MIT code; case framing cites public PMC / ClinicalTrials.gov (educational use)",
     },
+    {
+        "name": "GapForge Astegolimab COPD educational case study",
+        "url": "https://github.com/LordKay-sudo/gapforge/blob/main/data/gapforge/astegolimab_case.json",
+        "license": "MIT code; case framing cites public ClinicalTrials.gov / trial-design discussion (educational use)",
+    },
 ]
 
 DISCLAIMER = (
@@ -33,4 +39,4 @@ DISCLAIMER = (
 
 ASSOCIATIONS_ARE_CORRELATIVE = True
 PROVENANCE_DOC_PATH = "PROVENANCE.md"
-
+

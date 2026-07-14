@@ -6,6 +6,7 @@ import {
   type ProgramDetail,
   type ProgramTaxonomy,
 } from "../api/client";
+import DiscernPanel from "../components/DiscernPanel";
 
 export default function ProgramDetailPage() {
   const { programId } = useParams();
@@ -154,6 +155,7 @@ function GapCard({ gap }: { gap: GapHypothesisSummary }) {
           <strong>Critic:</strong> {gap.critic_notes}
         </p>
       )}
+      <DiscernPanel discern={gap.discern} />
       {gap.literature_refs?.length > 0 && (
         <ul className="ref-list">
           {gap.literature_refs.map((r, i) => (

@@ -233,6 +233,19 @@ export const api = {
     }),
   reviewBundleUrl: (programId: string) =>
     `${API_BASE}/api/v1/export/review-bundle?program_id=${encodeURIComponent(programId)}`,
+  discern: (body: DiscernRequest) =>
+    fetch(`${API_BASE}/api/v1/discern`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+    }).then(async (res) => {
+      if (!res.ok) throw new Error(await res.text());
+      return res.json() as Promise<DiscernResult>;
+    }),
+  discernPolicy: (riskTier = "L2") =>
+    fetchJson<Record<string, unknown>>(
+      `/api/v1/discern/policy?risk_tier=${encodeURIComponent(riskTier)}`
+    ),
 };
 
 export interface ProgramSummary {
@@ -257,6 +270,43 @@ export interface TrialSummary {
   url?: string | null;
 }
 
+export interface DimensionScore {
+  score: number;
+  threshold: number;
+  passed: boolean;
+}
+
+export interface DiscernReason {
+  code: string;
+  severity: string;
+  message: string;
+  dimension?: string | null;
+  evidence_span?: string | null;
+}
+
+export interface DiscernResult {
+  overall: string;
+  action: string;
+  scores: Record<string, DimensionScore>;
+  reasons: DiscernReason[];
+  policy_version: string;
+  risk_tier: string;
+  artifact_type: string;
+  cou?: string | null;
+  provenance_hash: string;
+  note?: string | null;
+}
+
+export interface DiscernRequest {
+  artifact_type: string;
+  risk_tier?: string;
+  cou?: string | null;
+  input?: Record<string, unknown>;
+  output?: Record<string, unknown>;
+  dimensions?: string[];
+  thresholds?: Record<string, number>;
+}
+
 export interface GapHypothesisSummary {
   id: string;
   gap_class: string;
@@ -270,6 +320,7 @@ export interface GapHypothesisSummary {
   provenance_hash?: string | null;
   critic_notes?: string | null;
   literature_refs: Array<{ title?: string; url?: string; note?: string }>;
+  discern?: DiscernResult | null;
 }
 
 export interface GapHypothesisDetail extends GapHypothesisSummary {
@@ -324,6 +375,7 @@ export interface CriticResponse {
   status: string;
   cou: string;
   ran_at: string;
+  discern?: DiscernResult | null;
 }
 
 export interface ReviewDecisionResponse {

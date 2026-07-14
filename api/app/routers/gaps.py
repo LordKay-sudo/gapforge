@@ -29,6 +29,16 @@ from app.routers.discern import to_response
 router = APIRouter(prefix="/gaps", tags=["gapforge-gaps"])
 
 
+def _parse_discern(raw: str | None) -> dict | None:
+    if not raw:
+        return None
+    try:
+        val = json.loads(raw)
+        return val if isinstance(val, dict) else None
+    except json.JSONDecodeError:
+        return None
+
+
 def _hyp_summary(node: dict, program_id: str | None = None) -> GapHypothesisSummary:
     return GapHypothesisSummary(
         id=node["id"],
@@ -43,6 +53,7 @@ def _hyp_summary(node: dict, program_id: str | None = None) -> GapHypothesisSumm
         provenance_hash=node.get("provenance_hash"),
         critic_notes=node.get("critic_notes"),
         literature_refs=parse_json_list(node.get("literature_refs_json")),
+        discern=_parse_discern(node.get("discern_json")),
     )
 
 

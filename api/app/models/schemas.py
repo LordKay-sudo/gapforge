@@ -226,6 +226,7 @@ class GapHypothesisSummary(BaseModel):
     provenance_hash: str | None = None
     critic_notes: str | None = None
     literature_refs: list = Field(default_factory=list)
+    discern: dict | None = None
 
 
 class GapHypothesisDetail(GapHypothesisSummary):

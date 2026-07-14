@@ -4,19 +4,19 @@
 
 | Field | Value |
 |-------|--------|
-| **Data version** | `opentargets-24.06-frozen-slice-v2+gapforge-flurizan` |
+| **Data version** | `opentargets-24.06-frozen-slice-v2+gapforge-flurizan+astegolimab` |
 | **Release date** | 2024-06-01 |
-| **Scope** | Frozen slice: 500 genes, ~3,000 disease–target associations with decomposed evidence; plus GapForge Flurizan educational case study |
+| **Scope** | Frozen slice: 500 genes, ~3,000 disease–target associations with decomposed evidence; plus GapForge educational case studies (Flurizan AD, Astegolimab COPD) |
 | **Inspiration** | [Open Targets Platform](https://platform.opentargets.org/) association + evidence model |
 
 ## GapForge case studies
 
 | Field | Value |
 |-------|--------|
-| **Seed file** | `data/gapforge/flurizan_case.json` |
+| **Seed files** | `data/gapforge/*.json` (Flurizan + Astegolimab) |
 | **Loader** | `scripts/seed_gapforge.py` (also invoked at end of `seed_neo4j.py`) |
 | **Framing** | Historical educational hypotheses — not clinical advice |
-| **Public refs** | ClinicalTrials.gov; PMC translational literature on Flurizan |
+| **Public refs** | ClinicalTrials.gov; PMC / public trial-design discussion |
 
 ## Bulk ingest source (production path)
 

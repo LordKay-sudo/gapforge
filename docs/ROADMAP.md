@@ -86,9 +86,11 @@ BioInsight’s target–disease graph comes from **bulk public ingest**, not sch
 | ✓ **G0** | [GAPFORGE.md](./GAPFORGE.md) — COU, risk tiers L0–L3, taxonomy, non-goals | Design doc merged |
 | ✓ **G1** | Neo4j Program/Drug/Trial/GapHypothesis/Review + PROV edges | `init.cypher` + ontology docs |
 | ✓ **G2** | Flurizan educational case seed | `data/gapforge/flurizan_case.json` + `seed_gapforge.py` |
+| ✓ **G2b** | Astegolimab COPD educational case (Phase 2b→3 miss) | `astegolimab_case.json`; seed loads all `data/gapforge/*.json` |
 | ✓ **G3** | API: programs, gaps, critic, reviews, review-bundle | `/api/v1/programs`, `/gaps`, `/reviews` |
 | ✓ **G4** | UI: `/programs`, `/program/:id`, `/gaps/review` | HITL queue ships |
 | ✓ **G5** | embabel-mcp GapForge tools + `research_program_gaps` | plan/dossier/propose/critic/export |
+| ✓ **G6** | Discern I/O weighing + HITL gate in UI | `docs/DISCERN.md`, `/api/v1/discern`, review-queue panel |
 
 Companion data plane: kg-rag ClinicalTrials + PeerLens filter ([kg-rag docs](https://github.com/LordKay-sudo/kg-rag-demo/blob/main/docs/GAPFORGE_DATA_PLANE.md)).
 
