@@ -74,7 +74,9 @@ def test_list_programs(mock_get_session):
 @patch("app.routers.reviews.get_session")
 def test_review_decision_validation(mock_get_session):
     session = MagicMock()
-    session.run.return_value.single.return_value = {"id": "gap-x"}
+    session.run.return_value.single.return_value = {
+        "g": {"id": "gap-x", "discern_json": None},
+    }
     mock_get_session.return_value.__enter__.return_value = session
     mock_get_session.return_value.__exit__.return_value = False
     r = client.post(
@@ -85,6 +87,26 @@ def test_review_decision_validation(mock_get_session):
     body = r.json()
     assert body["status"] == "approved"
     assert body["cou"] == COU
+
+
+@patch("app.routers.reviews.get_session")
+def test_review_approve_blocked_by_discern(mock_get_session):
+    session = MagicMock()
+    session.run.return_value.single.return_value = {
+        "g": {
+            "id": "gap-x",
+            "discern_json": '{"action": "block", "overall": "hard_fail"}',
+        },
+    }
+    mock_get_session.return_value.__enter__.return_value = session
+    mock_get_session.return_value.__exit__.return_value = False
+    r = client.post(
+        "/api/v1/reviews/gap-x",
+        json={"decision": "approve", "reviewer": "tester", "notes": "ok"},
+    )
+    assert r.status_code == 422
+    detail = r.json()["detail"]
+    assert "block" in detail["message"].lower()
 
 
 def test_review_invalid_decision():
