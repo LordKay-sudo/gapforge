@@ -218,6 +218,14 @@ export const api = {
       if (!res.ok) throw new Error(await res.text());
       return res.json() as Promise<CriticResponse>;
     }),
+  runGapDiscern: (id: string) =>
+    fetch(`${API_BASE}/api/v1/gaps/${encodeURIComponent(id)}/discern`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }).then(async (res) => {
+      if (!res.ok) throw new Error(await res.text());
+      return res.json() as Promise<DiscernResult>;
+    }),
   reviewQueue: (status = "needs_review") =>
     fetchJson<ReviewQueueItem[]>(
       `/api/v1/reviews/queue?status=${encodeURIComponent(status)}`

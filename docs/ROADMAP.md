@@ -91,6 +91,7 @@ BioInsight’s target–disease graph comes from **bulk public ingest**, not sch
 | ✓ **G4** | UI: `/programs`, `/program/:id`, `/gaps/review` | HITL queue ships |
 | ✓ **G5** | embabel-mcp GapForge tools + `research_program_gaps` | plan/dossier/propose/critic/export |
 | ✓ **G6** | Discern I/O weighing + HITL gate in UI | `docs/DISCERN.md`, `/api/v1/discern`, review-queue panel |
+| ✓ **G7** | Persist Discern on gap nodes for approve gate | `POST /gaps/{id}/discern` stores `discern_json`; UI + MCP |
 
 Companion data plane: kg-rag ClinicalTrials + PeerLens filter ([kg-rag docs](https://github.com/LordKay-sudo/kg-rag-demo/blob/main/docs/GAPFORGE_DATA_PLANE.md)).
 

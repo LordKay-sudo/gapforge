@@ -109,6 +109,39 @@ def test_review_approve_blocked_by_discern(mock_get_session):
     assert "block" in detail["message"].lower()
 
 
+@patch("app.routers.gaps.get_session")
+def test_run_gap_discern_persists(mock_get_session):
+    session = MagicMock()
+    session.run.return_value.single.return_value = {
+        "g": {
+            "id": "gap-x",
+            "claim": "Endpoint sensitivity may have been insufficient in the mild AD cohort.",
+            "confidence": 0.55,
+            "gap_class": "endpoint",
+            "risk_tier": "L2",
+            "cou": COU,
+            "insufficient_evidence": False,
+            "provenance_hash": "abc123",
+            "literature_refs_json": '[{"title": "PMC", "url": "https://pmc.ncbi.nlm.nih.gov/"}]',
+            "suggested_experiment": "Re-analyse endpoint sensitivity",
+            "critic_notes": None,
+        },
+        "program_id": "prog-flurizan-ad",
+    }
+    mock_get_session.return_value.__enter__.return_value = session
+    mock_get_session.return_value.__exit__.return_value = False
+    r = client.post("/api/v1/gaps/gap-x/discern")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["action"] in ("allow", "require_hitl", "block")
+    assert body["risk_tier"] == "L2"
+    # Second session.run persists discern_json
+    assert session.run.call_count >= 2
+    persist_kwargs = session.run.call_args_list[-1].kwargs
+    assert "discern_json" in persist_kwargs
+    assert '"action"' in persist_kwargs["discern_json"]
+
+
 def test_review_invalid_decision():
     r = client.post("/api/v1/reviews/gap-x", json={"decision": "maybe"})
     assert r.status_code == 400

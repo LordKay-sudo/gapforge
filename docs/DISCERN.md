@@ -7,8 +7,8 @@ Discern **scores and gates**; it does **not** replace human approval for L2 team
 | Field | Value |
 |-------|--------|
 | Policy version | `gapforge-discern-v1` |
-| API | `POST /api/v1/discern`, `GET /api/v1/discern/policy` |
-| MCP | `discern_artifact` |
+| API | `POST /api/v1/discern`, `GET /api/v1/discern/policy`, `POST /api/v1/gaps/{id}/discern` |
+| MCP | `discern_artifact`, `run_gap_discern` |
 
 ## Overall / action
 
@@ -52,9 +52,10 @@ curl -s -X POST http://localhost:8000/api/v1/discern \
 ## Integration
 
 - `POST /gaps/propose` — runs Discern first; **blocks** on `hard_fail`; stores `discern_json` on the node
+- `POST /gaps/{id}/discern` — scores a stored gap and **persists** `discern_json` (approve gate source of truth)
 - `POST /gaps/{id}/critic` — attaches Discern result after critic notes
 - `POST /reviews/{id}` — **rejects approve** with 422 when stored Discern `action` is `block`
 - UI: review queue **Discern** panel + Approve disabled on `block`; program gap cards show last score
-- MCP `discern_artifact` — same contract for agents
+- MCP `discern_artifact` / `run_gap_discern` — same contract for agents
 
 See [GAPFORGE.md](./GAPFORGE.md) risk tiers.

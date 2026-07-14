@@ -61,20 +61,10 @@ export default function GapReviewQueue() {
     setBusy(gap.id + "discern");
     setError(null);
     try {
-      const result = await api.discern({
-        artifact_type: "gap_hypothesis",
-        risk_tier: gap.risk_tier || "L2",
-        input: { program_id: item.program_id, gap_id: gap.id },
-        output: {
-          claim: gap.claim,
-          gap_class: gap.gap_class,
-          confidence: gap.confidence,
-          literature_refs: gap.literature_refs,
-          suggested_experiment: gap.suggested_experiment,
-        },
-      });
+      const result = await api.runGapDiscern(gap.id);
       setLiveDiscern((prev) => ({ ...prev, [gap.id]: result }));
-      setMessage(`Discern: ${result.action} (overall ${result.overall})`);
+      setMessage(`Discern: ${result.action} (overall ${result.overall}) — saved for approve gate`);
+      reload();
     } catch (e) {
       setError(e instanceof Error ? e.message : String(e));
     } finally {

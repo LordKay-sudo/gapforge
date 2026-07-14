@@ -18,6 +18,7 @@ from app.gapforge import (
 from app.models.schemas import (
     CriticRequest,
     CriticResponse,
+    DiscernResponse,
     GapHypothesisDetail,
     GapHypothesisSummary,
     ProposeGapsRequest,
@@ -242,6 +243,54 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
         cou=COU,
         discern=to_response(discern_raw).model_dump(),
     )
+
+
+def _gap_discern_payload(g: dict) -> dict:
+    return {
+        "claim": g.get("claim") or "",
+        "confidence": float(g.get("confidence") or 0),
+        "gap_class": g.get("gap_class"),
+        "critic_notes": g.get("critic_notes"),
+        "insufficient_evidence": bool(g.get("insufficient_evidence")),
+        "provenance_hash": g.get("provenance_hash"),
+        "literature_refs": parse_json_list(g.get("literature_refs_json")),
+        "suggested_experiment": g.get("suggested_experiment"),
+    }
+
+
+@router.post("/{gap_id}/discern", response_model=DiscernResponse)
+def run_gap_discern(gap_id: str) -> DiscernResponse:
+    """Run Discern on a stored gap hypothesis and persist discern_json for HITL gating."""
+    with get_session() as session:
+        row = session.run(
+            """
+            MATCH (g:GapHypothesis {id: $id})
+            OPTIONAL MATCH (g)-[:ABOUT]->(p:Program)
+            RETURN g, p.id AS program_id
+            """,
+            id=gap_id,
+        ).single()
+        if not row:
+            raise HTTPException(status_code=404, detail=f"Gap hypothesis not found: {gap_id}")
+
+        g = dict(row["g"])
+        payload = _gap_discern_payload(g)
+        payload["program_id"] = row["program_id"]
+        discern_raw = discern(
+            artifact_type="gap_hypothesis",
+            risk_tier=g.get("risk_tier") or "L2",
+            cou=g.get("cou") or COU,
+            output_payload=payload,
+        )
+        session.run(
+            """
+            MATCH (g:GapHypothesis {id: $id})
+            SET g.discern_json = $discern_json
+            """,
+            id=gap_id,
+            discern_json=json.dumps(discern_raw),
+        )
+    return to_response(discern_raw)
 
 
 @router.post("/{gap_id}/critic", response_model=CriticResponse)

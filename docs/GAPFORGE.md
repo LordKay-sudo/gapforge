@@ -129,9 +129,9 @@ Default MCP mode: propose-only. UI review queue is ground truth (see [HUMAN_IN_T
 
 ---
 
-## Seeded case study (MVP)
+## Seeded case studies (MVP)
 
-**Flurizan (tarenflurbil) — Alzheimer's disease**
+### Flurizan (tarenflurbil) — Alzheimer's disease
 
 | Field | Value |
 |-------|--------|
@@ -142,7 +142,21 @@ Default MCP mode: propose-only. UI review queue is ground truth (see [HUMAN_IN_T
 | Exemplar trial | NCT00105547-style Phase 3 efficacy miss (curated summary) |
 | Gap themes | `endpoint`, `biomarker`, `efficacy` / target engagement |
 
-See `data/gapforge/flurizan_case.json` and [HUMAN_IN_THE_LOOP.md](./HUMAN_IN_THE_LOOP.md) GapForge section.
+Seed: `data/gapforge/flurizan_case.json`
+
+### Astegolimab — COPD (Phase 2b signal / Phase 3 miss)
+
+| Field | Value |
+|-------|--------|
+| Program id | `prog-astegolimab-copd` |
+| Public framing | Educational case on biomarker-agnostic enrollment and Phase 2→3 divergence |
+| Indication | Chronic obstructive pulmonary disease (`EFO_0000341` when present in graph) |
+| Exemplar trials | ALIENTO (Phase 2b met) / ARNASA (Phase 3 miss) — curated summaries |
+| Gap themes | `biomarker`, `endpoint`, `efficacy` |
+
+Seed: `data/gapforge/astegolimab_case.json`
+
+All `data/gapforge/*.json` files load via `scripts/seed_gapforge.py`. See [HUMAN_IN_THE_LOOP.md](./HUMAN_IN_THE_LOOP.md).
 
 ---
 
@@ -175,9 +189,9 @@ Aligned with FDA/EMA **Guiding Principles of Good AI Practice in Drug Developmen
 | Design (this doc) | `docs/GAPFORGE.md` |
 | Constraints | `scripts/neo4j/init.cypher` |
 | Seed | `scripts/seed_gapforge.py` + `data/gapforge/` |
-| API | `api/app/routers/programs.py`, `gaps.py`, `reviews.py` |
+| API | `api/app/routers/programs.py`, `gaps.py`, `reviews.py`, `discern.py` |
 | UI | `/programs`, `/program/:id`, `/gaps/review` |
-| MCP | `BioInsightGapMcpTools.java` |
+| MCP | `BioInsightGapMcpTools.java` (`run_gap_discern`, …) |
 | Literature | kg-rag ClinicalTrials + Europe PMC corpora; PeerLens pre-filter |
 
 ---
