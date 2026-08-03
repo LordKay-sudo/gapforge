@@ -12,3 +12,13 @@ services:
       timeout: 5s
       retries: 6
       start_period: 15s
+
+  api:
+    environment:
+      ONTOHARNESS_ENABLED: "true"
+      ONTOHARNESS_BASE_URL: http://ontoharness:8010
+      ONTOHARNESS_DOMAIN: biomedical
+      ONTOHARNESS_FAIL_OPEN: "false"
+    depends_on:
+      ontoharness:
+        condition: service_healthy

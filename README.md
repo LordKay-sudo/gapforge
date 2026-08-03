@@ -69,11 +69,22 @@ Workflow:
 
 1. Open **GapForge** → pick a program  
 2. Inspect trials, taxonomy, and L2 hypothesis cards  
-3. Open **Review** → run **Discern** / critic → approve / reject / request more  
+3. Open **Review** → run **Discern** / **OntoHarness** → approve / reject / request more  
 4. Export review bundle — only **approved** cards become team conclusions  
 
 Seed data: [`data/gapforge/`](data/gapforge/) (all `*.json` cases load via `scripts/seed_gapforge.py`)  
 Discern: [docs/DISCERN.md](docs/DISCERN.md)
+
+### OntoHarness semantic gate (optional)
+
+GapForge projects each L2 hypothesis (Neo4j records → Turtle) and validates via [OntoHarness](https://github.com/LordKay-sudo/ontoharness) before propose/approve. Failures block HITL approval and show repair hints in the review UI (same panel pattern as Discern).
+
+```bash
+# Stack + OntoHarness sidecar (strict: fail closed if sidecar unreachable)
+docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up --build
+```
+
+Local API without Docker: set `ONTOHARNESS_ENABLED=true` in `.env` and run OntoHarness on `:8010`.
 
 ---
 
@@ -113,6 +124,7 @@ GapForge is the **product name** for this repo. Related open components:
 |------------|------|
 | **[gapforge](https://github.com/LordKay-sudo/gapforge)** (this repo) | Graph + GapForge API/UI + Flurizan case study |
 | [kg-rag-demo](https://github.com/LordKay-sudo/kg-rag-demo) | Citation-grounded literature / ClinicalTrials RAG |
+| [ontoharness](https://github.com/LordKay-sudo/ontoharness) | SHACL + vocab gate sidecar (L2 semantic validation) |
 | [embabel-mcp](https://github.com/LordKay-sudo/embabel-mcp) | MCP tools + `research_program_gaps` agent |
 | [peerlens](https://github.com/LordKay-sudo/peerlens) | Paper quality signals (retraction / concern filter) |
 | [bioinsight-graph](https://github.com/LordKay-sudo/bioinsight-graph) | Upstream disease–target graph lineage |
@@ -131,6 +143,7 @@ Docs: [docs/ECOSYSTEM.md](docs/ECOSYSTEM.md) · MCP tools: `plan_gap_investigati
 | `POST` | `/api/v1/gaps/{id}/critic` | Adversarial critic |
 | `POST` | `/api/v1/discern` | Universal I/O weigh (compliance / reliability / …) |
 | `GET` | `/api/v1/discern/policy` | Active thresholds by risk tier |
+| `POST` | `/api/v1/gaps/{id}/ontology-validate` | Re-run OntoHarness SHACL + vocab gate |
 | `GET` | `/api/v1/reviews/queue` | HITL queue |
 | `POST` | `/api/v1/reviews/{gap_id}` | approve / reject / request_more |
 | `GET` | `/api/v1/export/review-bundle` | Provenance export |
