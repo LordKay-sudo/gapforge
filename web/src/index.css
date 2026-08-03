@@ -843,6 +843,25 @@ tr:last-child td {
   color: var(--gene);
 }
 
+.ontology-panel {
+  border-color: rgba(129, 140, 248, 0.35);
+}
+
+.ontology-action-pass {
+  background: rgba(52, 211, 153, 0.15);
+  color: var(--gene);
+}
+
+.ontology-action-fail {
+  background: rgba(248, 113, 113, 0.2);
+  color: var(--danger);
+}
+
+.ontology-action-skipped {
+  background: rgba(148, 163, 184, 0.15);
+  color: var(--muted);
+}
+
 .discern-sev-hard,
 .discern-sev-error {
   color: var(--danger);

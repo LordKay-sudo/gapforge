@@ -42,6 +42,16 @@ def _parse_discern(raw: str | None) -> dict | None:
         return None
 
 
+def _parse_ontology_validation(raw: str | None) -> dict | None:
+    if not raw:
+        return None
+    try:
+        val = json.loads(raw)
+        return val if isinstance(val, dict) else None
+    except json.JSONDecodeError:
+        return None
+
+
 def _hyp_summary(node: dict, program_id: str | None = None) -> GapHypothesisSummary:
     return GapHypothesisSummary(
         id=node["id"],
@@ -57,6 +67,7 @@ def _hyp_summary(node: dict, program_id: str | None = None) -> GapHypothesisSumm
         critic_notes=node.get("critic_notes"),
         literature_refs=parse_json_list(node.get("literature_refs_json")),
         discern=_parse_discern(node.get("discern_json")),
+        ontology_validation=_parse_ontology_validation(node.get("ontology_validation_json")),
     )
 
 
@@ -320,6 +331,39 @@ def run_gap_discern(gap_id: str) -> DiscernResponse:
             discern_json=json.dumps(discern_raw),
         )
     return to_response(discern_raw)
+
+
+@router.post("/{gap_id}/ontology-validate")
+def run_gap_ontology_validate(gap_id: str) -> dict:
+    """Re-run OntoHarness semantic validation and persist ontology_validation_json for HITL."""
+    with get_session() as session:
+        row = session.run(
+            """
+            MATCH (g:GapHypothesis {id: $id})-[:ABOUT]->(p:Program)
+            OPTIONAL MATCH (p)-[:FOR_INDICATION]->(d:Disease)
+            OPTIONAL MATCH (g)-[:SUPPORTED_BY]->(gene:Gene)
+            RETURN g,
+                   collect(DISTINCT {id: gene.id, symbol: gene.symbol}) AS genes,
+                   CASE WHEN d IS NULL THEN null ELSE {id: d.id, name: d.name} END AS disease
+            """,
+            id=gap_id,
+        ).single()
+        if not row:
+            raise HTTPException(status_code=404, detail=f"Gap hypothesis not found: {gap_id}")
+
+        g = dict(row["g"])
+        genes = [x for x in (row["genes"] or []) if x and x.get("id")]
+        disease = row["disease"]
+        ontology_result = validate_gap_hypothesis(g, genes, disease)
+        session.run(
+            """
+            MATCH (g:GapHypothesis {id: $id})
+            SET g.ontology_validation_json = $ontology_validation_json
+            """,
+            id=gap_id,
+            ontology_validation_json=persist_validation_json(ontology_result),
+        )
+    return ontology_result
 
 
 @router.post("/{gap_id}/critic", response_model=CriticResponse)

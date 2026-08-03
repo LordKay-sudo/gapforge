@@ -37,6 +37,37 @@ def test_review_approve_blocked_by_ontoharness(mock_get_session, mock_validate):
     assert "OntoHarness" in r.json()["detail"]["message"]
 
 
+@patch("app.routers.gaps.validate_gap_hypothesis")
+@patch("app.routers.gaps.get_session")
+def test_run_gap_ontology_validate_persists(mock_get_session, mock_validate):
+    session = MagicMock()
+    session.run.return_value.single.return_value = {
+        "g": {
+            "id": "gap-x",
+            "claim": "Endpoint sensitivity may have been insufficient.",
+            "confidence": 0.55,
+        },
+        "genes": [{"id": "ENSG1", "symbol": "BRCA1"}],
+        "disease": {"id": "MONDO_1", "name": "Alzheimer disease"},
+    }
+    mock_get_session.return_value.__enter__.return_value = session
+    mock_get_session.return_value.__exit__.return_value = False
+    mock_validate.return_value = {
+        "domain": "biomedical",
+        "conforms": True,
+        "vocab_violations": [],
+        "shacl_violations": [],
+        "repair_hints": [],
+    }
+
+    r = client.post("/api/v1/gaps/gap-x/ontology-validate")
+    assert r.status_code == 200
+    body = r.json()
+    assert body["conforms"] is True
+    persist_kwargs = session.run.call_args_list[-1].kwargs
+    assert "ontology_validation_json" in persist_kwargs
+
+
 def test_gap_hypothesis_rdf_includes_label():
     from app.ontology_rdf import gap_hypothesis_to_turtle
 

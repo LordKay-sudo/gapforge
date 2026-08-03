@@ -1,7 +1,15 @@
 import { useCallback, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { api, type DiscernResult, type ReviewQueueItem } from "../api/client";
+import {
+  api,
+  type DiscernResult,
+  type OntologyValidationResult,
+  type ReviewQueueItem,
+} from "../api/client";
 import DiscernPanel, { discernBlocksApprove } from "../components/DiscernPanel";
+import OntologyValidationPanel, {
+  ontologyBlocksApprove,
+} from "../components/OntologyValidationPanel";
 
 export default function GapReviewQueue() {
   const [items, setItems] = useState<ReviewQueueItem[]>([]);
@@ -11,6 +19,9 @@ export default function GapReviewQueue() {
   const [message, setMessage] = useState<string | null>(null);
   const [busy, setBusy] = useState<string | null>(null);
   const [liveDiscern, setLiveDiscern] = useState<Record<string, DiscernResult>>({});
+  const [liveOntology, setLiveOntology] = useState<Record<string, OntologyValidationResult>>(
+    {},
+  );
 
   const reload = useCallback(() => {
     api
@@ -72,6 +83,27 @@ export default function GapReviewQueue() {
     }
   }
 
+  async function runOntologyValidate(item: ReviewQueueItem) {
+    const gap = item.hypothesis;
+    setBusy(gap.id + "ontology");
+    setError(null);
+    try {
+      const result = await api.runGapOntologyValidate(gap.id);
+      setLiveOntology((prev) => ({ ...prev, [gap.id]: result }));
+      const label = result.skipped
+        ? "skipped (OntoHarness disabled)"
+        : result.conforms
+          ? "conforms"
+          : "failed";
+      setMessage(`OntoHarness: ${label} — saved for approve gate`);
+      reload();
+    } catch (e) {
+      setError(e instanceof Error ? e.message : String(e));
+    } finally {
+      setBusy(null);
+    }
+  }
+
   return (
     <div>
       <h1 className="page-title">GapForge review queue</h1>
@@ -81,7 +113,8 @@ export default function GapReviewQueue() {
 
       <div className="banner-cou">
         Approve only after checking the program page and dual-channel evidence. This is not clinical
-        decision support. Discern gates compliance language; it never auto-approves L2.
+        decision support. Discern gates compliance language; OntoHarness gates semantic graph
+        claims — neither auto-approves L2.
       </div>
 
       <div className="panel review-controls">
@@ -106,7 +139,11 @@ export default function GapReviewQueue() {
       <div className="card-list">
         {items.map((item) => {
           const discern = liveDiscern[item.hypothesis.id] ?? item.hypothesis.discern;
-          const blocked = discernBlocksApprove(discern);
+          const ontology =
+            liveOntology[item.hypothesis.id] ?? item.hypothesis.ontology_validation;
+          const blockedByDiscern = discernBlocksApprove(discern);
+          const blockedByOntology = ontologyBlocksApprove(ontology);
+          const blocked = blockedByDiscern || blockedByOntology;
           return (
             <article key={item.hypothesis.id} className="gap-card">
               <div className="program-card-header">
@@ -124,13 +161,19 @@ export default function GapReviewQueue() {
                 confidence {item.hypothesis.confidence.toFixed(2)}
                 {item.hypothesis.critic_notes ? ` · critic: ${item.hypothesis.critic_notes}` : ""}
               </p>
-              <DiscernPanel
-                discern={discern}
+              <DiscernPanel discern={discern} busy={!!busy} onRun={() => runDiscern(item)} />
+              <OntologyValidationPanel
+                validation={ontology}
                 busy={!!busy}
-                onRun={() => runDiscern(item)}
+                onRun={() => runOntologyValidate(item)}
               />
-              {blocked && (
+              {blockedByDiscern && (
                 <p className="error-text">Approve disabled — Discern action is block.</p>
+              )}
+              {blockedByOntology && (
+                <p className="error-text">
+                  Approve disabled — OntoHarness semantic validation failed.
+                </p>
               )}
               <div className="action-row">
                 <button

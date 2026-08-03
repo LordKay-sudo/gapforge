@@ -227,6 +227,7 @@ class GapHypothesisSummary(BaseModel):
     critic_notes: str | None = None
     literature_refs: list = Field(default_factory=list)
     discern: dict | None = None
+    ontology_validation: dict | None = None
 
 
 class GapHypothesisDetail(GapHypothesisSummary):

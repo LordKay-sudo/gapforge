@@ -148,6 +148,21 @@ export interface GeneExternalLinksResponse {
   links: ExternalLink[];
 }
 
+async function readApiError(res: Response): Promise<string> {
+  const text = await res.text();
+  try {
+    const parsed = JSON.parse(text) as { detail?: unknown };
+    const detail = parsed.detail;
+    if (typeof detail === "string") return detail;
+    if (detail && typeof detail === "object" && "message" in detail) {
+      return String((detail as { message: string }).message);
+    }
+  } catch {
+    /* plain text */
+  }
+  return text || `Request failed: ${res.status}`;
+}
+
 async function fetchJson<T>(path: string): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`);
   if (!res.ok) {
@@ -223,8 +238,16 @@ export const api = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     }).then(async (res) => {
-      if (!res.ok) throw new Error(await res.text());
+      if (!res.ok) throw new Error(await readApiError(res));
       return res.json() as Promise<DiscernResult>;
+    }),
+  runGapOntologyValidate: (id: string) =>
+    fetch(`${API_BASE}/api/v1/gaps/${encodeURIComponent(id)}/ontology-validate`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }).then(async (res) => {
+      if (!res.ok) throw new Error(await readApiError(res));
+      return res.json() as Promise<OntologyValidationResult>;
     }),
   reviewQueue: (status = "needs_review") =>
     fetchJson<ReviewQueueItem[]>(
@@ -236,7 +259,7 @@ export const api = {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ decision, reviewer, notes }),
     }).then(async (res) => {
-      if (!res.ok) throw new Error(await res.text());
+      if (!res.ok) throw new Error(await readApiError(res));
       return res.json() as Promise<ReviewDecisionResponse>;
     }),
   reviewBundleUrl: (programId: string) =>
@@ -315,6 +338,22 @@ export interface DiscernRequest {
   thresholds?: Record<string, number>;
 }
 
+export interface OntologyViolation {
+  term?: string;
+  term_kind?: string;
+  message: string;
+}
+
+export interface OntologyValidationResult {
+  domain?: string;
+  conforms: boolean;
+  skipped?: boolean;
+  reason?: string;
+  vocab_violations?: OntologyViolation[];
+  shacl_violations?: Array<{ message: string }>;
+  repair_hints?: string[];
+}
+
 export interface GapHypothesisSummary {
   id: string;
   gap_class: string;
@@ -329,6 +368,7 @@ export interface GapHypothesisSummary {
   critic_notes?: string | null;
   literature_refs: Array<{ title?: string; url?: string; note?: string }>;
   discern?: DiscernResult | null;
+  ontology_validation?: OntologyValidationResult | null;
 }
 
 export interface GapHypothesisDetail extends GapHypothesisSummary {
