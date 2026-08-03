@@ -10,6 +10,8 @@ from fastapi import APIRouter, HTTPException, Query
 from app import metadata
 from app.db import get_session
 from app.gapforge import COU, VALID_REVIEW_DECISIONS
+from app.ontoharness_client import blocks_approval
+from app.ontoharness_gate import validate_gap_hypothesis
 from app.models.schemas import (
     GapHypothesisSummary,
     ReviewBundle,
@@ -69,12 +71,23 @@ def decide_review(gap_id: str, body: ReviewDecisionRequest) -> ReviewDecisionRes
 
     with get_session() as session:
         row = session.run(
-            "MATCH (g:GapHypothesis {id: $id}) RETURN g", id=gap_id
+            """
+            MATCH (g:GapHypothesis {id: $id})-[:ABOUT]->(p:Program)
+            OPTIONAL MATCH (p)-[:FOR_INDICATION]->(d:Disease)
+            OPTIONAL MATCH (g)-[:SUPPORTED_BY]->(gene:Gene)
+            RETURN g,
+                   collect(DISTINCT {id: gene.id, symbol: gene.symbol}) AS genes,
+                   CASE WHEN d IS NULL THEN null ELSE {id: d.id, name: d.name} END AS disease
+            """,
+            id=gap_id,
         ).single()
         if not row:
             raise HTTPException(status_code=404, detail=f"Gap hypothesis not found: {gap_id}")
 
         g = dict(row["g"])
+        genes = [x for x in (row["genes"] or []) if x and x.get("id")]
+        disease = row["disease"]
+
         if body.decision == "approve":
             discern_raw = _parse_discern(g.get("discern_json"))
             if discern_raw and discern_raw.get("action") == "block":
@@ -83,6 +96,16 @@ def decide_review(gap_id: str, body: ReviewDecisionRequest) -> ReviewDecisionRes
                     detail={
                         "message": "Cannot approve — Discern action is block. Remediate claim language first.",
                         "discern": discern_raw,
+                    },
+                )
+
+            ontology_result = validate_gap_hypothesis(g, genes, disease)
+            if blocks_approval(ontology_result):
+                raise HTTPException(
+                    status_code=422,
+                    detail={
+                        "message": "Cannot approve — OntoHarness semantic validation failed.",
+                        "ontology_validation": ontology_result,
                     },
                 )
 

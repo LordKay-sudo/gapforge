@@ -75,7 +75,9 @@ def test_list_programs(mock_get_session):
 def test_review_decision_validation(mock_get_session):
     session = MagicMock()
     session.run.return_value.single.return_value = {
-        "g": {"id": "gap-x", "discern_json": None},
+        "g": {"id": "gap-x", "discern_json": None, "claim": "test", "confidence": 0.5},
+        "genes": [],
+        "disease": None,
     }
     mock_get_session.return_value.__enter__.return_value = session
     mock_get_session.return_value.__exit__.return_value = False
@@ -96,7 +98,11 @@ def test_review_approve_blocked_by_discern(mock_get_session):
         "g": {
             "id": "gap-x",
             "discern_json": '{"action": "block", "overall": "hard_fail"}',
+            "claim": "test",
+            "confidence": 0.5,
         },
+        "genes": [],
+        "disease": None,
     }
     mock_get_session.return_value.__enter__.return_value = session
     mock_get_session.return_value.__exit__.return_value = False

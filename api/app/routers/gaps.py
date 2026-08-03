@@ -15,6 +15,8 @@ from app.gapforge import (
     parse_json_list,
     provenance_hash,
 )
+from app.ontoharness_client import blocks_approval
+from app.ontoharness_gate import persist_validation_json, validate_gap_hypothesis
 from app.models.schemas import (
     CriticRequest,
     CriticResponse,
@@ -160,10 +162,35 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
 
     with get_session() as session:
         prog = session.run(
-            "MATCH (p:Program {id: $id}) RETURN p.id AS id", id=body.program_id
+            """
+            MATCH (p:Program {id: $id})
+            OPTIONAL MATCH (p)-[:FOR_INDICATION]->(d:Disease)
+            RETURN p.id AS id, CASE WHEN d IS NULL THEN null ELSE {id: d.id, name: d.name} END AS disease
+            """,
+            id=body.program_id,
         ).single()
         if not prog:
             raise HTTPException(status_code=404, detail=f"Program not found: {body.program_id}")
+
+        genes = [{"id": gid, "symbol": gid} for gid in body.supported_by_gene_ids]
+        ontology_result = validate_gap_hypothesis(
+            {
+                "id": body.id or "gap-draft",
+                "claim": body.claim,
+                "confidence": body.confidence,
+            },
+            genes,
+            prog["disease"],
+        )
+        if blocks_approval(ontology_result):
+            raise HTTPException(
+                status_code=422,
+                detail={
+                    "message": "OntoHarness semantic validation failed — fix structured claims before propose.",
+                    "ontology_validation": ontology_result,
+                },
+            )
+        ontology_json = persist_validation_json(ontology_result)
 
         gap_id = body.id or f"gap-{uuid.uuid4().hex[:12]}"
         refs_json = json.dumps([r.model_dump() for r in body.literature_refs])
@@ -191,7 +218,8 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
                 g.risk_tier = 'L2',
                 g.cou = $cou,
                 g.literature_refs_json = $literature_refs_json,
-                g.discern_json = $discern_json
+                g.discern_json = $discern_json,
+                g.ontology_validation_json = $ontology_validation_json
             WITH g
             MATCH (p:Program {id: $program_id})
             MERGE (g)-[:ABOUT]->(p)
@@ -207,6 +235,7 @@ def propose_gaps(body: ProposeGapsRequest) -> ProposeGapsResponse:
             cou=COU,
             literature_refs_json=refs_json,
             discern_json=json.dumps(discern_raw),
+            ontology_validation_json=ontology_json,
             program_id=body.program_id,
         )
         for tid in body.supported_by_trial_ids:

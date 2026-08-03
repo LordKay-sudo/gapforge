@@ -10,6 +10,12 @@ class Settings(BaseSettings):
     api_port: int = 8000
     cors_origins: str = "http://localhost:5173"
 
+    ontoharness_enabled: bool = False
+    ontoharness_base_url: str = "http://localhost:8010"
+    ontoharness_domain: str = "biomedical"
+    ontoharness_timeout_seconds: float = 10.0
+    ontoharness_fail_open: bool = True
+
     @property
     def cors_origin_list(self) -> list[str]:
         return [o.strip() for o in self.cors_origins.split(",") if o.strip()]
