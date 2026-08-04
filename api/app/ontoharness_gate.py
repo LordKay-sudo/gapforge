@@ -23,6 +23,8 @@ def validate_gap_hypothesis(
         confidence=float(gap.get("confidence") or 0),
         genes=genes,
         disease=disease,
+        gap_class=gap.get("gap_class"),
+        provenance_hash=gap.get("provenance_hash"),
     )
     result = validate_turtle(turtle)
     result["turtle_preview"] = turtle

@@ -12,6 +12,7 @@ from app.db import get_session
 from app.gapforge import COU, VALID_REVIEW_DECISIONS
 from app.ontoharness_client import blocks_approval
 from app.ontoharness_gate import validate_gap_hypothesis
+from app.ontology_rdf import gap_hypothesis_to_turtle
 from app.models.schemas import (
     GapHypothesisSummary,
     ReviewBundle,
@@ -87,6 +88,7 @@ def decide_review(gap_id: str, body: ReviewDecisionRequest) -> ReviewDecisionRes
         g = dict(row["g"])
         genes = [x for x in (row["genes"] or []) if x and x.get("id")]
         disease = row["disease"]
+        approved_rdf: str | None = None
 
         if body.decision == "approve":
             discern_raw = _parse_discern(g.get("discern_json"))
@@ -109,10 +111,22 @@ def decide_review(gap_id: str, body: ReviewDecisionRequest) -> ReviewDecisionRes
                     },
                 )
 
+            approved_rdf = gap_hypothesis_to_turtle(
+                gap_id=gap_id,
+                claim=g.get("claim") or "",
+                confidence=float(g.get("confidence") or 0),
+                genes=genes,
+                disease=disease,
+                gap_class=g.get("gap_class"),
+                approved_at=decided_at,
+                provenance_hash=g.get("provenance_hash"),
+            )
+
         session.run(
             """
             MATCH (g:GapHypothesis {id: $gap_id})
-            SET g.status = $status
+            SET g.status = $status,
+                g.approved_rdf_turtle = CASE WHEN $approved_rdf IS NULL THEN g.approved_rdf_turtle ELSE $approved_rdf END
             MERGE (r:Review {id: $review_id})
             SET r.decision = $decision,
                 r.reviewer = $reviewer,
@@ -127,6 +141,7 @@ def decide_review(gap_id: str, body: ReviewDecisionRequest) -> ReviewDecisionRes
             reviewer=body.reviewer or "anonymous",
             notes=body.notes or "",
             decided_at=decided_at,
+            approved_rdf=approved_rdf if body.decision == "approve" else None,
         )
 
     return ReviewDecisionResponse(

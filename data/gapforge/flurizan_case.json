@@ -96,7 +96,22 @@
           "url": "https://clinicaltrials.gov/search?term=tarenflurbil",
           "note": "Registry context for completed efficacy studies"
         }
-      ]
+      ],
+      "ontology_validation_demo": {
+        "domain": "biomedical",
+        "conforms": false,
+        "vocab_violations": [
+          {
+            "term": "https://ontoharness.dev/biomedical#hasTherapeuticTarget",
+            "term_kind": "property",
+            "message": "Undeclared property in policed namespace: https://ontoharness.dev/biomedical#hasTherapeuticTarget"
+          }
+        ],
+        "shacl_violations": [],
+        "repair_hints": [
+          "Remove or replace undeclared predicate `https://ontoharness.dev/biomedical#hasTherapeuticTarget` with a property declared in the domain ontology."
+        ]
+      }
     }
   ],
   "taxonomy_seed": {

@@ -196,6 +196,15 @@ def seed_case(session, data: dict) -> None:
             gap_id=hyp["id"],
             program_id=program["id"],
         )
+        if hyp.get("ontology_validation_demo"):
+            session.run(
+                """
+                MATCH (g:GapHypothesis {id: $gap_id})
+                SET g.ontology_validation_json = $json
+                """,
+                gap_id=hyp["id"],
+                json=json.dumps(hyp["ontology_validation_demo"]),
+            )
         for tid in hyp.get("supported_by_trials", []):
             session.run(
                 """

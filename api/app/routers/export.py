@@ -140,3 +140,100 @@ def export_gene_report(
         "columns": GENE_REPORT_COLUMNS,
         "associations": rows,
     }
+
+
+@router.get("/approved-rdf")
+def export_approved_rdf(
+    program_id: str | None = Query(None, description="Filter by program id"),
+    gap_id: str | None = Query(None, description="Single approved gap"),
+) -> PlainTextResponse:
+    """Export SHACL-validated Turtle snapshots written at HITL approval time."""
+    from app.ontology_rdf import gap_hypothesis_to_turtle, merge_turtle_documents
+
+    with get_session() as session:
+        if gap_id:
+            row = session.run(
+                """
+                MATCH (g:GapHypothesis {id: $id})
+                WHERE g.status = 'approved'
+                OPTIONAL MATCH (g)-[:ABOUT]->(p:Program)
+                OPTIONAL MATCH (p)-[:FOR_INDICATION]->(d:Disease)
+                OPTIONAL MATCH (g)-[:SUPPORTED_BY]->(gene:Gene)
+                RETURN g,
+                       collect(DISTINCT {id: gene.id, symbol: gene.symbol}) AS genes,
+                       CASE WHEN d IS NULL THEN null ELSE {id: d.id, name: d.name} END AS disease
+                """,
+                id=gap_id,
+            ).single()
+            if not row:
+                raise HTTPException(
+                    status_code=404,
+                    detail="Approved gap not found (must have status=approved)",
+                )
+            g = dict(row["g"])
+            stored = g.get("approved_rdf_turtle")
+            if stored:
+                turtle = stored
+            else:
+                genes = [x for x in (row["genes"] or []) if x and x.get("id")]
+                turtle = gap_hypothesis_to_turtle(
+                    gap_id=gap_id,
+                    claim=g.get("claim") or "",
+                    confidence=float(g.get("confidence") or 0),
+                    genes=genes,
+                    disease=row["disease"],
+                    gap_class=g.get("gap_class"),
+                    provenance_hash=g.get("provenance_hash"),
+                )
+            filename = f"{gap_id}-approved.ttl"
+            return PlainTextResponse(
+                content=turtle,
+                media_type="text/turtle",
+                headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+            )
+
+        if not program_id:
+            raise HTTPException(status_code=400, detail="Provide gap_id and/or program_id")
+
+        rows = session.run(
+            """
+            MATCH (g:GapHypothesis {status: 'approved'})-[:ABOUT]->(p:Program {id: $program_id})
+            OPTIONAL MATCH (p)-[:FOR_INDICATION]->(d:Disease)
+            OPTIONAL MATCH (g)-[:SUPPORTED_BY]->(gene:Gene)
+            RETURN g,
+                   collect(DISTINCT {id: gene.id, symbol: gene.symbol}) AS genes,
+                   CASE WHEN d IS NULL THEN null ELSE {id: d.id, name: d.name} END AS disease
+            ORDER BY g.confidence DESC
+            """,
+            program_id=program_id,
+        )
+        chunks: list[str] = []
+        for row in rows:
+            g = dict(row["g"])
+            stored = g.get("approved_rdf_turtle")
+            if stored:
+                chunks.append(stored)
+                continue
+            genes = [x for x in (row["genes"] or []) if x and x.get("id")]
+            chunks.append(
+                gap_hypothesis_to_turtle(
+                    gap_id=g["id"],
+                    claim=g.get("claim") or "",
+                    confidence=float(g.get("confidence") or 0),
+                    genes=genes,
+                    disease=row["disease"],
+                    gap_class=g.get("gap_class"),
+                    provenance_hash=g.get("provenance_hash"),
+                )
+            )
+
+    if not chunks:
+        raise HTTPException(status_code=404, detail="No approved gaps for export")
+
+    merged = merge_turtle_documents(chunks)
+    filename = f"{program_id}-approved-gaps.ttl"
+    return PlainTextResponse(
+        content=merged,
+        media_type="text/turtle",
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )
