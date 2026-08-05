@@ -1,0 +1,31 @@
+# Full stack: GapForge + OntoHarness + Embabel MCP
+#
+# Sibling repos (clone next to gapforge):
+#   ../ontoharness   https://github.com/LordKay-sudo/ontoharness
+#   ../embabel-mcp   https://github.com/LordKay-sudo/embabel-mcp
+#
+# Setup:
+#   cp .env.example .env
+#   # Set OPENAI_API_KEY in .env (OpenRouter or OpenAI)
+#
+# Run:
+#   docker compose -f docker-compose.full.yml up --build
+#
+# Or:  ./scripts/up-full-stack.sh   (Unix)
+#      .\scripts\up-full-stack.ps1   (Windows)
+
+include:
+  - docker-compose.yml
+  - docker-compose.ontoharness.yml
+  - docker-compose.mcp.yml
+
+services:
+  mcp:
+    environment:
+      ONTOHARNESS_ENABLED: "true"
+      ONTOHARNESS_API_BASE_URL: http://ontoharness:8010
+      ONTOHARNESS_DEFAULT_DOMAIN: biomedical
+      BIOINSIGHT_WEB_UI_URL: http://localhost:8080
+    depends_on:
+      ontoharness:
+        condition: service_healthy

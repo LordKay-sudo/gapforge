@@ -10,6 +10,24 @@ One document to run the whole BioInsight Graph stack (roadmap 4.3).
 | `seed`  | `Dockerfile.seed` | — (runs once, exits) | Builds the frozen slice + loads it into Neo4j, then completes |
 | `api`   | `api/Dockerfile` (FastAPI/uvicorn) | `8000` | REST API at `/api/v1`, OpenAPI at `/docs` |
 | `web`   | `web/Dockerfile` (Vite build → nginx) | `8080` → container `80` | React UI |
+| `ontoharness` | `../ontoharness/Dockerfile` | `8010` | SHACL + vocab gate sidecar (optional overlay) |
+| `mcp`   | `../embabel-mcp/Dockerfile` | `1337` | Embabel MCP SSE (optional overlay) |
+
+## Full stack (GapForge + OntoHarness + MCP)
+
+Clone sibling repos, set `OPENAI_API_KEY` in `.env`, then:
+
+```bash
+docker compose -f docker-compose.full.yml up --build
+```
+
+See [ONTOHARNESS_DEMO.md](./ONTOHARNESS_DEMO.md) for the agent → HITL → RDF export walkthrough.
+
+| URL | Role |
+|-----|------|
+| http://localhost:8080/gaps/review | HITL review queue |
+| http://localhost:8010/docs | OntoHarness validate API |
+| http://localhost:1337/sse | MCP server (Cursor / Inspector) |
 
 ## Startup order
 
@@ -18,8 +36,10 @@ One document to run the whole BioInsight Graph stack (roadmap 4.3).
 ```
 neo4j  (healthy)
   └─> seed  (runs to completion)
-        └─> api  (healthy)
-              └─> web
+        └─> ontoharness  (healthy, full-stack overlay only)
+              └─> api  (healthy)
+                    ├─> web
+                    └─> mcp  (full-stack / mcp overlay only)
 ```
 
 1. **neo4j** starts and reports healthy (`wget` against `:7474`).
@@ -91,4 +111,5 @@ See [PROVENANCE.md](../PROVENANCE.md) for licence (CC0 1.0). The frozen slice re
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — component diagram and request flow
 - [ONTOLOGY_SCHEMA.md](./ONTOLOGY_SCHEMA.md) — entity/relation/ID model
 - [BENCHMARKS.md](./BENCHMARKS.md) — graph size and latency numbers
+- [ONTOHARNESS_DEMO.md](./ONTOHARNESS_DEMO.md) — full stack + agent/HITL/RDF walkthrough
 - [notebooks/one_gene_exploration.ipynb](../notebooks/one_gene_exploration.ipynb) — one-gene tutorial (roadmap 4.4)

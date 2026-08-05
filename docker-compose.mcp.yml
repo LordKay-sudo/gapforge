@@ -3,6 +3,9 @@
 #
 #   docker compose -f docker-compose.yml -f docker-compose.mcp.yml up --build
 #
+# Full stack (GapForge + OntoHarness + MCP):
+#   docker compose -f docker-compose.full.yml up --build
+#
 # MCP SSE: http://localhost:1337/sse
 
 services:

@@ -80,11 +80,19 @@ Discern: [docs/DISCERN.md](docs/DISCERN.md)
 GapForge projects each L2 hypothesis (Neo4j records → Turtle) and validates via [OntoHarness](https://github.com/LordKay-sudo/ontoharness) before propose/approve. Failures block HITL approval and show repair hints in the review UI (same panel pattern as Discern).
 
 ```bash
-# Stack + OntoHarness sidecar (strict: fail closed if sidecar unreachable)
-docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up --build
+# Full stack: GapForge + OntoHarness + Embabel MCP (clone ../ontoharness and ../embabel-mcp)
+cp .env.example .env   # set OPENAI_API_KEY
+docker compose -f docker-compose.full.yml up --build
+# or: .\scripts\up-full-stack.ps1
 ```
 
-Local API without Docker: set `ONTOHARNESS_ENABLED=true` in `.env` and run OntoHarness on `:8010`.
+Walkthrough: [docs/ONTOHARNESS_DEMO.md](docs/ONTOHARNESS_DEMO.md)
+
+OntoHarness-only overlay:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up --build
+```
 
 ---
 
