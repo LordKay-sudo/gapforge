@@ -1,0 +1,13 @@
+# Demo recording — 2026-08-06T08:32:05Z (UTC)
+
+{
+  "domain": "biomedical",
+  "turtle": "@prefix bio: <https://ontoharness.dev/biomedical#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\nbio:gap-flurizan-endpoint a bio:Hypothesis ;\n    rdfs:label \"Clinical endpoints may have been insufficiently sensitive.\" ;\n    bio:confidence \"0.62\"^^<http://www.w3.org/2001/XMLSchema#decimal> ;\n    bio:gapClass \"endpoint\" .\n\nbio:MONDO_0004975 a bio:Disease ;\n    bio:hasIdentifier \"MONDO_0004975\" ;\n    rdfs:label \"Alzheimer disease\" .\n\nbio:ENSG00000130203 a bio:Gene ;\n    bio:hasSymbol \"BRCA1\" ;\n    bio:supports bio:gap-flurizan-endpoint ;\n    bio:associatedWith bio:MONDO_0004975 ;\n    bio:hasScore \"0.62\"^^<http://www.w3.org/2001/XMLSchema#decimal> .\n",
+  "validation": {
+    "domain": "biomedical",
+    "conforms": true,
+    "vocab_violations": [],
+    "shacl_violations": [],
+    "repair_hints": []
+  }
+}

@@ -181,8 +181,27 @@ Embabel MCP (compose overrides):
 
 ---
 
-## Related
+## 7. Recorded outputs (no Docker)
 
+Terminal and API captures live in [demo-recordings/](./demo-recordings/):
+
+```bash
+cd ../ontoharness && python -m uvicorn api.app.main:app --port 8011
+cd gapforge && ONTOHARNESS_BASE_URL=http://localhost:8011 python scripts/record_demo_outputs.py
+```
+
+![OntoHarness API v0.5 — validate + bridge endpoints](./demo-recordings/screenshot-ontoharness-api-v0.5.png)
+
+Review UI screenshots (`gap-flurizan-efficacy` failure panel) require the full stack:
+
+```bash
+docker compose -f docker-compose.full.yml up --build
+node scripts/capture_ontoharness_demo.mjs
+```
+
+---
+
+- [demo-recordings/](./demo-recordings/) — **recorded terminal outputs + Swagger screenshot** (run without full Docker)
 - [PLATFORM.md](./PLATFORM.md) — base services and ports  
 - [HUMAN_IN_THE_LOOP.md](./HUMAN_IN_THE_LOOP.md) — L2 policy  
 - [OntoHarness validate_demo](https://github.com/LordKay-sudo/ontoharness/blob/main/examples/validate_demo.py)  

@@ -1,0 +1,117 @@
+# Demo recording — 2026-08-06T08:32:05Z (UTC)
+
+{
+  "domain": "biomedical",
+  "conforms": false,
+  "vocab_violations": [
+    {
+      "term": "https://ontoharness.dev/biomedical#hasTherapeuticTarget",
+      "term_kind": "property",
+      "message": "Undeclared property in policed namespace: https://ontoharness.dev/biomedical#hasTherapeuticTarget"
+    }
+  ],
+  "shacl_violations": [
+    {
+      "message": "Conforms: False",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Results (2):",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Severity: sh:Violation",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Gene must have exactly one bio:hasSymbol.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path bio:hasSymbol ]",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Focus Node: bio:g1",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Result Path: bio:hasSymbol",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Message: Gene must have exactly one bio:hasSymbol.",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Severity: sh:Violation",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Source Shape: [ sh:datatype xsd:string ; sh:message Literal(\"Disease must have at least one bio:hasIdentifier.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path bio:hasIdentifier ]",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Focus Node: bio:d1",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Result Path: bio:hasIdentifier",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Message: Disease must have at least one bio:hasIdentifier.",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    }
+  ],
+  "repair_hints": [
+    "Run vocabulary gate first: SHACL cannot see fabricated terms in open-world mode.",
+    "Remove or replace undeclared predicate `https://ontoharness.dev/biomedical#hasTherapeuticTarget` with a property declared in the domain ontology.",
+    "Fix SHACL violation: Conforms: False",
+    "Fix SHACL violation: Results (2):",
+    "Fix SHACL violation: Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):",
+    "Fix SHACL violation: Severity: sh:Violation",
+    "Fix SHACL violation: Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:message Literal(\"Gene must have exactly one bio:hasSymbol.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path bio:hasSymbol ]",
+    "Fix SHACL violation: Focus Node: bio:g1",
+    "Fix SHACL violation: Result Path: bio:hasSymbol",
+    "Fix SHACL violation: Message: Gene must have exactly one bio:hasSymbol.",
+    "Fix SHACL violation: Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):",
+    "Fix SHACL violation: Severity: sh:Violation",
+    "Fix SHACL violation: Source Shape: [ sh:datatype xsd:string ; sh:message Literal(\"Disease must have at least one bio:hasIdentifier.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:path bio:hasIdentifier ]",
+    "Fix SHACL violation: Focus Node: bio:d1",
+    "Fix SHACL violation: Result Path: bio:hasIdentifier",
+    "Fix SHACL violation: Message: Disease must have at least one bio:hasIdentifier."
+  ]
+}

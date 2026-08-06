@@ -1,0 +1,5 @@
+# Demo recording — 2026-08-06T08:32:05Z (UTC)
+
+OntoHarness http://localhost:8011/health: OK
+
+{"status":"ok","service":"ontoharness"}

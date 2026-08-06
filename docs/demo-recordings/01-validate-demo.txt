@@ -1,0 +1,21 @@
+# Demo recording — 2026-08-06T08:32:05Z (UTC)
+
+=== OntoHarness demo (http://localhost:8011) ===
+
+1) Valid gene–disease association (should conform)
+   conforms=True
+   OK
+
+2) Fabricated predicate bio:hasTherapeuticTarget (should fail vocab gate)
+   conforms=False
+   vocab_violations=[
+  {
+    "term": "https://ontoharness.dev/biomedical#hasTherapeuticTarget",
+    "term_kind": "property",
+    "message": "Undeclared property in policed namespace: https://ontoharness.dev/biomedical#hasTherapeuticTarget"
+  }
+]
+   repair_hints=['Run vocabulary gate first: SHACL cannot see fabricated terms in open-world mode.', 'Remove or replace undeclared predicate `https://ontoharness.dev/biomedical#hasTherapeuticTarget` with a property declared in the domain ontology.', 'Fix SHACL violation: Conforms: False', 'Fix SHACL violation: Results (2):', 'Fix SHACL violation: Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):', 'Fix SHACL violation: Severity: sh:Violation', 'Fix SHACL violation: Source Shape: [ sh:datatype xsd:string ; sh:maxCount Literal("1", datatype=xsd:integer) ; sh:message Literal("Gene must have exactly one bio:hasSymbol.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path bio:hasSymbol ]', 'Fix SHACL violation: Focus Node: bio:gene1', 'Fix SHACL violation: Result Path: bio:hasSymbol', 'Fix SHACL violation: Message: Gene must have exactly one bio:hasSymbol.', 'Fix SHACL violation: Constraint Violation in MinCountConstraintComponent (http://www.w3.org/ns/shacl#MinCountConstraintComponent):', 'Fix SHACL violation: Severity: sh:Violation', 'Fix SHACL violation: Source Shape: [ sh:datatype xsd:string ; sh:message Literal("Disease must have at least one bio:hasIdentifier.") ; sh:minCount Literal("1", datatype=xsd:integer) ; sh:path bio:hasIdentifier ]', 'Fix SHACL violation: Focus Node: bio:disease1', 'Fix SHACL violation: Result Path: bio:hasIdentifier', 'Fix SHACL violation: Message: Disease must have at least one bio:hasIdentifier.']
+   BLOCKED (this is what GapForge surfaces in the review UI)
+
+Done — deterministic gate caught undeclared LLM vocabulary.

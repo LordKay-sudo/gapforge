@@ -1,0 +1,18 @@
+{
+  "recorded_at": "2026-08-06T08:32:05Z",
+  "ontoharness_base": "http://localhost:8011",
+  "files": [
+    "00-preflight.txt",
+    "01-validate-demo.txt",
+    "02-bridge-gap-record.json",
+    "03-fabricated-predicate.json",
+    "04-gapforge-ontology-tests.txt"
+  ],
+  "ui_screenshots": [
+    "screenshot-ontoharness-docs.png",
+    "screenshot-review-ontology-fail.png",
+    "screenshot-review-ontology-pass.png"
+  ],
+  "note": "UI screenshots require docker compose -f docker-compose.full.yml up \u2014 run scripts/capture_ontoharness_demo.mjs",
+  "bridge_endpoint_ok": false
+}

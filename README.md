@@ -88,11 +88,9 @@ docker compose -f docker-compose.full.yml up --build
 
 Walkthrough: [docs/ONTOHARNESS_DEMO.md](docs/ONTOHARNESS_DEMO.md)
 
-OntoHarness-only overlay:
+Local API without Docker: set `ONTOHARNESS_ENABLED=true` in `.env` and run OntoHarness on `:8010`.
 
-```bash
-docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up --build
-```
+**Recorded demo (no Docker):** [docs/demo-recordings/](docs/demo-recordings/) — `python scripts/record_demo_outputs.py`
 
 ---
 
