@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GapForge review — OntoHarness capture</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0b1220; --surface: #121c2e; --surface-elevated: #1a2740; --border: #2a3a55;
+      --text: #e8edf5; --text-muted: #94a3b8; --accent: #38bdf8; --gene: #34d399; --danger: #f87171;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "DM Sans", system-ui, sans-serif; background: var(--bg); color: var(--text); padding: 2rem; }
+    .page-title { margin: 0 0 0.25rem; font-size: 1.75rem; }
+    .page-subtitle { color: var(--text-muted); margin: 0 0 1rem; }
+    .banner-cou { background: rgba(56,189,248,.08); border: 1px solid rgba(56,189,248,.25); border-radius: 10px; padding: 0.85rem 1rem; margin-bottom: 1.25rem; font-size: 0.9rem; }
+    .gap-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; margin-bottom: 1.25rem; max-width: 920px; }
+    .program-card-header { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
+    .badge { display: inline-block; padding: 0.15rem 0.55rem; border-radius: 999px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; }
+    .badge-class { background: rgba(167,139,250,.15); color: #c4b5fd; }
+    .status-needs_review { background: rgba(251,191,36,.15); color: #fcd34d; }
+    .muted { color: var(--text-muted); font-size: 0.9rem; }
+    .discern-panel { margin-top: 0.75rem; padding: 0.75rem 0.85rem; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 8px; }
+    .discern-panel-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.35rem; }
+    .discern-summary { margin: 0.35rem 0; }
+    .discern-reasons { margin: 0.35rem 0 0; padding-left: 1.1rem; font-size: 0.85rem; }
+    .ontology-panel { border-color: rgba(129,140,248,.35); }
+    .ontology-action-pass { background: rgba(52,211,153,.15); color: var(--gene); }
+    .ontology-action-fail { background: rgba(248,113,113,.2); color: var(--danger); }
+    .btn { border: 1px solid var(--border); border-radius: 8px; padding: 0.45rem 0.85rem; font-size: 0.85rem; background: var(--surface-elevated); color: var(--text); }
+    .btn-primary { background: rgba(56,189,248,.15); color: var(--accent); border-color: var(--accent); }
+    .btn-primary:disabled { opacity: .45; cursor: not-allowed; }
+    .btn-secondary { color: var(--text-muted); }
+    .btn-danger { background: rgba(248,113,113,.15); color: var(--danger); border-color: var(--danger); }
+    .error-text { color: var(--danger); font-size: 0.9rem; margin: 0.5rem 0 0; }
+    .action-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.85rem; }
+    code { font-family: "JetBrains Mono", monospace; font-size: 0.8rem; }
+    h3 { margin: 0; font-size: 1rem; }
+    #capture-fail, #capture-pass { scroll-margin-top: 1rem; }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">GapForge review queue</h1>
+  <p class="page-subtitle">Human-in-the-loop for L2 hypotheses. Only approved cards become team conclusions.</p>
+  <div class="banner-cou">Discern gates compliance language; OntoHarness gates semantic graph claims — neither auto-approves L2.</div>
+
+  <article id="capture-fail" class="gap-card">
+    <div class="program-card-header">
+      <h3><span class="badge badge-class">efficacy</span> gap-flurizan-efficacy</h3>
+      <span class="badge status-needs_review">needs_review</span>
+    </div>
+    <p class="muted">Program: Flurizan AD program</p>
+    <p>Central target engagement or Aβ42 modulation may have been inadequate at clinically tolerated exposures to produce a measurable clinical benefit.</p>
+    <p class="muted">confidence 0.55</p>
+    <div class="discern-panel ontology-panel">
+      <div class="discern-panel-header"><strong>OntoHarness</strong><button type="button" class="btn btn-secondary">Re-validate</button></div>
+      <p class="discern-summary"><span class="badge ontology-action-fail">failed</span> <span class="muted">domain biomedical</span></p>
+      <p class="muted">Vocabulary gate</p>
+      <ul class="discern-reasons">
+        <li><code>property</code> https://ontoharness.dev/biomedical#hasTherapeuticTarget — Undeclared property in policed namespace</li>
+      </ul>
+      <p class="muted">Repair hints</p>
+      <ul class="discern-reasons">
+        <li>Remove or replace undeclared predicate `https://ontoharness.dev/biomedical#hasTherapeuticTarget` with a property declared in the domain ontology.</li>
+      </ul>
+    </div>
+    <p class="error-text">Approve disabled — OntoHarness semantic validation failed.</p>
+    <div class="action-row">
+      <button type="button" class="btn btn-secondary">Run critic</button>
+      <button type="button" class="btn btn-primary" disabled>Approve</button>
+      <button type="button" class="btn btn-danger">Reject</button>
+      <button type="button" class="btn btn-secondary">Request more</button>
+    </div>
+  </article>
+
+  <article id="capture-pass" class="gap-card">
+    <div class="program-card-header">
+      <h3><span class="badge badge-class">endpoint</span> gap-flurizan-endpoint</h3>
+      <span class="badge status-needs_review">needs_review</span>
+    </div>
+    <p class="muted">Program: Flurizan AD program</p>
+    <p>Clinical endpoints (ADAS-Cog / ADCS-ADL) may have been insufficiently sensitive to detect a modest disease-modifying effect in the enrolled mild AD population over the studied duration.</p>
+    <p class="muted">confidence 0.62</p>
+    <div class="discern-panel ontology-panel">
+      <div class="discern-panel-header"><strong>OntoHarness</strong><button type="button" class="btn btn-secondary">Re-validate</button></div>
+      <p class="discern-summary"><span class="badge ontology-action-pass">conforms</span> <span class="muted">domain biomedical</span></p>
+    </div>
+    <div class="action-row">
+      <button type="button" class="btn btn-secondary">Run critic</button>
+      <button type="button" class="btn btn-primary">Approve</button>
+      <button type="button" class="btn btn-danger">Reject</button>
+      <button type="button" class="btn btn-secondary">Request more</button>
+    </div>
+  </article>
+</body>
+</html>

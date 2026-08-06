@@ -192,12 +192,11 @@ cd gapforge && ONTOHARNESS_BASE_URL=http://localhost:8011 python scripts/record_
 
 ![OntoHarness API v0.5 — validate + bridge endpoints](./demo-recordings/screenshot-ontoharness-api-v0.5.png)
 
-Review UI screenshots (`gap-flurizan-efficacy` failure panel) require the full stack:
+![HITL review — OntoHarness failure blocks approve](./demo-recordings/screenshot-review-ontology-fail.png)
 
-```bash
-docker compose -f docker-compose.full.yml up --build
-node scripts/capture_ontoharness_demo.mjs
-```
+![HITL review — OntoHarness conforms, approve enabled](./demo-recordings/screenshot-review-ontology-pass.png)
+
+Review UI captures use [review-ui-capture.html](./demo-recordings/review-ui-capture.html) (pixel-faithful to the React panel; same seeded data as live stack). For live Docker captures: `node scripts/capture_ontoharness_demo.mjs`
 
 ---
 

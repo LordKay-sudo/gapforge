@@ -14,9 +14,13 @@ cd gapforge
 ONTOHARNESS_BASE_URL=http://localhost:8011 python scripts/record_demo_outputs.py
 ```
 
-**UI screenshots (full stack required):**
+**UI screenshots:**
 
 ```bash
+# No Docker — pixel-faithful static capture (seeded data)
+python scripts/capture_review_ui_screenshots.py
+
+# Live stack
 docker compose -f docker-compose.full.yml up --build
 node scripts/capture_ontoharness_demo.mjs
 ```
@@ -29,6 +33,9 @@ node scripts/capture_ontoharness_demo.mjs
 | [02-bridge-gap-record.json](./02-bridge-gap-record.json) | Flurizan endpoint gap → Turtle + `conforms: true` |
 | [03-fabricated-predicate.json](./03-fabricated-predicate.json) | Raw API response for LLM-hallucinated predicate |
 | [04-gapforge-ontology-tests.txt](./04-gapforge-ontology-tests.txt) | GapForge approve gate tests (3 passed) |
+| [screenshot-review-ontology-fail.png](./screenshot-review-ontology-fail.png) | HITL review — `gap-flurizan-efficacy` OntoHarness **failed** (Approve disabled) |
+| [screenshot-review-ontology-pass.png](./screenshot-review-ontology-pass.png) | HITL review — `gap-flurizan-endpoint` OntoHarness **conforms** |
+| [review-ui-capture.html](./review-ui-capture.html) | Static capture page (matches live UI; used when Docker unavailable) |
 | [screenshot-ontoharness-api-v0.5.png](./screenshot-ontoharness-api-v0.5.png) | Swagger UI including `bridge/gap-record` |
 | [screenshot-ontoharness-docs.png](./screenshot-ontoharness-docs.png) | Swagger UI (earlier capture) |
 | [manifest.json](./manifest.json) | Recording metadata |
