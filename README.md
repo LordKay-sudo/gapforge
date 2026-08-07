@@ -7,6 +7,7 @@ Agents **propose**. Humans **dispose**. Not a molecule generator. Not clinical d
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python 3.11+](https://img.shields.io/badge/python-3.11+-3776ab)](api/requirements.txt)
 [![Neo4j 5](https://img.shields.io/badge/neo4j-5.x-008CC1)](docker-compose.yml)
+[![Portfolio](https://img.shields.io/badge/portfolio-portfolio.lordkay.com-38bdf8)](https://portfolio.lordkay.com)
 
 > **Context of Use:** GapForge assembles literature- and graph-backed *gap hypotheses* for scientific discussion. It is **not** for clinical care, prescribing, regulatory submission evidence, or synthesis planning.
 
@@ -131,6 +132,7 @@ GapForge is the **product name** for this repo. Related open components:
 | **[gapforge](https://github.com/LordKay-sudo/gapforge)** (this repo) | Graph + GapForge API/UI + Flurizan case study |
 | [kg-rag-demo](https://github.com/LordKay-sudo/kg-rag-demo) | Citation-grounded literature / ClinicalTrials RAG |
 | [ontoharness](https://github.com/LordKay-sudo/ontoharness) | SHACL + vocab gate sidecar (L2 semantic validation) |
+| [Portfolio](https://portfolio.lordkay.com) | OSS featured work and hiring-facing project index |
 | [embabel-mcp](https://github.com/LordKay-sudo/embabel-mcp) | MCP tools + `research_program_gaps` agent |
 | [peerlens](https://github.com/LordKay-sudo/peerlens) | Paper quality signals (retraction / concern filter) |
 | [bioinsight-graph](https://github.com/LordKay-sudo/bioinsight-graph) | Upstream disease–target graph lineage |
