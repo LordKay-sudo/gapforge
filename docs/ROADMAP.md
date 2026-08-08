@@ -92,8 +92,9 @@ BioInsight’s target–disease graph comes from **bulk public ingest**, not sch
 | ✓ **G5** | embabel-mcp GapForge tools + `research_program_gaps` | plan/dossier/propose/critic/export |
 | ✓ **G6** | Discern I/O weighing + HITL gate in UI | `docs/DISCERN.md`, `/api/v1/discern`, review-queue panel |
 | ✓ **G7** | Persist Discern on gap nodes for approve gate | `POST /gaps/{id}/discern` stores `discern_json`; UI + MCP |
+| ✓ **G8** | OntoHarness L2 semantic gate + RDF bridge + MCP + demo pack | `POST /gaps/{id}/ontology-validate`, HITL `OntologyValidationPanel`, persist `approved_rdf_turtle`, `GET /export/approved-rdf`, `docker-compose.full.yml`, embabel-mcp OntoHarness tools, [ONTOHARNESS_DEMO.md](./ONTOHARNESS_DEMO.md) + [demo-recordings/](./demo-recordings/) |
 
-Companion data plane: kg-rag ClinicalTrials + PeerLens filter ([kg-rag docs](https://github.com/LordKay-sudo/kg-rag-demo/blob/main/docs/GAPFORGE_DATA_PLANE.md)).
+Companion data plane: kg-rag ClinicalTrials + PeerLens filter ([kg-rag docs](https://github.com/LordKay-sudo/kg-rag-demo/blob/main/docs/GAPFORGE_DATA_PLANE.md)). Semantic gate: [OntoHarness](https://github.com/LordKay-sudo/ontoharness) sidecar (v0.5 bridge).
 
 ---
 
