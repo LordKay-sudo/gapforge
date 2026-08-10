@@ -1,5 +1,5 @@
-# Demo recording — 2026-08-06T08:32:05Z (UTC)
+# Demo recording — 2026-08-10T17:48:02Z (UTC)
 
-OntoHarness http://localhost:8011/health: OK
+OntoHarness http://localhost:8010/health: OK
 
 {"status":"ok","service":"ontoharness"}

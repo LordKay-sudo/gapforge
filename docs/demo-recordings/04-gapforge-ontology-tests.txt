@@ -1,4 +1,4 @@
-# Demo recording — 2026-08-06T08:32:05Z (UTC)
+# Demo recording — 2026-08-10T17:48:02Z (UTC)
 
 ...                                                                      [100%]
 ============================== warnings summary ===============================
@@ -7,4 +7,4 @@
     from starlette.testclient import TestClient as TestClient  # noqa
 
 -- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
-3 passed, 1 warning in 1.77s
+3 passed, 1 warning in 7.83s

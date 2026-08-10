@@ -1,28 +1,26 @@
 # Recorded demo outputs
 
-Captured by `scripts/record_demo_outputs.py` against a live OntoHarness sidecar.
+Captured from a **live Docker stack** (GapForge + OntoHarness).
 
-**Re-record:**
+**Re-record (stack running on localhost):**
 
 ```bash
-# Terminal 1 — OntoHarness (latest code)
-cd ../ontoharness
-python -m uvicorn api.app.main:app --port 8011
+docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up --build
 
-# Terminal 2 — record
-cd gapforge
-ONTOHARNESS_BASE_URL=http://localhost:8011 python scripts/record_demo_outputs.py
+# Terminal outputs + manifest
+ONTOHARNESS_BASE_URL=http://localhost:8010 python scripts/record_demo_outputs.py
+
+# UI screenshots (Playwright)
+node scripts/capture_ontoharness_demo.mjs
+
+# Short WebM walkthrough (review queue + Swagger)
+node scripts/capture_demo_walkthrough.mjs
 ```
 
-**UI screenshots:**
+Convert WebM → GIF locally (optional, requires ffmpeg):
 
 ```bash
-# No Docker — pixel-faithful static capture (seeded data)
-python scripts/capture_review_ui_screenshots.py
-
-# Live stack
-docker compose -f docker-compose.full.yml up --build
-node scripts/capture_ontoharness_demo.mjs
+ffmpeg -i demo-walkthrough.webm -vf "fps=8,scale=1280:-1" demo-walkthrough.gif
 ```
 
 ## Files
@@ -33,21 +31,17 @@ node scripts/capture_ontoharness_demo.mjs
 | [02-bridge-gap-record.json](./02-bridge-gap-record.json) | Flurizan endpoint gap → Turtle + `conforms: true` |
 | [03-fabricated-predicate.json](./03-fabricated-predicate.json) | Raw API response for LLM-hallucinated predicate |
 | [04-gapforge-ontology-tests.txt](./04-gapforge-ontology-tests.txt) | GapForge approve gate tests (3 passed) |
-| [screenshot-review-ontology-fail.png](./screenshot-review-ontology-fail.png) | HITL review — `gap-flurizan-efficacy` OntoHarness **failed** (Approve disabled) |
-| [screenshot-review-ontology-pass.png](./screenshot-review-ontology-pass.png) | HITL review — `gap-flurizan-endpoint` OntoHarness **conforms** |
-| [review-ui-capture.html](./review-ui-capture.html) | Static capture page (matches live UI; used when Docker unavailable) |
-| [screenshot-ontoharness-api-v0.5.png](./screenshot-ontoharness-api-v0.5.png) | Swagger UI including `bridge/gap-record` |
-| [screenshot-ontoharness-docs.png](./screenshot-ontoharness-docs.png) | Swagger UI (earlier capture) |
+| [screenshot-review-ontology-fail.png](./screenshot-review-ontology-fail.png) | Live HITL — `gap-flurizan-efficacy` OntoHarness **failed** (Approve disabled) |
+| [screenshot-review-ontology-pass.png](./screenshot-review-ontology-pass.png) | Live HITL — review queue with OntoHarness panel |
+| [screenshot-ontoharness-api-v0.5.png](./screenshot-ontoharness-api-v0.5.png) | Live Swagger — validate + `bridge/gap-record` |
+| [screenshot-ontoharness-docs.png](./screenshot-ontoharness-docs.png) | Swagger UI (alias capture) |
+| [demo-walkthrough.webm](./demo-walkthrough.webm) | Screen recording — Swagger → review queue → efficacy fail |
+| [review-ui-capture.html](./review-ui-capture.html) | Static fallback when Docker unavailable |
 | [manifest.json](./manifest.json) | Recording metadata |
 
-## Highlights (2026-08-06)
+## Highlights (2026-08-10)
 
-**Bridge — gap-flurizan-endpoint conforms:**
-
-```json
-"conforms": true,
-"turtle": "... bio:supports bio:gap-flurizan-endpoint ..."
-```
+**Live Docker capture** — stack healthy on `:8080`, `:8000`, `:8010`.
 
 **Fabricated predicate blocked:**
 
@@ -56,4 +50,4 @@ node scripts/capture_ontoharness_demo.mjs
 "message": "Undeclared property in policed namespace"
 ```
 
-This is the same failure seeded on `gap-flurizan-efficacy` in the HITL review UI.
+Seeded on `gap-flurizan-efficacy` in the HITL review UI (see screenshots + WebM).

@@ -1,0 +1,7 @@
+# Minimal deps for Dockerfile.seed (ETL + Neo4j seed + GapForge cases).
+# Avoids uvicorn[standard]/pytest — those need compilers on slim images.
+neo4j>=5.26.0
+pandas>=2.2.0
+pydantic>=2.9.0
+pydantic-settings>=2.6.0
+python-dotenv>=1.0.0

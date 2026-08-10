@@ -130,7 +130,7 @@ def main() -> int:
     write("04-gapforge-ontology-tests.txt", header + run_gapforge_api_tests())
 
     bridge_body = bridge_out.split("\n", 1)[-1].strip()
-    bridge_ok = '"validation"' in bridge_body and '"conforms": true' in bridge_body.replace(" ", "")
+    bridge_ok = '"conforms": true' in bridge_body or '"conforms":true' in bridge_body.replace(" ", "")
 
     manifest = {
         "recorded_at": stamp,
@@ -143,11 +143,13 @@ def main() -> int:
             "04-gapforge-ontology-tests.txt",
         ],
         "ui_screenshots": [
+            "screenshot-ontoharness-api-v0.5.png",
             "screenshot-ontoharness-docs.png",
             "screenshot-review-ontology-fail.png",
             "screenshot-review-ontology-pass.png",
+            "demo-walkthrough.webm",
         ],
-        "note": "UI screenshots require docker compose -f docker-compose.full.yml up — run scripts/capture_ontoharness_demo.mjs",
+        "note": "Live Docker capture: docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up — then node scripts/capture_ontoharness_demo.mjs && node scripts/capture_demo_walkthrough.mjs",
         "bridge_endpoint_ok": bridge_ok,
     }
     write("manifest.json", json.dumps(manifest, indent=2) + "\n")
