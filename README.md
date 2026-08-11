@@ -89,9 +89,21 @@ docker compose -f docker-compose.full.yml up --build
 
 Walkthrough: [docs/ONTOHARNESS_DEMO.md](docs/ONTOHARNESS_DEMO.md)
 
+### Demo screenshots (live Docker)
+
+Captured from `docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up` — [full index](docs/demo-recordings/README.md).
+
+![HITL review — OntoHarness failure blocks approve](docs/demo-recordings/screenshot-review-ontology-fail.png)
+
+*`gap-flurizan-efficacy`: fabricated predicate `hasTherapeuticTarget` caught by vocab gate; Approve disabled.*
+
+![OntoHarness API — validate + bridge/gap-record](docs/demo-recordings/screenshot-ontoharness-api-v0.5.png)
+
+**Video:** [demo-walkthrough.webm](docs/demo-recordings/demo-walkthrough.webm) · Re-capture: `node scripts/capture_ontoharness_demo.mjs`
+
 Local API without Docker: set `ONTOHARNESS_ENABLED=true` in `.env` and run OntoHarness on `:8010`.
 
-**Recorded demo (no Docker):** [docs/demo-recordings/](docs/demo-recordings/) — `python scripts/record_demo_outputs.py`
+**Terminal recordings:** [docs/demo-recordings/](docs/demo-recordings/) — `python scripts/record_demo_outputs.py`
 
 ---
 
@@ -176,7 +188,7 @@ See [PROVENANCE.md](PROVENANCE.md).
 ```bash
 # API tests
 cd api && py -3 -m venv .venv
-.\.venv\Scripts\pip install -r requirements.txt pytest
+.\.venv\Scripts\pip install -r requirements.txt -r requirements-dev.txt
 .\.venv\Scripts\python -m pytest -q
 
 # Web
