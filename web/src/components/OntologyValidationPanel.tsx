@@ -70,6 +70,22 @@ export default function OntologyValidationPanel({
               </ul>
             </>
           )}
+          {validation.competency_violations &&
+            validation.competency_violations.length > 0 && (
+              <>
+                <p className="muted">Competency questions</p>
+                <ul className="discern-reasons">
+                  {validation.competency_violations.slice(0, 4).map((v, i) => (
+                    <li key={i}>
+                      <code>{v.cq_id}</code> — {v.message}
+                      {v.question ? (
+                        <span className="muted"> ({v.question})</span>
+                      ) : null}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           {validation.repair_hints && validation.repair_hints.length > 0 && (
             <>
               <p className="muted">Repair hints</p>

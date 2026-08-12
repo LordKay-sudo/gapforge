@@ -344,6 +344,12 @@ export interface OntologyViolation {
   message: string;
 }
 
+export interface CompetencyViolation {
+  cq_id: string;
+  question: string;
+  message: string;
+}
+
 export interface OntologyValidationResult {
   domain?: string;
   conforms: boolean;
@@ -351,6 +357,7 @@ export interface OntologyValidationResult {
   reason?: string;
   vocab_violations?: OntologyViolation[];
   shacl_violations?: Array<{ message: string }>;
+  competency_violations?: CompetencyViolation[];
   repair_hints?: string[];
 }
 
