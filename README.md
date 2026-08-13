@@ -4,10 +4,15 @@
 
 Agents **propose**. Humans **dispose**. Not a molecule generator. Not clinical decision support.
 
+[![CI](https://github.com/LordKay-sudo/gapforge/actions/workflows/ci.yml/badge.svg)](https://github.com/LordKay-sudo/gapforge/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-3776ab)](api/requirements.txt)
-[![Neo4j 5](https://img.shields.io/badge/neo4j-5.x-008CC1)](docker-compose.yml)
 [![Portfolio](https://img.shields.io/badge/portfolio-portfolio.lordkay.com-38bdf8)](https://portfolio.lordkay.com)
+[![Python 3.11+](https://img.shields.io/badge/python-3.11+-3776ab?logo=python&logoColor=white)](api/requirements.txt)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688?logo=fastapi&logoColor=white)](api/app/main.py)
+[![Neo4j 5](https://img.shields.io/badge/neo4j-5.x-008CC1?logo=neo4j&logoColor=white)](docker-compose.yml)
+[![React 18](https://img.shields.io/badge/react-18-61dafb?logo=react&logoColor=black)](web/package.json)
+[![Docker](https://img.shields.io/badge/docker-compose-2496ED?logo=docker&logoColor=white)](docker-compose.yml)
+[![HITL](https://img.shields.io/badge/HITL-human--in--the--loop-7c3aed)](docs/HUMAN_IN_THE_LOOP.md)
 
 > **Context of Use:** GapForge assembles literature- and graph-backed *gap hypotheses* for scientific discussion. It is **not** for clinical care, prescribing, regulatory submission evidence, or synthesis planning.
 
