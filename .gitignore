@@ -15,4 +15,5 @@ data/processed/*
 .DS_Store
 *.log
 docs/_gif_frames/
+docs/demo-recordings/page@*.webm
 docker-compose.override.yml
