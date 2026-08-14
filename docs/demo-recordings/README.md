@@ -9,6 +9,9 @@ docker compose -f docker-compose.full.yml up --build   # OPENAI_API_KEY in .env
 
 node scripts/capture_fullstack_demo.mjs
 python scripts/record_mcp_demo_outputs.py
+cd scripts && npm install && cd ..
+node scripts/invoke_mcp_tools.mjs
+node scripts/capture_mcp_session_screenshot.mjs
 ```
 
 **OntoHarness + HITL only:**
@@ -52,6 +55,10 @@ ffmpeg -i demo-walkthrough.webm -vf "fps=8,scale=1280:-1" demo-walkthrough.gif
 | [screenshot-mcp-health.png](./screenshot-mcp-health.png) | MCP health JSON (`:1337/actuator/health`) |
 | [screenshot-program-detail.png](./screenshot-program-detail.png) | Flurizan program page in GapForge UI |
 | [demo-fullstack-walkthrough.webm](./demo-fullstack-walkthrough.webm) | Full stack recording — API docs → MCP → program → review queue |
+| [13-mcp-tool-catalog.json](./13-mcp-tool-catalog.json) | 35 MCP tools listed via SSE |
+| [14-mcp-tool-session.md](./14-mcp-tool-session.md) | Live MCP tool calls (health, plan, dossier, ontology validate) |
+| [screenshot-mcp-tool-session.png](./screenshot-mcp-tool-session.png) | Rendered MCP tool session summary |
+| [mcp-tool-session-capture.html](./mcp-tool-session-capture.html) | Static HTML fallback for MCP session |
 | [screenshot-review-ontology-fail.png](./screenshot-review-ontology-fail.png) | HITL — `gap-flurizan-efficacy` vocab failure (`hasTherapeuticTarget`) |
 | [screenshot-review-competency-fail.png](./screenshot-review-competency-fail.png) | HITL — `gap-flurizan-cq-demo` competency question failure (v0.6) |
 | [screenshot-review-ontology-pass.png](./screenshot-review-ontology-pass.png) | HITL — `gap-flurizan-endpoint` conforms; approve enabled |
@@ -79,3 +86,5 @@ Seeded on `gap-flurizan-efficacy` (vocab) and `gap-flurizan-cq-demo` (competency
 ## Highlights (2026-08-14)
 
 **Full stack with MCP** — `docker-compose.full.yml` with `OPENAI_API_KEY`. Terminal files `09`–`12` plus `demo-fullstack-walkthrough.webm` show API docs, MCP health, program dossier, and HITL review flow.
+
+**Live MCP tool session (`invoke_mcp_tools.mjs`):** `14-mcp-tool-session.md` records real SSE tool calls — `bioinsight_health`, `plan_gap_investigation`, `build_program_dossier`, `run_gap_ontology_validate`, `list_ontoharness_domains` — against `:1337/sse`.

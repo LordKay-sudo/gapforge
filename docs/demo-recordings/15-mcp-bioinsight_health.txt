@@ -1,0 +1,5 @@
+# MCP tool session — 2026-08-14T09:32:10Z (UTC)
+
+Endpoint: http://127.0.0.1:1337/sse
+
+{"status":"ok","neo4j":true}

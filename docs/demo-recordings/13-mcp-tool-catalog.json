@@ -1,0 +1,44 @@
+# MCP tool session — 2026-08-14T09:32:10Z (UTC)
+
+Endpoint: http://127.0.0.1:1337/sse
+
+{
+  "tool_count": 35,
+  "tools": [
+    "_confirm",
+    "batch_gene_lookup",
+    "bioinsight_health",
+    "bioinsight_stats",
+    "bridge_gap_record",
+    "build_program_dossier",
+    "build_target_dossier",
+    "compare_genes",
+    "discern_artifact",
+    "export_approved_rdf",
+    "export_gene_report",
+    "export_provenance_bundle",
+    "export_review_bundle",
+    "get_disease",
+    "get_disease_genes",
+    "get_gene",
+    "get_gene_diseases",
+    "get_gene_external_links",
+    "get_repair_hints",
+    "get_target_evidence",
+    "helloBanner",
+    "list_ontoharness_domains",
+    "plan_gap_investigation",
+    "plan_investigation",
+    "propose_gap_hypotheses",
+    "research_gene",
+    "research_program_gaps",
+    "resolve_identifier",
+    "run_critic",
+    "run_gap_discern",
+    "run_gap_ontology_validate",
+    "search_diseases",
+    "search_genes",
+    "submitFormAndResumeProcess",
+    "validate_proposal"
+  ]
+}

@@ -1,0 +1,55 @@
+# MCP tool session — 2026-08-14T09:32:10Z (UTC)
+
+Endpoint: http://127.0.0.1:1337/sse
+
+[
+  {
+    "name": "bioinsight_health",
+    "arguments": {
+      "format": "json"
+    },
+    "duration_ms": 236,
+    "isError": false,
+    "text": "{\"status\":\"ok\",\"neo4j\":true}"
+  },
+  {
+    "name": "plan_gap_investigation",
+    "arguments": {
+      "question": "Why did the Flurizan AD program stall?",
+      "programId": "prog-flurizan-ad",
+      "format": "markdown"
+    },
+    "duration_ms": 57,
+    "isError": false,
+    "text": "## Gap investigation plan\n\n## Investigation plan\n\n- **Intent:** `GAP_INVESTIGATION`\n- **Question:** Why did the Flurizan AD program stall?\n\n### Tool sequence\n\n1. `plan_gap_investigation`\n1. `build_program_dossier`\n1. `propose_gap_hypotheses`\n1. `run_critic`\n1. `discern_artifact`\n1. `run_gap_discern`\n1. `run_gap_ontology_validate`\n1. `export_review_bundle`\n1. `export_approved_rdf`\n\n### Stop rules\n\n- Do not approve L2 hypotheses via MCP — use web HITL review queue\n- Do not invent chemistry, doses, or patient advice (L3 blocked)\n- If dual-channel evidence missing, set insufficient_evidence=true\n- Always run critic, run_gap_discern, and run_gap_ontology_validate before asking a human to approve\n- If discern action=block or OntoHarness conforms=false, do not present as a team conclusion\n\n\n**COU:** Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission."
+  },
+  {
+    "name": "build_program_dossier",
+    "arguments": {
+      "programId": "prog-flurizan-ad",
+      "format": "markdown"
+    },
+    "duration_ms": 944,
+    "isError": false,
+    "text": "# Program dossier\n\n```json\n{\n  \"program\" : {\n    \"id\" : \"prog-flurizan-ad\",\n    \"name\" : \"Flurizan AD program\",\n    \"status\" : \"discontinued\",\n    \"indication_name\" : \"Alzheimer disease\",\n    \"moa\" : \"Gamma-secretase modulator (NSAID-derived); intended to reduce amyloidogenic Aβ42 processing\",\n    \"stall_summary\" : \"Phase 3 trial in mild AD failed co-primary cognitive and functional endpoints; development discontinued.\",\n    \"drug_name\" : \"tarenflurbil\",\n    \"trial_count\" : 1,\n    \"gap_count\" : 4,\n    \"cou_note\" : \"Educational GapForge case study — hypotheses for scientific discussion only\",\n    \"case_study_id\" : \"case-flurizan-ad\",\n    \"drug\" : {\n      \"id\" : \"drug-tarenflurbil\",\n      \"name\" : \"tarenflurbil\",\n      \"synonyms\" : [ \"Flurizan\", \"MPC-7869\", \"(R)-flurbiprofen\" ],\n      \"chembl_id\" : \"CHEMBL2103838\"\n    },\n    \"disease\" : {\n      \"id\" : \"MONDO_0004975\",\n      \"name\" : \"Alzheimer disease\"\n    },\n    \"genes\" : [ {\n      \"name\" : \"apolipoprotein E\",\n      \"symbol\" : \"APOE\",\n      \"id\" : \"ENSG00000130203\"\n    } ],\n    \"trials\" : [ {\n      \"id\" : \"trial-flurizan-p3\",\n      \"nct_id\" : \"NCT00105547\",\n      \"phase\" : \"Phase 3\",\n      \"status\" : \"Completed — primary endpoints not met\",\n      \"primary_endpoint\" : \"ADAS-Cog and ADCS-ADL over ~18 months\",\n      \"outcome_summary\" : \"No statistically significant efficacy vs placebo on co-primary endpoints in mild AD population; program discontinued.\",\n      \"url\" : \"https://clinicaltrials.gov/study/NCT00105547\"\n    } ],\n    \"gaps\" : [ {\n      \"id\" : \"gap-flurizan-cq-demo\",\n      \"gap_class\" : \"exposure\",\n      \"claim\" : \"Association score out of range (demo) — competency question cq-association-score blocks commit when gene–disease score exceeds 1.0.\",\n      \"confidence\" : 0.55,\n      \"status\" : \"needs_review\",\n      \"risk_tier\" : \"L2\",\n      \"insufficient_evidence\" : true,\n      \"program_id\" : \"prog-flurizan-ad\",\n      \"suggested_experiment\" : \"Educational demo only: OntoHarness v0.6 competency SPARQL gate.\",\n      \"provenance_hash\" : \"dfc5fb9a961ee1b0\",\n      \"critic_notes\" : null,\n      \"literature_refs\" : [ ],\n      \"discern\" : null,\n      \"ontology_validation\" : null\n    }, {\n      \"id\" : \"gap-flurizan-efficacy\",\n      \"gap_class\" : \"efficacy\",\n      \"claim\" : \"Central target engagement or Aβ42 modulation may have been inadequate at clinically tolerated exposures to produce a measurable clinical benefit.\",\n      \"confidence\" : 0.55,\n      \"status\" : \"needs_review\",\n      \"risk_tier\" : \"L2\",\n      \"insufficient_evidence\" : false,\n      \"program_id\" : \"prog-flurizan-ad\",\n      \"suggested_experiment\" : \"Assemble public exposure–response and CSF biomarker reports for γ-secretase modulators; define a minimum PD effect size linked to clinical change before any similar MoA is reconsidered.\",\n      \"provenance_hash\" : \"ab8633b5e5d40660\",\n      \"critic_notes\" : null,\n      \"literature_refs\" : [ {\n        \"title\" : \"ClinicalTrials.gov tarenflurbil records\",\n        \"url\" : \"https://clinicaltrials.gov/search?term=tarenflurbil\",\n        \"note\" : \"Registry context for completed efficacy studies\"\n      } ],\n      \"discern\" : null,\n      \"ontology_validation\" : null\n    }, {\n      \"id\" : \"gap-flurizan-biomarker\",\n      \"gap_class\" : \"biomarker\",\n      \"claim\" : \"Enrichment based on clinical mildness (e.g. MMSE bands) rather than mechanistic pathology markers may have diluted a true biological responder subgroup.\",\n      \"confidence\" : 0.58,\n      \"status\" : \"needs_review\",\n      \"risk_tier\" : \"L2\",\n      \"insufficient_evidence\" : false,\n      \"program_id\" : \"prog-flurizan-ad\",\n      \"suggested_experiment\" : \"Map published amyloid/tau biomarker distributions in contemporary mild AD cohorts against historical Flurizan inclusion criteria; quantify dilution risk for Aβ-pathway agents.\",\n      \"provenance_hash\" : \"a042853e9fccd6e2\",\n      \"critic_notes\" : null,\n      \"literature_refs\" : [ {\n        \"title\" : \"Translational lessons from Flurizan failure in AD\",\n        \"url\" : \"https://pmc.ncbi.nlm.nih.gov/articles/PMC5350742/\",\n        \"note\" : \"Post-hoc mild subgroup thinking and biomarker stratification caveats\"\n      } ],\n      \"discern\" : null,\n      \"ontology_validation\" : null\n    }, {\n      \"id\" : \"gap-flurizan-endpoint\",\n      \"gap_class\" : \"endpoint\",\n      \"claim\" : \"Clinical endpoints (ADAS-Cog / ADCS-ADL) may have been insufficiently sensitive to detect a modest disease-modifying effect in the enrolled mild AD population over the studied duration.\",\n      \"confidence\" : 0.62,\n      \"status\" : \"needs_review\",\n      \"risk_tier\" : \"L2\",\n      \"insufficient_evidence\" : false,\n      \"program_id\" : \"prog-flurizan-ad\",\n      \"suggested_experiment\" : \"Re-analyse public AD trial datasets for endpoint sensitivity and power under modest effect sizes; pre-specify mechanistic PD biomarkers as co-primary or key secondary in future designs.\",\n      \"provenance_hash\" : \"69f1a1f54e5b3212\",\n      \"critic_notes\" : null,\n      \"literature_refs\" : [ {\n        \"title\" : \"Translational lessons from Flurizan failure in AD\",\n        \"url\" : \"https://pmc.ncbi.nlm.nih.gov/articles/PMC5350742/\",\n        \"note\" : \"Discusses Phase 3 miss and stratification/endpoint considerations\"\n      } ],\n      \"discern\" : null,\n      \"ontology_validation\" : null\n    } ]\n  },\n  \"cou\" : \"Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission.\",\n  \"risk_tier_note\" : \"Dossier is L1 summary; gap cards remain L2 and require HITL approval.\",\n  \"verify_ui_path\" : \"/program/prog-flurizan-ad\"\n}\n```\n\n**Verify in UI:** http://localhost:8080/program/prog-flurizan-ad\n\n**COU:** Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission.\n"
+  },
+  {
+    "name": "run_gap_ontology_validate",
+    "arguments": {
+      "gapId": "gap-flurizan-efficacy",
+      "format": "markdown"
+    },
+    "duration_ms": 402,
+    "isError": false,
+    "text": "## Gap OntoHarness validation\n\n```json\n{\n  \"domain\" : \"biomedical\",\n  \"conforms\" : true,\n  \"vocab_violations\" : [ ],\n  \"shacl_violations\" : [ ],\n  \"competency_violations\" : [ ],\n  \"repair_hints\" : [ ],\n  \"turtle_preview\" : \"@prefix bio: <https://ontoharness.dev/biomedical#> .\\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\\n\\nbio:gap-flurizan-efficacy a bio:Hypothesis ;\\n    rdfs:label \\\"Central target engagement or Aβ42 modulation may have been inadequate at clinically tolerated exposures to produce a measurable clinical benefit.\\\" ;\\n    bio:confidence \\\"0.55\\\"^^<http://www.w3.org/2001/XMLSchema#decimal> ;\\n    bio:gapClass \\\"efficacy\\\" ;\\n    bio:provenanceHash \\\"ab8633b5e5d40660\\\" .\\n\\nbio:MONDO_0004975 a bio:Disease ;\\n    bio:hasIdentifier \\\"MONDO_0004975\\\" ;\\n    rdfs:label \\\"Alzheimer disease\\\" .\\n\"\n}\n```\n\n**Note:** Result is stored on the gap. If conforms=false, do not approve.\n\n**COU:** Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission.\n"
+  },
+  {
+    "name": "list_ontoharness_domains",
+    "arguments": {
+      "format": "json"
+    },
+    "duration_ms": 27,
+    "isError": false,
+    "text": "{\"domains\":[{\"name\":\"biomedical\",\"label\":\"Biomedical reference\",\"description\":\"Gene-disease associations and translational hypotheses aligned with BioInsight Graph and GapForge. Demo / research use only — not clinical-grade.\",\"policed_namespaces\":[\"https://ontoharness.dev/biomedical#\"],\"competency_question_count\":4}]}"
+  }
+]

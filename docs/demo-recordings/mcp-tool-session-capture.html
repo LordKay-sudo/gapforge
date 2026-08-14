@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GapForge MCP tool session (live capture)</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 2rem; max-width: 960px; line-height: 1.5; }
+    h1 { font-size: 1.4rem; }
+    .meta { color: #555; font-size: 0.9rem; margin-bottom: 1.5rem; }
+    article { border: 1px solid #ddd; border-radius: 8px; padding: 1rem 1.2rem; margin: 1rem 0; }
+    h2 { font-size: 1.05rem; margin: 0 0 0.5rem; color: #0f5132; }
+    pre { background: #f6f8fa; padding: 0.75rem; overflow: auto; font-size: 0.82rem; white-space: pre-wrap; }
+    .ok { color: #198754; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <h1>Embabel MCP — live tool session</h1>
+  <p class="meta">Endpoint: <code>http://localhost:1337/sse</code> · Stack: GapForge + OntoHarness + MCP (OpenAI key in .env)</p>
+  <p class="ok">5 tools invoked via MCP SSE (same path as Cursor + mcp-remote)</p>
+
+  <article>
+    <h2>bioinsight_health</h2>
+    <pre>{"status":"ok","neo4j":true}</pre>
+  </article>
+
+  <article>
+    <h2>plan_gap_investigation</h2>
+    <pre>Question: Why did the Flurizan AD program stall?
+Program: prog-flurizan-ad
+→ Returns COU, L2 tool sequence (dossier → propose → critic → OntoHarness → HITL)</pre>
+  </article>
+
+  <article>
+    <h2>build_program_dossier</h2>
+    <pre>Flurizan AD program · discontinued · 4 gaps · verify UI /program/prog-flurizan-ad</pre>
+  </article>
+
+  <article>
+    <h2>run_gap_ontology_validate</h2>
+    <pre>gap-flurizan-efficacy → OntoHarness validation persisted (conforms + Turtle preview)</pre>
+  </article>
+
+  <article>
+    <h2>list_ontoharness_domains</h2>
+    <pre>biomedical domain · 4 competency questions · policed namespace</pre>
+  </article>
+
+  <p class="meta">Full JSON: <code>14-mcp-tool-session.json</code> · Catalog: <code>13-mcp-tool-catalog.json</code></p>
+</body>
+</html>

@@ -1,0 +1,5 @@
+# MCP tool session — 2026-08-14T09:32:10Z (UTC)
+
+Endpoint: http://127.0.0.1:1337/sse
+
+{"domains":[{"name":"biomedical","label":"Biomedical reference","description":"Gene-disease associations and translational hypotheses aligned with BioInsight Graph and GapForge. Demo / research use only — not clinical-grade.","policed_namespaces":["https://ontoharness.dev/biomedical#"],"competency_question_count":4}]}

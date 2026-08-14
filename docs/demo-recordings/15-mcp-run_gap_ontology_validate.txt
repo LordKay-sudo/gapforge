@@ -1,0 +1,22 @@
+# MCP tool session — 2026-08-14T09:32:10Z (UTC)
+
+Endpoint: http://127.0.0.1:1337/sse
+
+## Gap OntoHarness validation
+
+```json
+{
+  "domain" : "biomedical",
+  "conforms" : true,
+  "vocab_violations" : [ ],
+  "shacl_violations" : [ ],
+  "competency_violations" : [ ],
+  "repair_hints" : [ ],
+  "turtle_preview" : "@prefix bio: <https://ontoharness.dev/biomedical#> .\n@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .\n\nbio:gap-flurizan-efficacy a bio:Hypothesis ;\n    rdfs:label \"Central target engagement or Aβ42 modulation may have been inadequate at clinically tolerated exposures to produce a measurable clinical benefit.\" ;\n    bio:confidence \"0.55\"^^<http://www.w3.org/2001/XMLSchema#decimal> ;\n    bio:gapClass \"efficacy\" ;\n    bio:provenanceHash \"ab8633b5e5d40660\" .\n\nbio:MONDO_0004975 a bio:Disease ;\n    bio:hasIdentifier \"MONDO_0004975\" ;\n    rdfs:label \"Alzheimer disease\" .\n"
+}
+```
+
+**Note:** Result is stored on the gap. If conforms=false, do not approve.
+
+**COU:** Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission.
+

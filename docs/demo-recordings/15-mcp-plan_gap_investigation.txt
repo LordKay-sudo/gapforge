@@ -1,0 +1,33 @@
+# MCP tool session — 2026-08-14T09:32:10Z (UTC)
+
+Endpoint: http://127.0.0.1:1337/sse
+
+## Gap investigation plan
+
+## Investigation plan
+
+- **Intent:** `GAP_INVESTIGATION`
+- **Question:** Why did the Flurizan AD program stall?
+
+### Tool sequence
+
+1. `plan_gap_investigation`
+1. `build_program_dossier`
+1. `propose_gap_hypotheses`
+1. `run_critic`
+1. `discern_artifact`
+1. `run_gap_discern`
+1. `run_gap_ontology_validate`
+1. `export_review_bundle`
+1. `export_approved_rdf`
+
+### Stop rules
+
+- Do not approve L2 hypotheses via MCP — use web HITL review queue
+- Do not invent chemistry, doses, or patient advice (L3 blocked)
+- If dual-channel evidence missing, set insufficient_evidence=true
+- Always run critic, run_gap_discern, and run_gap_ontology_validate before asking a human to approve
+- If discern action=block or OntoHarness conforms=false, do not present as a team conclusion
+
+
+**COU:** Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission.

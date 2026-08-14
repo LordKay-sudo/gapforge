@@ -15,7 +15,15 @@
     "09-mcp-fullstack-preflight.txt",
     "10-mcp-health.json",
     "11-program-dossier.json",
-    "12-flurizan-gaps.json"
+    "12-flurizan-gaps.json",
+    "13-mcp-tool-catalog.json",
+    "14-mcp-tool-session.json",
+    "14-mcp-tool-session.md",
+    "15-mcp-bioinsight_health.txt",
+    "15-mcp-plan_gap_investigation.txt",
+    "15-mcp-build_program_dossier.txt",
+    "15-mcp-run_gap_ontology_validate.txt",
+    "15-mcp-list_ontoharness_domains.txt"
   ],
   "ui_screenshots": [
     "screenshot-ontoharness-api-v0.6.png",
@@ -27,9 +35,10 @@
     "screenshot-gapforge-api-docs.png",
     "screenshot-mcp-health.png",
     "screenshot-program-detail.png",
-    "demo-fullstack-walkthrough.webm"
+    "demo-fullstack-walkthrough.webm",
+    "screenshot-mcp-tool-session.png"
   ],
-  "note": "Full stack: docker compose -f docker-compose.full.yml up --build (OPENAI_API_KEY in .env). MCP capture: node scripts/capture_fullstack_demo.mjs && python scripts/record_mcp_demo_outputs.py. OntoHarness v0.6: capture UI first, then record_demo_outputs.py",
+  "note": "Full stack + MCP tools: docker compose -f docker-compose.full.yml up --build; cd scripts && npm install; node invoke_mcp_tools.mjs; node ../scripts/capture_mcp_session_screenshot.mjs",
   "bridge_endpoint_ok": true,
   "mcp_recorded_at": "2026-08-14T04:23:33Z",
   "mcp_base": "http://localhost:1337",
@@ -38,6 +47,18 @@
     "10-mcp-health.json",
     "11-program-dossier.json",
     "12-flurizan-gaps.json"
+  ],
+  "mcp_tool_session_at": "2026-08-14T11:32:00Z",
+  "mcp_tool_files": [
+    "13-mcp-tool-catalog.json",
+    "14-mcp-tool-session.json",
+    "14-mcp-tool-session.md",
+    "15-mcp-bioinsight_health.txt",
+    "15-mcp-plan_gap_investigation.txt",
+    "15-mcp-build_program_dossier.txt",
+    "15-mcp-run_gap_ontology_validate.txt",
+    "15-mcp-list_ontoharness_domains.txt",
+    "mcp-tool-session-capture.html"
   ],
   "full_stack_ok": true
 }
