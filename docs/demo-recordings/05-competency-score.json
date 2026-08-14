@@ -1,0 +1,82 @@
+# Demo recording — 2026-08-13T19:18:19Z (UTC)
+
+{
+  "domain": "biomedical",
+  "conforms": false,
+  "vocab_violations": [],
+  "shacl_violations": [
+    {
+      "message": "Conforms: False",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Results (1):",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Constraint Violation in MaxInclusiveConstraintComponent (http://www.w3.org/ns/shacl#MaxInclusiveConstraintComponent):",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Severity: sh:Violation",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Source Shape: [ sh:datatype xsd:decimal ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:maxInclusive Literal(\"1.0\", datatype=xsd:decimal) ; sh:message Literal(\"Association score must be between 0 and 1.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:minInclusive Literal(\"0.0\", datatype=xsd:decimal) ; sh:path bio:hasScore ]",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Focus Node: bio:gene1",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Value Node: Literal(\"1.5\", datatype=xsd:decimal)",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Result Path: bio:hasScore",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    },
+    {
+      "message": "Message: Association score must be between 0 and 1.",
+      "path": null,
+      "focus_node": null,
+      "source_shape": null
+    }
+  ],
+  "competency_violations": [
+    {
+      "cq_id": "cq-association-score",
+      "question": "Are all gene-disease associations scored between 0 and 1?",
+      "message": "ASK competency question returned false."
+    }
+  ],
+  "repair_hints": [
+    "Fix SHACL violation: Conforms: False",
+    "Fix SHACL violation: Results (1):",
+    "Fix SHACL violation: Constraint Violation in MaxInclusiveConstraintComponent (http://www.w3.org/ns/shacl#MaxInclusiveConstraintComponent):",
+    "Fix SHACL violation: Severity: sh:Violation",
+    "Fix SHACL violation: Source Shape: [ sh:datatype xsd:decimal ; sh:maxCount Literal(\"1\", datatype=xsd:integer) ; sh:maxInclusive Literal(\"1.0\", datatype=xsd:decimal) ; sh:message Literal(\"Association score must be between 0 and 1.\") ; sh:minCount Literal(\"1\", datatype=xsd:integer) ; sh:minInclusive Literal(\"0.0\", datatype=xsd:decimal) ; sh:path bio:hasScore ]",
+    "Fix SHACL violation: Focus Node: bio:gene1",
+    "Fix SHACL violation: Value Node: Literal(\"1.5\", datatype=xsd:decimal)",
+    "Fix SHACL violation: Result Path: bio:hasScore",
+    "Fix SHACL violation: Message: Association score must be between 0 and 1.",
+    "Competency question `cq-association-score`: ASK competency question returned false."
+  ]
+}

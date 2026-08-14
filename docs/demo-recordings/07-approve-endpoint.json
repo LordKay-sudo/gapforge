@@ -1,0 +1,12 @@
+# Demo recording — 2026-08-13T19:18:19Z (UTC)
+
+{
+  "gap_id": "gap-flurizan-endpoint",
+  "review_id": "review-e12597134183",
+  "decision": "approve",
+  "status": "approved",
+  "reviewer": "demo-recorder",
+  "decided_at": "2026-08-13T19:18:25.659004+00:00",
+  "message": "Approved \u2014 eligible for team-conclusion export.",
+  "cou": "Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission."
+}

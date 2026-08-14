@@ -29,19 +29,24 @@ try {
   await page.goto(ontoUrl, { waitUntil: "networkidle", timeout: 60000 });
   await page.waitForTimeout(1200);
   await page.screenshot({
-    path: path.join(outDir, "screenshot-ontoharness-api-v0.5.png"),
+    path: path.join(outDir, "screenshot-ontoharness-api-v0.6.png"),
     fullPage: true,
   });
-  console.log("Saved screenshot-ontoharness-api-v0.5.png");
+  console.log("Saved screenshot-ontoharness-api-v0.6.png");
 
   await page.goto(`${webUrl}/gaps/review`, { waitUntil: "networkidle", timeout: 60000 });
   await page.waitForTimeout(1500);
-  await page.getByText("gap-flurizan-efficacy").first().click();
-  await page.waitForTimeout(2000);
-  await page.evaluate(() => window.scrollBy(0, 420));
-  await page.waitForTimeout(1500);
-  await page.getByText("gap-flurizan-endpoint").first().click();
-  await page.waitForTimeout(2000);
+  for (const gapId of [
+    "gap-flurizan-efficacy",
+    "gap-flurizan-cq-demo",
+    "gap-flurizan-endpoint",
+  ]) {
+    const card = page.locator("article.gap-card").filter({ hasText: gapId });
+    if (await card.count()) {
+      await card.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(2000);
+    }
+  }
 } catch (e) {
   console.warn("Walkthrough capture warning:", e.message);
 }

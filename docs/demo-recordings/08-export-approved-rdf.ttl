@@ -1,0 +1,21 @@
+# Demo recording — 2026-08-13T19:18:19Z (UTC)
+
+@prefix bio: <https://ontoharness.dev/biomedical#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+bio:gap-flurizan-endpoint a bio:Hypothesis ;
+    rdfs:label "Clinical endpoints (ADAS-Cog / ADCS-ADL) may have been insufficiently sensitive to detect a modest disease-modifying effect in the enrolled mild AD population over the studied duration." ;
+    bio:confidence "0.62"^^<http://www.w3.org/2001/XMLSchema#decimal> ;
+    bio:gapClass "endpoint" ;
+    bio:approvedAt "2026-08-13T19:18:25.659004+00:00"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+    bio:provenanceHash "69f1a1f54e5b3212" .
+
+bio:MONDO_0004975 a bio:Disease ;
+    bio:hasIdentifier "MONDO_0004975" ;
+    rdfs:label "Alzheimer disease" .
+
+bio:ENSG00000130203 a bio:Gene ;
+    bio:hasSymbol "APOE" ;
+    bio:supports bio:gap-flurizan-endpoint ;
+    bio:associatedWith bio:MONDO_0004975 ;
+    bio:hasScore "0.62"^^<http://www.w3.org/2001/XMLSchema#decimal> .

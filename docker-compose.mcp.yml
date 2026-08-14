@@ -12,7 +12,7 @@ services:
   mcp:
     build:
       context: ../embabel-mcp
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.runtime
     container_name: bioinsight-mcp
     ports:
       - "1337:1337"

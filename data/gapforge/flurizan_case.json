@@ -112,6 +112,38 @@
           "Remove or replace undeclared predicate `https://ontoharness.dev/biomedical#hasTherapeuticTarget` with a property declared in the domain ontology."
         ]
       }
+    },
+    {
+      "id": "gap-flurizan-cq-demo",
+      "gap_class": "exposure",
+      "claim": "Association score out of range (demo) — competency question cq-association-score blocks commit when gene–disease score exceeds 1.0.",
+      "confidence": 0.55,
+      "suggested_experiment": "Educational demo only: OntoHarness v0.6 competency SPARQL gate.",
+      "insufficient_evidence": true,
+      "supported_by_trials": ["trial-flurizan-p3"],
+      "supported_by_genes": ["ENSG00000130203"],
+      "contradicted_by_trials": [],
+      "literature_refs": [],
+      "ontology_validation_demo": {
+        "domain": "biomedical",
+        "conforms": false,
+        "vocab_violations": [],
+        "shacl_violations": [
+          {
+            "message": "Association score must be between 0 and 1."
+          }
+        ],
+        "competency_violations": [
+          {
+            "cq_id": "cq-association-score",
+            "question": "Are all gene-disease associations scored between 0 and 1?",
+            "message": "ASK competency question returned false."
+          }
+        ],
+        "repair_hints": [
+          "Competency question `cq-association-score`: ASK competency question returned false."
+        ]
+      }
     }
   ],
   "taxonomy_seed": {

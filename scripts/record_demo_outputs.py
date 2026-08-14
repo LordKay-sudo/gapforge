@@ -96,6 +96,56 @@ bio:d1 a bio:Disease .
         return json.dumps(json.loads(resp.read()), indent=2)
 
 
+def competency_score_validation() -> str:
+    bad_score = """
+@prefix bio: <https://ontoharness.dev/biomedical#> .
+bio:gene1 a bio:Gene ;
+    bio:hasSymbol "BRCA1" ;
+    bio:associatedWith bio:disease1 ;
+    bio:hasScore "1.5"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+bio:disease1 a bio:Disease ;
+    bio:hasIdentifier "MONDO:0007254" .
+""".strip()
+    payload = json.dumps({"domain": "biomedical", "format": "turtle", "content": bad_score}).encode()
+    req = urllib.request.Request(
+        f"{BASE}/api/v1/validate",
+        data=payload,
+        headers={"Content-Type": "application/json"},
+        method="POST",
+    )
+    with urllib.request.urlopen(req, timeout=15) as resp:
+        return json.dumps(json.loads(resp.read()), indent=2)
+
+
+def gapforge_api_post(path: str, payload: dict | None = None) -> str:
+    url = f"http://localhost:8000/api/v1{path}"
+    data = None if payload is None else json.dumps(payload).encode()
+    headers = {"Content-Type": "application/json"} if payload else {}
+    req = urllib.request.Request(url, data=data, headers=headers, method="POST")
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            body = resp.read().decode("utf-8")
+            try:
+                return json.dumps(json.loads(body), indent=2)
+            except json.JSONDecodeError:
+                return body
+    except urllib.error.HTTPError as exc:
+        return json.dumps(
+            {"error": exc.code, "detail": exc.read().decode("utf-8", errors="replace")[:2000]},
+            indent=2,
+        )
+
+
+def export_approved_rdf(gap_id: str) -> str:
+    url = f"http://localhost:8000/api/v1/export/approved-rdf?gap_id={gap_id}"
+    req = urllib.request.Request(url, method="GET")
+    try:
+        with urllib.request.urlopen(req, timeout=15) as resp:
+            return resp.read().decode("utf-8")
+    except urllib.error.HTTPError as exc:
+        return f"# HTTP {exc.code}\n{exc.read().decode('utf-8', errors='replace')[:1000]}"
+
+
 def run_gapforge_api_tests() -> str:
     api = ROOT / "api"
     proc = subprocess.run(
@@ -128,6 +178,24 @@ def main() -> int:
     write("02-bridge-gap-record.json", header + bridge_out)
     write("03-fabricated-predicate.json", header + fabricated_validation())
     write("04-gapforge-ontology-tests.txt", header + run_gapforge_api_tests())
+    write("05-competency-score.json", header + competency_score_validation())
+
+    write(
+        "06-ontology-validate-endpoint.json",
+        header + gapforge_api_post("/gaps/gap-flurizan-endpoint/ontology-validate"),
+    )
+    write(
+        "07-approve-endpoint.json",
+        header
+        + gapforge_api_post(
+            "/reviews/gap-flurizan-endpoint",
+            {"decision": "approve", "reviewer": "demo-recorder", "notes": "OntoHarness v0.6 demo capture"},
+        ),
+    )
+    write(
+        "08-export-approved-rdf.ttl",
+        header + export_approved_rdf("gap-flurizan-endpoint"),
+    )
 
     bridge_body = bridge_out.split("\n", 1)[-1].strip()
     bridge_ok = '"conforms": true' in bridge_body or '"conforms":true' in bridge_body.replace(" ", "")
@@ -135,21 +203,27 @@ def main() -> int:
     manifest = {
         "recorded_at": stamp,
         "ontoharness_base": BASE,
+        "gapforge_api": "http://localhost:8000/api/v1",
         "files": [
             "00-preflight.txt",
             "01-validate-demo.txt",
             "02-bridge-gap-record.json",
             "03-fabricated-predicate.json",
             "04-gapforge-ontology-tests.txt",
+            "05-competency-score.json",
+            "06-ontology-validate-endpoint.json",
+            "07-approve-endpoint.json",
+            "08-export-approved-rdf.ttl",
         ],
         "ui_screenshots": [
-            "screenshot-ontoharness-api-v0.5.png",
+            "screenshot-ontoharness-api-v0.6.png",
             "screenshot-ontoharness-docs.png",
             "screenshot-review-ontology-fail.png",
+            "screenshot-review-competency-fail.png",
             "screenshot-review-ontology-pass.png",
             "demo-walkthrough.webm",
         ],
-        "note": "Live Docker capture: docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up — then node scripts/capture_ontoharness_demo.mjs && node scripts/capture_demo_walkthrough.mjs",
+        "note": "Full stack: docker compose -f docker-compose.full.yml up --build (MCP needs OPENAI_API_KEY). Capture order: node scripts/capture_ontoharness_demo.mjs && node scripts/capture_demo_walkthrough.mjs (UI first), then python scripts/record_demo_outputs.py (approve + export)",
         "bridge_endpoint_ok": bridge_ok,
     }
     write("manifest.json", json.dumps(manifest, indent=2) + "\n")

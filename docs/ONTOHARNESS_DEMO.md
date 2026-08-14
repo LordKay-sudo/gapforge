@@ -98,9 +98,10 @@ list_ontoharness_domains
 ## 4. Human review (HITL)
 
 1. Open http://localhost:8080/gaps/review  
-2. Select **gap-flurizan-efficacy** — OntoHarness panel shows `conforms: false` (demo failure)  
-3. Select **gap-flurizan-endpoint** — run **Re-validate** if needed; approve when green  
-4. Approve is **blocked** if OntoHarness or Discern fails (422 from API)
+2. Select **gap-flurizan-efficacy** — OntoHarness panel shows `conforms: false` (fabricated predicate demo)  
+3. Select **gap-flurizan-cq-demo** — competency question `cq-association-score` fails (score > 1.0, v0.6)  
+4. Select **gap-flurizan-endpoint** — run **Re-validate** if needed; approve when green  
+5. Approve is **blocked** if OntoHarness or Discern fails (422 from API)
 
 ---
 
@@ -183,22 +184,35 @@ Embabel MCP (compose overrides):
 
 ## 7. Recorded outputs (no Docker)
 
-Terminal and API captures live in [demo-recordings/](./demo-recordings/):
+Terminal and API captures live in [demo-recordings/](./demo-recordings/). **Capture order:** UI screenshots first (Playwright), then `record_demo_outputs.py` (which approves `gap-flurizan-endpoint` for the export trail).
+
+```bash
+# Stack on :8080 / :8000 / :8010
+node scripts/capture_ontoharness_demo.mjs
+node scripts/capture_demo_walkthrough.mjs
+ONTOHARNESS_BASE_URL=http://localhost:8010 python scripts/record_demo_outputs.py
+```
+
+Curl-only OntoHarness (no GapForge stack):
 
 ```bash
 cd ../ontoharness && python -m uvicorn api.app.main:app --port 8011
 cd gapforge && ONTOHARNESS_BASE_URL=http://localhost:8011 python scripts/record_demo_outputs.py
 ```
 
-![OntoHarness API v0.5 — validate + bridge endpoints](./demo-recordings/screenshot-ontoharness-api-v0.5.png)
+![OntoHarness API v0.6 — validate + bridge endpoints](./demo-recordings/screenshot-ontoharness-api-v0.6.png)
 
-![HITL review — OntoHarness failure blocks approve](./demo-recordings/screenshot-review-ontology-fail.png)
+![HITL review — fabricated predicate blocks approve](./demo-recordings/screenshot-review-ontology-fail.png)
+
+![HITL review — competency question failure (v0.6)](./demo-recordings/screenshot-review-competency-fail.png)
 
 ![HITL review — OntoHarness conforms, approve enabled](./demo-recordings/screenshot-review-ontology-pass.png)
 
 Review UI captures: live Docker (`node scripts/capture_ontoharness_demo.mjs`) or static fallback [review-ui-capture.html](./demo-recordings/review-ui-capture.html).
 
-**Walkthrough video:** [demo-walkthrough.webm](./demo-recordings/demo-walkthrough.webm) (Swagger → review queue → `gap-flurizan-efficacy` OntoHarness fail).
+**Walkthrough video:** [demo-walkthrough.webm](./demo-recordings/demo-walkthrough.webm) (Swagger → review queue scroll through efficacy, CQ, and endpoint gaps).
+
+**v0.6 terminal trail:** `05-competency-score.json` → `06-ontology-validate-endpoint.json` → `07-approve-endpoint.json` → `08-export-approved-rdf.ttl`.
 
 ---
 

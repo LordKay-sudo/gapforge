@@ -1,4 +1,4 @@
-# Demo recording — 2026-08-10T17:48:02Z (UTC)
+# Demo recording — 2026-08-13T19:18:19Z (UTC)
 
 {
   "domain": "biomedical",
@@ -8,6 +8,7 @@
     "conforms": true,
     "vocab_violations": [],
     "shacl_violations": [],
+    "competency_violations": [],
     "repair_hints": []
   }
 }

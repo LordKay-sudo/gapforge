@@ -41,33 +41,36 @@ try {
   console.warn("OntoHarness docs capture skipped:", e.message);
 }
 
+async function screenshotGapCard(gapId, filename) {
+  const card = page.locator("article.gap-card").filter({ hasText: gapId });
+  if (!(await card.count())) {
+    console.warn(`Gap card not found: ${gapId}`);
+    return false;
+  }
+  await card.scrollIntoViewIfNeeded();
+  await page.waitForTimeout(800);
+  await card.screenshot({ path: path.join(outDir, filename) });
+  console.log(`Saved ${filename}`);
+  return true;
+}
+
 try {
   await page.goto(`${webUrl}/gaps/review`, { waitUntil: "networkidle", timeout: 60000 });
   await page.waitForTimeout(2000);
 
-  const efficacy = page.getByText(/gap-flurizan-efficacy|efficacy/i).first();
-  if (await efficacy.count()) {
-    await efficacy.click();
-    await page.waitForTimeout(1500);
-    await page.screenshot({
-      path: path.join(outDir, "screenshot-review-ontology-fail.png"),
-      fullPage: true,
-    });
-    console.log("Saved screenshot-review-ontology-fail.png");
-  }
+  await screenshotGapCard("gap-flurizan-efficacy", "screenshot-review-ontology-fail.png");
+  await screenshotGapCard("gap-flurizan-cq-demo", "screenshot-review-competency-fail.png");
 
-  const endpoint = page.getByText(/gap-flurizan-endpoint|endpoint/i).first();
+  const endpoint = page.locator("article.gap-card").filter({ hasText: "gap-flurizan-endpoint" });
   if (await endpoint.count()) {
-    await endpoint.click();
-    await page.waitForTimeout(1500);
-    const revalidate = page.getByRole("button", { name: /re-validate|ontology/i }).first();
+    await endpoint.scrollIntoViewIfNeeded();
+    const revalidate = endpoint.getByRole("button", { name: /re-validate|ontology/i }).first();
     if (await revalidate.count()) {
       await revalidate.click().catch(() => {});
       await page.waitForTimeout(2000);
     }
-    await page.screenshot({
+    await endpoint.screenshot({
       path: path.join(outDir, "screenshot-review-ontology-pass.png"),
-      fullPage: true,
     });
     console.log("Saved screenshot-review-ontology-pass.png");
   }
