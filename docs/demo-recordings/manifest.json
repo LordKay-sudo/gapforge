@@ -11,7 +11,11 @@
     "05-competency-score.json",
     "06-ontology-validate-endpoint.json",
     "07-approve-endpoint.json",
-    "08-export-approved-rdf.ttl"
+    "08-export-approved-rdf.ttl",
+    "09-mcp-fullstack-preflight.txt",
+    "10-mcp-health.json",
+    "11-program-dossier.json",
+    "12-flurizan-gaps.json"
   ],
   "ui_screenshots": [
     "screenshot-ontoharness-api-v0.6.png",
@@ -19,8 +23,21 @@
     "screenshot-review-ontology-fail.png",
     "screenshot-review-competency-fail.png",
     "screenshot-review-ontology-pass.png",
-    "demo-walkthrough.webm"
+    "demo-walkthrough.webm",
+    "screenshot-gapforge-api-docs.png",
+    "screenshot-mcp-health.png",
+    "screenshot-program-detail.png",
+    "demo-fullstack-walkthrough.webm"
   ],
-  "note": "Full stack: docker compose -f docker-compose.full.yml up --build (MCP needs OPENAI_API_KEY). Capture order: node scripts/capture_ontoharness_demo.mjs && node scripts/capture_demo_walkthrough.mjs (UI first), then python scripts/record_demo_outputs.py (approve + export)",
-  "bridge_endpoint_ok": true
+  "note": "Full stack: docker compose -f docker-compose.full.yml up --build (OPENAI_API_KEY in .env). MCP capture: node scripts/capture_fullstack_demo.mjs && python scripts/record_mcp_demo_outputs.py. OntoHarness v0.6: capture UI first, then record_demo_outputs.py",
+  "bridge_endpoint_ok": true,
+  "mcp_recorded_at": "2026-08-14T04:23:33Z",
+  "mcp_base": "http://localhost:1337",
+  "mcp_files": [
+    "09-mcp-fullstack-preflight.txt",
+    "10-mcp-health.json",
+    "11-program-dossier.json",
+    "12-flurizan-gaps.json"
+  ],
+  "full_stack_ok": true
 }

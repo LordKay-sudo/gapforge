@@ -186,6 +186,24 @@ Embabel MCP (compose overrides):
 
 Terminal and API captures live in [demo-recordings/](./demo-recordings/). **Capture order:** UI screenshots first (Playwright), then `record_demo_outputs.py` (which approves `gap-flurizan-endpoint` for the export trail).
 
+**Full stack (with MCP):**
+
+```bash
+docker compose -f docker-compose.full.yml up --build   # OPENAI_API_KEY in .env
+node scripts/capture_fullstack_demo.mjs
+python scripts/record_mcp_demo_outputs.py
+```
+
+![MCP health — full stack running](./demo-recordings/screenshot-mcp-health.png)
+
+![GapForge API docs](./demo-recordings/screenshot-gapforge-api-docs.png)
+
+**Full stack walkthrough:** [demo-fullstack-walkthrough.webm](./demo-recordings/demo-fullstack-walkthrough.webm) (API docs → MCP health → program page → review queue).
+
+**MCP terminal trail:** `09-mcp-fullstack-preflight.txt` → `10-mcp-health.json` → `11-program-dossier.json` → `12-flurizan-gaps.json`.
+
+**OntoHarness + HITL only:**
+
 ```bash
 # Stack on :8080 / :8000 / :8010
 node scripts/capture_ontoharness_demo.mjs

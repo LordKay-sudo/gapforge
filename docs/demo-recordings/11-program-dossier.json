@@ -1,0 +1,136 @@
+# Demo recording — 2026-08-14T04:23:33Z (UTC)
+
+{
+  "program": {
+    "id": "prog-flurizan-ad",
+    "name": "Flurizan AD program",
+    "status": "discontinued",
+    "indication_name": "Alzheimer disease",
+    "moa": "Gamma-secretase modulator (NSAID-derived); intended to reduce amyloidogenic A\u03b242 processing",
+    "stall_summary": "Phase 3 trial in mild AD failed co-primary cognitive and functional endpoints; development discontinued.",
+    "drug_name": "tarenflurbil",
+    "trial_count": 1,
+    "gap_count": 4,
+    "cou_note": "Educational GapForge case study \u2014 hypotheses for scientific discussion only",
+    "case_study_id": "case-flurizan-ad",
+    "drug": {
+      "id": "drug-tarenflurbil",
+      "name": "tarenflurbil",
+      "synonyms": [
+        "Flurizan",
+        "MPC-7869",
+        "(R)-flurbiprofen"
+      ],
+      "chembl_id": "CHEMBL2103838"
+    },
+    "disease": {
+      "id": "MONDO_0004975",
+      "name": "Alzheimer disease"
+    },
+    "genes": [
+      {
+        "name": "apolipoprotein E",
+        "symbol": "APOE",
+        "id": "ENSG00000130203"
+      }
+    ],
+    "trials": [
+      {
+        "id": "trial-flurizan-p3",
+        "nct_id": "NCT00105547",
+        "phase": "Phase 3",
+        "status": "Completed \u2014 primary endpoints not met",
+        "primary_endpoint": "ADAS-Cog and ADCS-ADL over ~18 months",
+        "outcome_summary": "No statistically significant efficacy vs placebo on co-primary endpoints in mild AD population; program discontinued.",
+        "url": "https://clinicaltrials.gov/study/NCT00105547"
+      }
+    ],
+    "gaps": [
+      {
+        "id": "gap-flurizan-cq-demo",
+        "gap_class": "exposure",
+        "claim": "Association score out of range (demo) \u2014 competency question cq-association-score blocks commit when gene\u2013disease score exceeds 1.0.",
+        "confidence": 0.55,
+        "status": "needs_review",
+        "risk_tier": "L2",
+        "insufficient_evidence": true,
+        "program_id": "prog-flurizan-ad",
+        "suggested_experiment": "Educational demo only: OntoHarness v0.6 competency SPARQL gate.",
+        "provenance_hash": "dfc5fb9a961ee1b0",
+        "critic_notes": null,
+        "literature_refs": [],
+        "discern": null,
+        "ontology_validation": null
+      },
+      {
+        "id": "gap-flurizan-efficacy",
+        "gap_class": "efficacy",
+        "claim": "Central target engagement or A\u03b242 modulation may have been inadequate at clinically tolerated exposures to produce a measurable clinical benefit.",
+        "confidence": 0.55,
+        "status": "needs_review",
+        "risk_tier": "L2",
+        "insufficient_evidence": false,
+        "program_id": "prog-flurizan-ad",
+        "suggested_experiment": "Assemble public exposure\u2013response and CSF biomarker reports for \u03b3-secretase modulators; define a minimum PD effect size linked to clinical change before any similar MoA is reconsidered.",
+        "provenance_hash": "ab8633b5e5d40660",
+        "critic_notes": null,
+        "literature_refs": [
+          {
+            "title": "ClinicalTrials.gov tarenflurbil records",
+            "url": "https://clinicaltrials.gov/search?term=tarenflurbil",
+            "note": "Registry context for completed efficacy studies"
+          }
+        ],
+        "discern": null,
+        "ontology_validation": null
+      },
+      {
+        "id": "gap-flurizan-biomarker",
+        "gap_class": "biomarker",
+        "claim": "Enrichment based on clinical mildness (e.g. MMSE bands) rather than mechanistic pathology markers may have diluted a true biological responder subgroup.",
+        "confidence": 0.58,
+        "status": "needs_review",
+        "risk_tier": "L2",
+        "insufficient_evidence": false,
+        "program_id": "prog-flurizan-ad",
+        "suggested_experiment": "Map published amyloid/tau biomarker distributions in contemporary mild AD cohorts against historical Flurizan inclusion criteria; quantify dilution risk for A\u03b2-pathway agents.",
+        "provenance_hash": "a042853e9fccd6e2",
+        "critic_notes": null,
+        "literature_refs": [
+          {
+            "title": "Translational lessons from Flurizan failure in AD",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5350742/",
+            "note": "Post-hoc mild subgroup thinking and biomarker stratification caveats"
+          }
+        ],
+        "discern": null,
+        "ontology_validation": null
+      },
+      {
+        "id": "gap-flurizan-endpoint",
+        "gap_class": "endpoint",
+        "claim": "Clinical endpoints (ADAS-Cog / ADCS-ADL) may have been insufficiently sensitive to detect a modest disease-modifying effect in the enrolled mild AD population over the studied duration.",
+        "confidence": 0.62,
+        "status": "needs_review",
+        "risk_tier": "L2",
+        "insufficient_evidence": false,
+        "program_id": "prog-flurizan-ad",
+        "suggested_experiment": "Re-analyse public AD trial datasets for endpoint sensitivity and power under modest effect sizes; pre-specify mechanistic PD biomarkers as co-primary or key secondary in future designs.",
+        "provenance_hash": "69f1a1f54e5b3212",
+        "critic_notes": null,
+        "literature_refs": [
+          {
+            "title": "Translational lessons from Flurizan failure in AD",
+            "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5350742/",
+            "note": "Discusses Phase 3 miss and stratification/endpoint considerations"
+          }
+        ],
+        "discern": null,
+        "ontology_validation": null
+      }
+    ]
+  },
+  "cou": "Generate literature-backed gap hypotheses for scientific discussion; not for clinical care or regulatory submission.",
+  "risk_tier_note": "Dossier is L1 summary; gap cards remain L2 and require HITL approval.",
+  "verify_ui_path": "/program/prog-flurizan-ad"
+}

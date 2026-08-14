@@ -1,0 +1,11 @@
+# Demo recording — 2026-08-14T04:23:33Z (UTC)
+
+GapForge API http://localhost:8000/api/v1/health: OK
+{"status":"ok","neo4j":true}
+
+OntoHarness http://localhost:8010/health: OK
+{"status":"ok","service":"ontoharness"}
+
+Embabel MCP http://localhost:1337/actuator/health: OK
+{"status":"UP"}
+

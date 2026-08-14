@@ -2,7 +2,16 @@
 
 Captured from a **live Docker stack** (GapForge + OntoHarness).
 
-**Re-record (stack running on localhost):**
+**Full stack (GapForge + OntoHarness + Embabel MCP):**
+
+```bash
+docker compose -f docker-compose.full.yml up --build   # OPENAI_API_KEY in .env
+
+node scripts/capture_fullstack_demo.mjs
+python scripts/record_mcp_demo_outputs.py
+```
+
+**OntoHarness + HITL only:**
 
 ```bash
 docker compose -f docker-compose.yml -f docker-compose.ontoharness.yml up --build
@@ -35,6 +44,14 @@ ffmpeg -i demo-walkthrough.webm -vf "fps=8,scale=1280:-1" demo-walkthrough.gif
 | [06-ontology-validate-endpoint.json](./06-ontology-validate-endpoint.json) | GapForge `/ontology-validate` on `gap-flurizan-endpoint` |
 | [07-approve-endpoint.json](./07-approve-endpoint.json) | Approve `gap-flurizan-endpoint` after validation passes |
 | [08-export-approved-rdf.ttl](./08-export-approved-rdf.ttl) | Exported Turtle after approve |
+| [09-mcp-fullstack-preflight.txt](./09-mcp-fullstack-preflight.txt) | Full stack health — API, OntoHarness, MCP |
+| [10-mcp-health.json](./10-mcp-health.json) | Embabel MCP actuator health (`:1337`) |
+| [11-program-dossier.json](./11-program-dossier.json) | Flurizan program dossier (MCP `build_program_dossier` REST equivalent) |
+| [12-flurizan-gaps.json](./12-flurizan-gaps.json) | Seeded L2 gaps for `prog-flurizan-ad` |
+| [screenshot-gapforge-api-docs.png](./screenshot-gapforge-api-docs.png) | GapForge API Swagger (`:8000/docs`) |
+| [screenshot-mcp-health.png](./screenshot-mcp-health.png) | MCP health JSON (`:1337/actuator/health`) |
+| [screenshot-program-detail.png](./screenshot-program-detail.png) | Flurizan program page in GapForge UI |
+| [demo-fullstack-walkthrough.webm](./demo-fullstack-walkthrough.webm) | Full stack recording — API docs → MCP → program → review queue |
 | [screenshot-review-ontology-fail.png](./screenshot-review-ontology-fail.png) | HITL — `gap-flurizan-efficacy` vocab failure (`hasTherapeuticTarget`) |
 | [screenshot-review-competency-fail.png](./screenshot-review-competency-fail.png) | HITL — `gap-flurizan-cq-demo` competency question failure (v0.6) |
 | [screenshot-review-ontology-pass.png](./screenshot-review-ontology-pass.png) | HITL — `gap-flurizan-endpoint` conforms; approve enabled |
@@ -58,3 +75,7 @@ ffmpeg -i demo-walkthrough.webm -vf "fps=8,scale=1280:-1" demo-walkthrough.gif
 Seeded on `gap-flurizan-efficacy` (vocab) and `gap-flurizan-cq-demo` (competency) in the HITL review UI (see screenshots + WebM).
 
 **Approve → RDF export trail:** files `06`–`08` show validate → approve → Turtle export for `gap-flurizan-endpoint`.
+
+## Highlights (2026-08-14)
+
+**Full stack with MCP** — `docker-compose.full.yml` with `OPENAI_API_KEY`. Terminal files `09`–`12` plus `demo-fullstack-walkthrough.webm` show API docs, MCP health, program dossier, and HITL review flow.
